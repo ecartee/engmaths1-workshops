@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- Replace NN with the zero-padded worksheet number (02, 03, ...) and N with
+     the workshop number. Do not add <solution>, <answer> or <hint> elements:
+     solutions are kept outside this repository. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheetNNwks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop N: Topic to be confirmed</title>
+      <!-- A workshop lasts about 50 minutes: use 4 or 6 printed A4 pages, so
+           that double-sided sheets have no blank side. Each <page> is one
+           printed page. Exercises are numbered
+           continuously through the worksheet, so do not set number="...". -->
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Compare your answers with a neighbour.</p>
+        </assemblage>
+        <exercise xml:id="wNN-warmup">
+          <introduction><p>[Placeholder: short review questions.]</p></introduction>
+          <task workspace="0.8in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="0.8in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+        <exercise xml:id="wNN-concept" workspace="1.5in">
+          <statement><p>[Placeholder: concept check.]</p></statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice</title>
+          <p>Work together and explain your reasoning.</p>
+        </assemblage>
+        <exercise xml:id="wNN-practice-a">
+          <introduction><p>[Placeholder: first practice problem.]</p></introduction>
+          <task workspace="1.2in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="1.2in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice (continued)</title>
+          <p>Include units in your answers.</p>
+        </assemblage>
+        <exercise xml:id="wNN-practice-b">
+          <introduction><p>[Placeholder: second practice problem.]</p></introduction>
+          <task workspace="1.2in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="1.2in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge</title>
+          <p>[Placeholder: what this optional extension connects.]</p>
+        </assemblage>
+        <exercise xml:id="wNN-challenge">
+          <introduction><p>[Placeholder: challenge problem.]</p></introduction>
+          <task workspace="1.5in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="1.5in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>

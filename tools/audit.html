@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--
+  Worksheet audit harness. Not part of the published site: it is loaded by
+  tools/audit.py in a headless browser.
+
+  Why this exists: the things that break a worksheet (a page too full for A4,
+  a preview laid out for the wrong paper, a missing alt attribute, a faint
+  curve label) are invisible in the normal scrollable view and awkward to
+  eyeball in print preview. This measures them.
+
+  It loads the worksheet, follows its own print-preview link (so nobody has to
+  know the `?printpreview=worksheetNNwks-3` id), waits for MathJax and the
+  workspace-sizing JS to settle, then sends the measurements back to
+  tools/audit.py.
+-->
+<html lang="en">
+<head><meta charset="utf-8"><title>worksheet audit</title></head>
+<body>
+<iframe id="f" style="width:1100px;height:1400px;border:0"></iframe>
+<pre id="out">pending</pre>
+<script>
+const SETTLE_MS = 9000;       // MathJax + workspace JS
+const params = new URLSearchParams(location.search);
+const target = params.get('t');
+const f = document.getElementById('f');
+let followed = false;
+
+function report(result) {
+  document.getElementById('out').textContent = 'RESULT ' + JSON.stringify(result);
+  fetch('/__audit_result', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(result)
+  });
+}
+
+function lum(r, g, b) {
+  const c = v => { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+  return 0.2126 * c(r) + 0.7152 * c(g) + 0.0722 * c(b);
+}
+function ratioOf(l1, l2) {
+  return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+}
+function toPx(length) {
+  const m = /^([\d.]+)\s*(in|cm|mm|pt|px)?$/.exec((length || '').trim());
+  if (!m) return null;
+  const perUnit = { in: 96, cm: 96 / 2.54, mm: 96 / 25.4, pt: 96 / 72, px: 1 };
+  return parseFloat(m[1]) * perUnit[m[2] || 'px'];
+}
+
+function measure() {
+  const doc = f.contentDocument, win = f.contentWindow;
+  const cv = doc.createElement('canvas');
+  const cx = cv.getContext('2d', { willReadFrequently: true });
+  cv.width = cv.height = 1;
+  const toRGB = c => { cx.fillStyle = '#000'; cx.fillStyle = c; cx.fillRect(0, 0, 1, 1);
+                       const d = cx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2]]; };
+  const bgOf = e => {
+    let n = e;
+    while (n && n.nodeType === 1) {
+      const bg = win.getComputedStyle(n).backgroundColor;
+      if (bg && !/rgba\(0, 0, 0, 0\)|transparent/.test(bg)) return bg;
+      n = n.parentElement;
+    }
+    return 'rgb(255,255,255)';
+  };
+  const contrast = (fg, bg) => ratioOf(lum(...toRGB(fg)), lum(...toRGB(bg)));
+
+  // --- page size and fit ---------------------------------------------------
+  // Everything on a page, footer included, must end above the bottom margin.
+  // scrollHeight is useless here (overflow is visible), so take the lowest
+  // rendered edge of any laid-out descendant relative to the page top.
+  //
+  // PreTeXt stretches or squeezes every workspace on a page by the same factor
+  // to fill it. A factor below 1 means the page is over-full: students get
+  // less working space than the source asked for.
+  const pages = Array.from(doc.querySelectorAll('.onepage')).map((pg, i) => {
+    const box = pg.getBoundingClientRect();
+    const limit = box.height - parseFloat(win.getComputedStyle(pg).paddingBottom);
+    let bottom = 0;
+    pg.querySelectorAll('*').forEach(el => {
+      if (el.offsetParent === null) return;              // hidden / not laid out
+      const b = el.getBoundingClientRect().bottom - box.top;
+      if (b > bottom) bottom = b;
+    });
+    let scale = null;
+    pg.querySelectorAll('.workspace').forEach(ws => {
+      const authored = toPx(ws.getAttribute('data-space') || ws.style.height);
+      if (!authored) return;
+      const s = ws.getBoundingClientRect().height / authored;
+      if (scale === null || s < scale) scale = s;
+    });
+    return {
+      page: i + 1,
+      width: Math.round(box.width), height: Math.round(box.height),
+      bottom: Math.round(bottom), limit: Math.round(limit), over: bottom > limit + 1,
+      scale: scale === null ? null : +scale.toFixed(2)
+    };
+  });
+
+  // --- print defaults ------------------------------------------------------
+  const shown = sel => {
+    const el = doc.querySelector(sel);
+    return !!el && win.getComputedStyle(el).display !== 'none';
+  };
+  const print = {
+    paper: doc.body.classList.contains('a4') ? 'a4'
+         : (doc.body.classList.contains('letter') ? 'letter' : 'unknown'),
+    header: shown('.first-page-header'),
+    footer: shown('.first-page-footer'),
+    footerText: (doc.querySelector('.first-page-footer') || { textContent: '' }).textContent.trim()
+  };
+
+  // --- solutions must not be published -------------------------------------
+  const solutions = doc.querySelectorAll(
+    '.solution, .answer, .hint, .solution-like, .solutions').length;
+
+  // --- alt text ------------------------------------------------------------
+  const images = Array.from(doc.querySelectorAll('.onepage img')).map(im => ({
+    src: im.getAttribute('src').split('/').pop(),
+    alt: im.getAttribute('alt') || '',
+    missing: !(im.getAttribute('alt') || '').trim()
+  }));
+
+  // --- fonts + text contrast ----------------------------------------------
+  // Mathematics is exempt: MathJax sets it in its own TeX fonts.
+  const text = {};
+  doc.querySelectorAll('.onepage *').forEach(el => {
+    if (el.closest('mjx-container, .MathJax, math')) return;
+    if (!Array.from(el.childNodes).some(n => n.nodeType === 3 && n.textContent.trim())) return;
+    if (!el.offsetParent) return;
+    const cs = win.getComputedStyle(el);
+    const fam = cs.fontFamily;
+    const key = cs.color + '|' + bgOf(el) + '|' + fam;
+    if (text[key]) { text[key].n++; return; }
+    const px = parseFloat(cs.fontSize), wt = parseInt(cs.fontWeight) || 400;
+    const large = px >= 24 || (px >= 18.66 && wt >= 700);
+    const r = contrast(cs.color, bgOf(el));
+    text[key] = {
+      font: fam.split(',')[0].replace(/"/g, ''),
+      serif: /serif/i.test(fam) && !/sans-serif/i.test(fam),
+      size: cs.fontSize, ratio: +r.toFixed(2), need: large ? 3.0 : 4.5,
+      fail: r < (large ? 3.0 : 4.5),
+      sample: el.textContent.trim().slice(0, 28), n: 1
+    };
+  });
+
+  // --- ink inside images ---------------------------------------------------
+  // Plotting tools' default blue/green label colours sit near 3.2-3.8:1 on
+  // white and fail the 4.5:1 text threshold. Sample each image so that gets
+  // caught instead of eyeballed.
+  //
+  // Group colours into families by dominant channel and judge the DARKEST
+  // reasonably-common member of each. A stroke or label's core pixels are the
+  // darkest of their hue; pale fills and antialiased edges are lighter
+  // variants, so they drop out on their own.
+  const ink = [];
+  const white = lum(255, 255, 255);
+  Array.from(doc.querySelectorAll('.onepage img')).forEach(im => {
+    if (!im.naturalWidth) return;
+    const c2 = doc.createElement('canvas');
+    c2.width = im.naturalWidth; c2.height = im.naturalHeight;
+    const x2 = c2.getContext('2d', { willReadFrequently: true });
+    x2.drawImage(im, 0, 0);
+    let data;
+    try { data = x2.getImageData(0, 0, c2.width, c2.height).data; } catch (e) { return; }
+
+    const buckets = {};
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+      if (a < 200) continue;
+      if (Math.max(r, g, b) - Math.min(r, g, b) < 40) continue;   // skip greys/black/white
+      const k = (r >> 3 << 3) + ',' + (g >> 3 << 3) + ',' + (b >> 3 << 3);
+      buckets[k] = (buckets[k] || 0) + 1;
+    }
+    const floor = Math.max(100, 0.0004 * im.naturalWidth * im.naturalHeight);
+    const families = {};
+    Object.entries(buckets).forEach(([k, n]) => {
+      if (n < floor) return;                                       // antialiasing speckle
+      const [r, g, b] = k.split(',').map(Number);
+      const fam = r >= g && r >= b ? 'red' : (g >= b ? 'green' : 'blue');
+      const l = lum(r, g, b);
+      if (!families[fam] || l < families[fam].l) families[fam] = { k, n, l };
+    });
+    Object.entries(families).forEach(([fam, v]) => {
+      const rr = ratioOf(v.l, white);
+      // Strictly, WCAG lets a bare curve sit at 3:1, but a coloured curve
+      // almost always carries a label in the same colour, and label text
+      // needs 4.5:1.
+      ink.push({
+        src: im.getAttribute('src').split('/').pop(),
+        family: fam, rgb: v.k, px: v.n, ratio: +rr.toFixed(2),
+        verdict: rr < 3.0 ? 'FAIL' : (rr < 4.5 ? 'FAIL_LABEL' : 'OK')
+      });
+    });
+  });
+
+  report({ pages, print, solutions, images, text: Object.values(text), ink });
+}
+
+f.addEventListener('load', () => {
+  if (!followed) {
+    // Follow the worksheet's own print-preview link.
+    const doc = f.contentDocument;
+    const link = doc.querySelector('a[href*="printpreview"]');
+    followed = true;
+    if (link) { f.src = link.href; return; }
+    report({ error: 'no printpreview link found' });
+    return;
+  }
+  setTimeout(measure, SETTLE_MS);
+});
+f.src = target;
+</script>
+</body>
+</html>

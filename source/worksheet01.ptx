@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet01wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 1: Vectors and the dot product</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Compare your answers with a neighbour.</p>
+        </assemblage>
+        <exercise xml:id="w1-quadratic">
+          <introduction><p>A few Week 1 skills:</p></introduction>
+          <task workspace="2.5in">
+            <statement><p>Complete the square in <m>2x^2-10x+7</m> and find its minimum value.</p></statement>
+          </task>
+          <task workspace="2.5in">
+            <statement><p>Find the values of <m>x</m> for which <m>2x^2-5x-3&lt;0</m>.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Warm-up (continued)</title>
+          <p>Discuss your reasoning with a neighbour.</p>
+        </assemblage>
+        <exercise xml:id="w1-classify">
+          <statement>
+            <p>Let <m>\vec{a}</m>, <m>\vec{b}</m> and <m>\vec{c}</m> be non-zero vectors (<m>\mathbf{a}</m>, <m>\mathbf{b}</m> and <m>\mathbf{c}</m> in the lecture notes). Is each expression a scalar, a vector, or undefined? Tick one box for each.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col width="34%" right="minor"/>
+              <col width="22%" right="minor"/>
+              <col width="22%" right="minor"/>
+              <col width="22%" right="minor"/>
+              <row bottom="minor">
+                <cell>Expression</cell><cell>Scalar</cell><cell>Vector</cell><cell>Undefined</cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>\vec{a}\cdot\vec{b}</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>(\vec{a}\cdot\vec{b})\,\vec{c}</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>\vec{a}\cdot(\vec{b}\cdot\vec{c})</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>|\vec{a}|\,\vec{b}</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>\vec{a}+|\vec{b}|</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row>
+                <cell><m>(\vec{a}\cdot\vec{b})/|\vec{b}|</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+            </tabular>
+          </statement>
+        </exercise>
+        <exercise xml:id="w1-displacement" workspace="3in">
+          <statement>
+            <p>Let <m>A=(-4,2,5)</m> and <m>B=(2,-1,7)</m>. Three proposed unit vectors from <m>A</m> towards <m>B</m> are</p>
+            <me>\vec{u}=\frac{1}{7}(6,-3,2),\qquad \vec{v}=\frac{1}{49}(6,-3,2),\qquad \vec{w}=-\frac{1}{7}(6,-3,2).</me>
+            <p>Which is correct? Justify your choice and explain what is wrong with each of the others.</p>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice</title>
+          <p>Combine forces using vector addition.</p>
+        </assemblage>
+        <exercise xml:id="w1-forces">
+          <introduction>
+            <p>Two forces act on a bracket: <m>\vec{F}_1=(6,-8,0)</m> N, and <m>\vec{F}_2</m> has magnitude <m>15</m> N in the direction <m>\vec{v}=(-2,1,2)</m>.</p>
+          </introduction>
+          <task workspace="1in">
+            <statement><p>Find the components of <m>\vec{F}_2</m> and the sum <m>\vec{R}=\vec{F}_1+\vec{F}_2</m>.</p></statement>
+          </task>
+          <task workspace="1.2in">
+            <statement><p>Find the magnitude of <m>\vec{R}</m> and the unit vector <m>\hat{R}</m> in its direction.</p></statement>
+          </task>
+          <task workspace="1.1in">
+            <statement><p>Find the angle between the forces, to the nearest degree.</p></statement>
+          </task>
+          <task workspace="1in">
+            <statement><p>Explain in your own words why <m>|\vec{R}|&lt;|\vec{F}_1|+|\vec{F}_2|</m>.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice (continued)</title>
+          <p>Include units in your answers. The unit vectors <m>\ihat</m>, <m>\jhat</m> and <m>\khat</m> are the bold <m>\mathbf{i}</m>, <m>\mathbf{j}</m> and <m>\mathbf{k}</m> of the lecture notes.</p>
+        </assemblage>
+        <exercise xml:id="w1-work">
+          <introduction>
+            <p>A force <m>\vec{F}=8\ihat-6\jhat+5\khat</m> N moves a slider along a straight rail from <m>P=(1,3,-1)</m> to <m>Q=(3,1,0)</m>, with coordinates in metres.</p>
+          </introduction>
+          <task workspace="0.7in">
+            <statement><p>Find the displacement <m>\vec{d}=\overrightarrow{PQ}</m> and the distance the slider moves.</p></statement>
+          </task>
+          <task workspace="1.1in">
+            <statement><p>Find the scalar component and vector projection of <m>\vec{F}</m> along <m>\vec{d}</m>.</p></statement>
+          </task>
+          <task workspace="1.2in">
+            <statement><p>Find <m>\vec{F}_\perp=\vec{F}-\vec{F}_\parallel</m>, where <m>\vec{F}_\parallel</m> is your projection. Check that <m>\vec{F}_\perp\cdot\vec{d}=0</m>.</p></statement>
+          </task>
+          <task workspace="1.3in">
+            <statement><p>Calculate the work <m>W=\vec{F}\cdot\vec{d}</m>. Check it using part (b). Why does <m>\vec{F}_\perp</m> do no work?</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: algebra meets geometry</title>
+          <p>Connect the sign of a dot product with the angle between two vectors.</p>
+        </assemblage>
+        <exercise xml:id="w1-parameter">
+          <introduction>
+            <p>For real <m>x</m>, let <m>\vec{a}=(x,2,1)</m> and <m>\vec{b}=(x-4,x,-1)</m>.</p>
+          </introduction>
+          <task workspace="1.8in">
+            <statement><p>Find all values of <m>x</m> for which <m>\vec{a}</m> and <m>\vec{b}</m> are perpendicular.</p></statement>
+          </task>
+          <task workspace="2.2in">
+            <statement><p>For which values of <m>x</m> is the angle acute? For which is it obtuse?</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Extension: closest approach</title>
+          <p>Use completing the square and the dot product together.</p>
+        </assemblage>
+        <exercise xml:id="w1-boats">
+          <introduction>
+            <p>At noon, boats <m>A</m> and <m>B</m> have position vectors <m>13\ihat+5\jhat</m> and <m>2\ihat+3\jhat</m> relative to a harbour, in kilometres. They move with constant velocities <m>8\ihat+9\jhat</m> and <m>12\ihat+12\jhat</m>, in kilometres per hour.</p>
+          </introduction>
+          <task workspace="1.2in">
+            <statement><p>Find the vector <m>\vec{d}</m> from <m>A</m> to <m>B</m> at time <m>t</m> hours after noon.</p></statement>
+          </task>
+          <task workspace="2.5in">
+            <statement><p>By completing the square in <m>|\vec{d}|^2</m>, find when the boats are closest and how far apart they are then.</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>Show that, at that time, <m>\vec{d}</m> is perpendicular to the velocity of <m>B</m> relative to <m>A</m>. Explain in your own words why.</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- Notation shared by every worksheet, pulled in with xi:include.
+     Vectors are written with arrows (\vec{F}, \overrightarrow{AB}) rather than
+     the bold of the lecture notes, which is too subtle in print and cannot be
+     handwritten. Unit vectors take a hat and no arrow. -->
+<docinfo>
+  <macros>
+    \newcommand{\ihat}{\hat{\imath}}
+    \newcommand{\jhat}{\hat{\jmath}}
+    \newcommand{\khat}{\hat{k}}
+  </macros>
+</docinfo>
