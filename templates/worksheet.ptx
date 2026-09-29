@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<pretext xml:lang="en-US">
+  <article xml:id="worksheetNUMBERwks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Draft worksheet: topics and questions will be added. For space to show your working, use the printer icon to print this worksheet or save it as a PDF.</p>
+    </introduction>
+    <worksheet>
+      <title>Worksheet NUMBER: Topic to be confirmed</title>
+      <!-- Explicit pages and workspace follow the Math 152 worksheet structure. -->
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Discuss your ideas with the people around you.</p>
+        </assemblage>
+        <exercise workspace="2in">
+          <statement><p>[Placeholder: opening question.]</p></statement>
+        </exercise>
+        <exercise workspace="2in">
+          <statement><p>[Placeholder: second warm-up question.]</p></statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice</title>
+          <p>Work together and explain your reasoning.</p>
+        </assemblage>
+        <exercise number="1">
+          <introduction><p>[Placeholder: main practice problem.]</p></introduction>
+          <task workspace="2in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="2in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Check your understanding</title>
+          <p>Try this question independently, then compare your reasoning.</p>
+        </assemblage>
+        <exercise number="1" workspace="3in">
+          <statement><p>[Placeholder: short understanding check.]</p></statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge</title>
+          <p>[Placeholder: optional extension activity.]</p>
+        </assemblage>
+        <exercise number="1" workspace="4in">
+          <statement><p>[Placeholder: challenge question.]</p></statement>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>

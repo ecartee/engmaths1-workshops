@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<publication>
+  <source>
+    <directories external="../assets" generated="../generated-assets"/>
+  </source>
+  <common>
+    <tableofcontents level="0"/>
+    <worksheet>
+      <first-page-header right="EMAT10100 — Engineering Maths 1"/>
+      <running-header right="EMAT10100 — Engineering Maths 1"/>
+      <first-page-footer left="University of Bristol"/>
+      <running-footer left="University of Bristol"/>
+    </worksheet>
+  </common>
+  <numbering>
+    <divisions level="0"/>
+    <blocks level="0"/>
+    <projects level="0"/>
+    <equations level="0"/>
+    <footnotes level="0"/>
+  </numbering>
+  <html>
+    <css theme="greeley" primary-color="#8b1930"/>
+  </html>
+  <latex>
+    <insertions pagebreaks="break-here"/>
+  </latex>
+</publication>

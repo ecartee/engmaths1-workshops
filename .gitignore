@@ -1,0 +1,14 @@
+# Local environments and generated PreTeXt output
+.venv/
+venv/
+__pycache__/
+*.pyc
+output/
+published/
+generated-assets/
+.cache/
+logs/
+.error_schema.log
+executables.ptx
+node_modules/
+.DS_Store

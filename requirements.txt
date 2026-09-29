@@ -1,0 +1,4 @@
+# Match the original worksheet renderer.
+pretext == 2.37.1
+# Newer lxml changes entity handling used by this renderer.
+lxml == 6.0.2

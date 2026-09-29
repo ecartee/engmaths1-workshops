@@ -1,0 +1,27 @@
+name: Build worksheets
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: oscarlevin/pretext-full
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned PreTeXt
+        run: pip install -r requirements.txt --break-system-packages
+      - name: Build worksheets
+        run: pretext build --deploys
+      - name: Stage site
+        run: pretext deploy --stage-only
+      - uses: actions/upload-artifact@v4
+        with:
+          name: worksheets-site
+          path: output/stage
+          if-no-files-found: error
