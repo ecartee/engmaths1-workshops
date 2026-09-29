@@ -8,8 +8,8 @@
     <worksheet>
       <first-page-header right="EMAT10100 — Engineering Maths 1"/>
       <running-header right="EMAT10100 — Engineering Maths 1"/>
-      <first-page-footer left="University of Bristol"/>
-      <running-footer left="University of Bristol"/>
+      <first-page-footer left="University of Bristol" right="&#xA9; 2026 Elliot Cartee"/>
+      <running-footer left="University of Bristol" right="&#xA9; 2026 Elliot Cartee"/>
     </worksheet>
   </common>
   <numbering>

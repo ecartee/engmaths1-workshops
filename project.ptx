@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project ptx-version="2">
-  <!-- Add one target per worksheet, in numeric order. -->
+  <!-- One target per worksheet, named worksheetNN (zero-padded) and kept in
+       numeric order. Each deploys to its own worksheetNN/ directory.
+       Adding a worksheet means adding a target here and a row in
+       site/index.html. -->
   <targets>
-    <target name="worksheet1" format="html" source="worksheet1.ptx" deploy-dir="worksheet1">
-      <stringparams html.css.extra="external/custom.css"/>
+    <target name="worksheet01" format="html" source="worksheet01.ptx" deploy-dir="worksheet01">
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
     </target>
   </targets>
 </project>

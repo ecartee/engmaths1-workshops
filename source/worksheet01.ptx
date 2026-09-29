@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
 <!-- This renderer supplies English interface labels through en-US only.
      Keep authored worksheet prose in British English. -->
 <pretext xml:lang="en-US">
-  <article xml:id="worksheet1wks">
+  <article xml:id="worksheet01wks">
     <title>Engineering Maths 1</title>
     <introduction>
       <p>University of Bristol — EMAT10100</p>

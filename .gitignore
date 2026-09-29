@@ -12,3 +12,12 @@ logs/
 executables.ptx
 node_modules/
 .DS_Store
+
+# Solutions are written and kept separately; they must never be published.
+notes/
+solutions/
+*-solutions.*
+
+# Local editor and assistant configuration
+.claude/
+.vscode/

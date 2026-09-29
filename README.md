@@ -1,65 +1,87 @@
-# Engineering Maths 1 — Worksheets
+# Engineering Maths 1 — Workshop worksheets
 
-PreTeXt worksheets for **Engineering Maths 1 (EMAT10100), University of Bristol**.
-Adapted from the structure and shared styling of `math152-hogu-sp26`.
+PreTeXt worksheets for the **Engineering Maths 1 (EMAT10100)** workshops at the
+University of Bristol. Each workshop (the session) has one worksheet (the
+problems): Workshop 1 uses `worksheet01`, and so on.
 
-Workshop 1 is a draft covering algebra, logarithms, differentiation and vectors through dot products,
-including force resultants, projection and work. Tutor answers are in
-`notes/worksheet1-solutions.md` and are not included in the built student site. Worksheets 2–12 are marked as planned
-on the index; create their source files and build targets when needed. No term,
-syllabus, programme expansion for “SSM”, or mathematical content is assumed.
+Workshop 1 is a draft covering a little Week 1 bridging material and vectors up
+to dot products.
 
-## Work on Worksheet 1
+## Build a worksheet
 
-Prerequisites: Node.js with npm (for the shared worksheet theme), plus Python 3.10 or newer.
-Use Python 3.10 or newer (the local environment uses Python 3.12) and install the same PreTeXt version as the original project:
+Prerequisites: Python 3.10 or newer, and Node.js with npm on your `PATH` (the
+worksheet theme is built with Node).
 
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-pretext build worksheet1
-pretext view worksheet1
+pretext build worksheet01
+pretext view worksheet01
 ```
 
-Edit `source/worksheet1.ptx`, then rebuild to see changes. Use the worksheet's
-printer icon for the print view, including blank working space. The starter
-has four pages: warm-up, two pages of practice, and a challenge.
-The reusable template retains placeholders for future worksheets. Author text in British English;
-this PreTeXt release requires `en-US` for its built-in English interface labels.
-The XML dependency is pinned because newer versions change entity handling
-used by this renderer (see the [lxml changelog](https://github.com/lxml/lxml/blob/master/CHANGES.txt)).
+Edit `source/worksheet01.ptx`, then rebuild to see changes. Use the worksheet's
+printer icon for the print view, which includes blank working space.
+
+The PreTeXt and lxml versions are pinned: newer lxml releases change entity
+handling used by this renderer (see the
+[lxml changelog](https://github.com/lxml/lxml/blob/master/CHANGES.txt)).
+
+## Conventions
+
+- **Length.** A workshop lasts about 50 minutes: aim for 4 printed pages, 6 at
+  most. Each `<page>` element is one printed page, and `workspace` sets the
+  relative amount of working space after a question.
+- **Numbering.** Exercises are numbered continuously through a worksheet. Do
+  not set `number` on an exercise.
+- **Paper.** Worksheets print on A4. `assets/print-defaults.js` makes A4 the
+  default in the print preview and shows the header and footer; a reader can
+  still choose Letter there.
+- **Language.** Write in British English. The files declare `en-US` only
+  because this PreTeXt release needs it for its built-in interface labels.
+- **Solutions.** Solutions are written and kept outside this repository. Do not
+  add `<solution>`, `<answer>` or `<hint>` elements: PreTeXt would publish
+  them. `notes/` and `solutions/` are ignored by Git as a safeguard.
+- **Images.** Put shared images in `assets/` and give every `<image>` a
+  `<description>` for alternative text.
+
+## Check a worksheet
+
+```sh
+tools/audit.py worksheet01      # omit the argument to check every worksheet
+```
+
+Build first. The audit opens the print preview in headless Firefox or Chrome
+and fails if the source contains solutions, the preview is not A4, a page is
+over-full, there are more than 6 pages, the header or copyright footer is
+missing, an image lacks alternative text, or text is serif or low-contrast.
 
 ## Project layout
 
-- `source/worksheet1.ptx`: the first worksheet and current editing starting point.
-- `templates/worksheet.ptx`: clean placeholder template for future worksheets.
+- `source/worksheetNN.ptx`: one file per worksheet.
+- `templates/worksheet.ptx`: placeholder template for new worksheets.
 - `project.ptx`: one independently buildable HTML target per worksheet.
-- `publication/publication.ptx`: shared headers, footers, numbering, and theme.
-- `assets/custom.css`: shared sans-serif text, exercise labels, and print table fixes.
-- `assets/`: shared images; add descriptive alternative text in the PreTeXt source.
-- `site/index.html`: collection index, with planned entries for Worksheets 2–12.
-- `output/`: generated files, excluded from Git.
+- `publication/publication.ptx`: shared headers, footers, numbering and theme.
+- `assets/custom.css`: shared sans-serif text, exercise labels, print fixes.
+- `assets/print-defaults.js`: A4 and header/footer defaults for printing.
+- `site/index.html`: landing page listing the worksheets.
+- `tools/audit.py`, `tools/audit.html`: the worksheet audit.
+- `output/`: generated files, ignored by Git.
 
 ## Add another worksheet
 
-1. Copy `templates/worksheet.ptx` to `source/worksheet2.ptx`.
-2. Replace `NUMBER` with `2` in the article ID and title, then edit the content.
-3. Add this target inside `<targets>` in `project.ptx`, keeping numeric order:
+1. Copy `templates/worksheet.ptx` to `source/worksheet02.ptx`.
+2. Replace `NN` with `02` and `N` with `2`, then write the questions.
+3. Add a target inside `<targets>` in `project.ptx`, keeping numeric order:
 
 ```xml
-<target name="worksheet2" format="html" source="worksheet2.ptx" deploy-dir="worksheet2">
-  <stringparams html.css.extra="external/custom.css"/>
+<target name="worksheet02" format="html" source="worksheet02.ptx" deploy-dir="worksheet02">
+  <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
 </target>
 ```
 
-4. Replace the planned entry in `site/index.html` with a link to `worksheet2/`.
-5. Run `pretext build worksheet2` and check both screen and print views.
-
-Repeat for later worksheets; the structure is not limited to twelve. Keep
-shared presentation changes in the publication file and CSS. Explicit `<page>`
-elements control printed pages; `workspace` allocates writing space. Check page
-fit after editing questions or adding images.
+4. Add a row linking to `worksheet02/` in `site/index.html`.
+5. Run `pretext build worksheet02`, then `tools/audit.py worksheet02`.
 
 ## Preview the whole collection
 
@@ -72,11 +94,11 @@ python3 -m http.server 8000 --directory output/stage --bind 127.0.0.1
 Open <http://localhost:8000>. The index and worksheet links use relative paths,
 so the staged site can later be hosted under a repository URL.
 
-The GitHub workflow builds and saves the staged site as an artifact; it does
-not publish it. No remote repository or hosting destination is configured.
+The GitHub workflow builds the staged site and saves it as an artifact; it does
+not publish it. No hosting destination is configured.
 
-## Attribution
+## Copyright
 
-The project structure and CSS are adapted from the Math 152 Hands-On, Grades Up
-repository. Its MIT licence is retained in `LICENSE`. Mathematical content,
-Texas A&M branding, logos, and course-specific images have not been copied.
+Worksheets and mathematical content are Copyright (c) 2026 Elliot Cartee; see
+`LICENSE`. The PreTeXt project scaffolding retains its original notice; see
+`NOTICE.md`.
