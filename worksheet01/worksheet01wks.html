@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: greeley                        *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Engineering Maths 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.2';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.6ad113829064d43a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.02090e9f6a81e70e.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="worksheet01wks.html"><span class="title">Engineering Maths 1</span></a></h1>
+<p class="byline"></p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button hidden" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><span class="previous-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></span><span class="up-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></span><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar hidden"><nav id="ptx-toc" class="ptx-toc depth0"><ul class="structural toc-item-list contains-active"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="#worksheet01wks-3" class="internal"><span class="title">Workshop 1: Vectors and the dot product</span></a></div></li></ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<div class="print-preview-header">
+<h2 class="print-preview">Print preview</h2>
+<div class="print-controls">
+<div class="print-controls-toggles">
+<form class="papersize-select" id="papersize-select">
+<span class="name">Paper size</span><label><input type="radio" name="papersize" value="a4">A4
+        </label><label><input type="radio" name="papersize" value="letter">Letter
+        </label>
+</form>
+<details class="print-options"><summary>Additional printing options</summary><div class="header-footer-options">
+<div class="header-option">
+<span class="title">Print headers</span><label>First page<input type="checkbox" id="print-first-page-header-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-header-checkbox" checked></label>
+</div>
+<div class="footer-option">
+<span class="title">Print footers</span><label>First page<input type="checkbox" id="print-first-page-footer-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-footer-checkbox" checked></label>
+</div>
+</div>
+<div class="highlight-workspace-option">
+<label for="highlight-workspace-checkbox">Highlight workspace</label><input type="checkbox" id="highlight-workspace-checkbox">
+</div></details>
+</div>
+<button class="print-button" title="Print" onClick="window.print()"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span><span class="name">Print</span></button>
+</div>
+</div>
+<section class="article" id="worksheet01wks"><section class="introduction" id="worksheet01wks-2"><div class="para" id="worksheet01wks-2-1">University of Bristol — EMAT10100<div class="autopermalink" data-description="Paragraph"><a href="#worksheet01wks-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="worksheet01wks-2-2">Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet01wks-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="worksheet" id="worksheet01wks-3" data-margins="0.75in 0.75in 0.75in 0.75in" data-header-first-right="EMAT10100 — Engineering Maths 1" data-header-running-right="EMAT10100 — Engineering Maths 1" data-footer-first-left="University of Bristol" data-footer-first-right="© 2026 Elliot Cartee" data-footer-running-left="University of Bristol" data-footer-running-right="© 2026 Elliot Cartee"><h2 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Workshop 1: Vectors and the dot product</span><div class="print-links"><a href="?printpreview=worksheet01wks-3" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h2>
+<section class="onepage" id="worksheet01wks-3-2"><article class="assemblage assemblage-like" id="worksheet01wks-3-2-1"><h3 class="heading"><span class="title">Warm-up.</span></h3>
+<div class="para" id="worksheet01wks-3-2-1-2">Compare your answers with a neighbour.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet01wks-3-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Warm-up"><a href="#worksheet01wks-3-2-1" title="Copy heading and permalink for Assemblage: Warm-up" aria-label="Copy heading and permalink for Assemblage: Warm-up">🔗</a></div></article><article class="exercise exercise-like" id="w1-quadratic"><h3 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w1-quadratic-1"><div class="para" id="w1-quadratic-1-1">A few Week 1 skills:<div class="autopermalink" data-description="Paragraph"><a href="#w1-quadratic-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w1-quadratic-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w1-quadratic-2-1-1">Complete the square in <span class="process-math">\(2x^2-10x+7\)</span> and find its minimum value.<div class="autopermalink" data-description="Paragraph"><a href="#w1-quadratic-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2.5in"></div>
+<div class="autopermalink" data-description="Task 1.a"><a href="#w1-quadratic-2" title="Copy heading and permalink for Task 1.a" aria-label="Copy heading and permalink for Task 1.a">🔗</a></div></article><article class="task exercise-like" id="w1-quadratic-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w1-quadratic-3-1-1">Find the values of <span class="process-math">\(x\)</span> for which <span class="process-math">\(2x^2-5x-3&lt;0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w1-quadratic-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2.5in"></div>
+<div class="autopermalink" data-description="Task 1.b"><a href="#w1-quadratic-3" title="Copy heading and permalink for Task 1.b" aria-label="Copy heading and permalink for Task 1.b">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#w1-quadratic" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div></article></section><section class="onepage" id="worksheet01wks-3-3"><article class="assemblage assemblage-like" id="worksheet01wks-3-3-1"><h3 class="heading"><span class="title">Warm-up (continued).</span></h3>
+<div class="para" id="worksheet01wks-3-3-1-2">Discuss your reasoning with a neighbour.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet01wks-3-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Warm-up (continued)"><a href="#worksheet01wks-3-3-1" title="Copy heading and permalink for Assemblage: Warm-up (continued)" aria-label="Copy heading and permalink for Assemblage: Warm-up (continued)">🔗</a></div></article><article class="exercise exercise-like" id="w1-classify"><h3 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="w1-classify-1-1">Let <span class="process-math">\(\vec{a}\text{,}\)</span> <span class="process-math">\(\vec{b}\)</span> and <span class="process-math">\(\vec{c}\)</span> be non-zero vectors (<span class="process-math">\(\mathbf{a}\text{,}\)</span> <span class="process-math">\(\mathbf{b}\)</span> and <span class="process-math">\(\mathbf{c}\)</span> in the lecture notes). Is each expression a scalar, a vector, or undefined? Tick one box for each.<div class="autopermalink" data-description="Paragraph"><a href="#w1-classify-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r1 l1 t1 lines">Expression</td>
+<td class="c m b1 r1 l0 t1 lines">Scalar</td>
+<td class="c m b1 r1 l0 t1 lines">Vector</td>
+<td class="c m b1 r1 l0 t1 lines">Undefined</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\vec{a}\cdot\vec{b}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\((\vec{a}\cdot\vec{b})\,\vec{c}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\vec{a}\cdot(\vec{b}\cdot\vec{c})\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(|\vec{a}|\,\vec{b}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\vec{a}+|\vec{b}|\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\((\vec{a}\cdot\vec{b})/|\vec{b}|\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+</table></div>
+<div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#w1-classify" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div></article><article class="exercise exercise-like" id="w1-displacement"><h3 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="w1-displacement-1-1">Let <span class="process-math">\(A=(-4,2,5)\)</span> and <span class="process-math">\(B=(2,-1,7)\text{.}\)</span> Three proposed unit vectors from <span class="process-math">\(A\)</span> towards <span class="process-math">\(B\)</span> are<div class="autopermalink" data-description="Paragraph"><a href="#w1-displacement-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="w1-displacement-1-2">
+\begin{equation*}
+\vec{u}=\frac{1}{7}(6,-3,2),\qquad \vec{v}=\frac{1}{49}(6,-3,2),\qquad \vec{w}=-\frac{1}{7}(6,-3,2).
+\end{equation*}
+</div>
+<div class="para" id="w1-displacement-1-3">Which is correct? Justify your choice and explain what is wrong with each of the others.<div class="autopermalink" data-description="Paragraph"><a href="#w1-displacement-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="3in"></div>
+<div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#w1-displacement" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div></article></section><section class="onepage" id="worksheet01wks-3-4"><article class="assemblage assemblage-like" id="worksheet01wks-3-4-1"><h3 class="heading"><span class="title">Practice.</span></h3>
+<div class="para" id="worksheet01wks-3-4-1-2">Combine forces using vector addition.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet01wks-3-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Practice"><a href="#worksheet01wks-3-4-1" title="Copy heading and permalink for Assemblage: Practice" aria-label="Copy heading and permalink for Assemblage: Practice">🔗</a></div></article><article class="exercise exercise-like" id="w1-forces"><h3 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w1-forces-1"><div class="para" id="w1-forces-1-1">Two forces act on a bracket: <span class="process-math">\(\vec{F}_1=(6,-8,0)\)</span> N, and <span class="process-math">\(\vec{F}_2\)</span> has magnitude <span class="process-math">\(15\)</span> N in the direction <span class="process-math">\(\vec{v}=(-2,1,2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w1-forces-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w1-forces-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w1-forces-2-1-1">Find the components of <span class="process-math">\(\vec{F}_2\)</span> and the sum <span class="process-math">\(\vec{R}=\vec{F}_1+\vec{F}_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w1-forces-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1in"></div>
+<div class="autopermalink" data-description="Task 4.a"><a href="#w1-forces-2" title="Copy heading and permalink for Task 4.a" aria-label="Copy heading and permalink for Task 4.a">🔗</a></div></article><article class="task exercise-like" id="w1-forces-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w1-forces-3-1-1">Find the magnitude of <span class="process-math">\(\vec{R}\)</span> and the unit vector <span class="process-math">\(\hat{R}\)</span> in its direction.<div class="autopermalink" data-description="Paragraph"><a href="#w1-forces-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.2in"></div>
+<div class="autopermalink" data-description="Task 4.b"><a href="#w1-forces-3" title="Copy heading and permalink for Task 4.b" aria-label="Copy heading and permalink for Task 4.b">🔗</a></div></article><article class="task exercise-like" id="w1-forces-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="w1-forces-4-1-1">Find the angle between the forces, to the nearest degree.<div class="autopermalink" data-description="Paragraph"><a href="#w1-forces-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.1in"></div>
+<div class="autopermalink" data-description="Task 4.c"><a href="#w1-forces-4" title="Copy heading and permalink for Task 4.c" aria-label="Copy heading and permalink for Task 4.c">🔗</a></div></article><article class="task exercise-like" id="w1-forces-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="w1-forces-5-1-1">Explain in your own words why <span class="process-math">\(|\vec{R}|&lt;|\vec{F}_1|+|\vec{F}_2|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w1-forces-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1in"></div>
+<div class="autopermalink" data-description="Task 4.d"><a href="#w1-forces-5" title="Copy heading and permalink for Task 4.d" aria-label="Copy heading and permalink for Task 4.d">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 4"><a href="#w1-forces" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div></article></section><section class="onepage" id="worksheet01wks-3-5"><article class="assemblage assemblage-like" id="worksheet01wks-3-5-1"><h3 class="heading"><span class="title">Practice (continued).</span></h3>
+<div class="para" id="worksheet01wks-3-5-1-2">Include units in your answers. The unit vectors <span class="process-math">\(\ihat\text{,}\)</span> <span class="process-math">\(\jhat\)</span> and <span class="process-math">\(\khat\)</span> are the bold <span class="process-math">\(\mathbf{i}\text{,}\)</span> <span class="process-math">\(\mathbf{j}\)</span> and <span class="process-math">\(\mathbf{k}\)</span> of the lecture notes.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet01wks-3-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Practice (continued)"><a href="#worksheet01wks-3-5-1" title="Copy heading and permalink for Assemblage: Practice (continued)" aria-label="Copy heading and permalink for Assemblage: Practice (continued)">🔗</a></div></article><article class="exercise exercise-like" id="w1-work"><h3 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w1-work-1"><div class="para" id="w1-work-1-1">A force <span class="process-math">\(\vec{F}=8\ihat-6\jhat+5\khat\)</span> N moves a slider along a straight rail from <span class="process-math">\(P=(1,3,-1)\)</span> to <span class="process-math">\(Q=(3,1,0)\text{,}\)</span> with coordinates in metres.<div class="autopermalink" data-description="Paragraph"><a href="#w1-work-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w1-work-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w1-work-2-1-1">Find the displacement <span class="process-math">\(\vec{d}=\overrightarrow{PQ}\)</span> and the distance the slider moves.<div class="autopermalink" data-description="Paragraph"><a href="#w1-work-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="0.7in"></div>
+<div class="autopermalink" data-description="Task 5.a"><a href="#w1-work-2" title="Copy heading and permalink for Task 5.a" aria-label="Copy heading and permalink for Task 5.a">🔗</a></div></article><article class="task exercise-like" id="w1-work-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w1-work-3-1-1">Find the scalar component and vector projection of <span class="process-math">\(\vec{F}\)</span> along <span class="process-math">\(\vec{d}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w1-work-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.1in"></div>
+<div class="autopermalink" data-description="Task 5.b"><a href="#w1-work-3" title="Copy heading and permalink for Task 5.b" aria-label="Copy heading and permalink for Task 5.b">🔗</a></div></article><article class="task exercise-like" id="w1-work-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="w1-work-4-1-1">Find <span class="process-math">\(\vec{F}_\perp=\vec{F}-\vec{F}_\parallel\text{,}\)</span> where <span class="process-math">\(\vec{F}_\parallel\)</span> is your projection. Check that <span class="process-math">\(\vec{F}_\perp\cdot\vec{d}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w1-work-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.2in"></div>
+<div class="autopermalink" data-description="Task 5.c"><a href="#w1-work-4" title="Copy heading and permalink for Task 5.c" aria-label="Copy heading and permalink for Task 5.c">🔗</a></div></article><article class="task exercise-like" id="w1-work-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="w1-work-5-1-1">Calculate the work <span class="process-math">\(W=\vec{F}\cdot\vec{d}\text{.}\)</span> Check it using part (b). Why does <span class="process-math">\(\vec{F}_\perp\)</span> do no work?<div class="autopermalink" data-description="Paragraph"><a href="#w1-work-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.3in"></div>
+<div class="autopermalink" data-description="Task 5.d"><a href="#w1-work-5" title="Copy heading and permalink for Task 5.d" aria-label="Copy heading and permalink for Task 5.d">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 5"><a href="#w1-work" title="Copy heading and permalink for Worksheet Exercise 5" aria-label="Copy heading and permalink for Worksheet Exercise 5">🔗</a></div></article></section><section class="onepage" id="worksheet01wks-3-6"><article class="assemblage assemblage-like" id="worksheet01wks-3-6-1"><h3 class="heading"><span class="title">Challenge: algebra meets geometry.</span></h3>
+<div class="para" id="worksheet01wks-3-6-1-2">Connect the sign of a dot product with the angle between two vectors.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet01wks-3-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Challenge: algebra meets geometry"><a href="#worksheet01wks-3-6-1" title="Copy heading and permalink for Assemblage: Challenge: algebra meets geometry" aria-label="Copy heading and permalink for Assemblage: Challenge: algebra meets geometry">🔗</a></div></article><article class="exercise exercise-like" id="w1-parameter"><h3 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w1-parameter-1"><div class="para" id="w1-parameter-1-1">For real <span class="process-math">\(x\text{,}\)</span> let <span class="process-math">\(\vec{a}=(x,2,1)\)</span> and <span class="process-math">\(\vec{b}=(x-4,x,-1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w1-parameter-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w1-parameter-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w1-parameter-2-1-1">Find all values of <span class="process-math">\(x\)</span> for which <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\)</span> are perpendicular.<div class="autopermalink" data-description="Paragraph"><a href="#w1-parameter-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.8in"></div>
+<div class="autopermalink" data-description="Task 6.a"><a href="#w1-parameter-2" title="Copy heading and permalink for Task 6.a" aria-label="Copy heading and permalink for Task 6.a">🔗</a></div></article><article class="task exercise-like" id="w1-parameter-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w1-parameter-3-1-1">For which values of <span class="process-math">\(x\)</span> is the angle acute? For which is it obtuse?<div class="autopermalink" data-description="Paragraph"><a href="#w1-parameter-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2.2in"></div>
+<div class="autopermalink" data-description="Task 6.b"><a href="#w1-parameter-3" title="Copy heading and permalink for Task 6.b" aria-label="Copy heading and permalink for Task 6.b">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 6"><a href="#w1-parameter" title="Copy heading and permalink for Worksheet Exercise 6" aria-label="Copy heading and permalink for Worksheet Exercise 6">🔗</a></div></article></section><section class="onepage" id="worksheet01wks-3-7"><article class="assemblage assemblage-like" id="worksheet01wks-3-7-1"><h3 class="heading"><span class="title">Extension: closest approach.</span></h3>
+<div class="para" id="worksheet01wks-3-7-1-2">Use completing the square and the dot product together.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet01wks-3-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Extension: closest approach"><a href="#worksheet01wks-3-7-1" title="Copy heading and permalink for Assemblage: Extension: closest approach" aria-label="Copy heading and permalink for Assemblage: Extension: closest approach">🔗</a></div></article><article class="exercise exercise-like" id="w1-boats"><h3 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w1-boats-1"><div class="para" id="w1-boats-1-1">At noon, boats <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> have position vectors <span class="process-math">\(13\ihat+5\jhat\)</span> and <span class="process-math">\(2\ihat+3\jhat\)</span> relative to a harbour, in kilometres. They move with constant velocities <span class="process-math">\(8\ihat+9\jhat\)</span> and <span class="process-math">\(12\ihat+12\jhat\text{,}\)</span> in kilometres per hour.<div class="autopermalink" data-description="Paragraph"><a href="#w1-boats-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w1-boats-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w1-boats-2-1-1">Find the vector <span class="process-math">\(\vec{d}\)</span> from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\)</span> at time <span class="process-math">\(t\)</span> hours after noon.<div class="autopermalink" data-description="Paragraph"><a href="#w1-boats-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.2in"></div>
+<div class="autopermalink" data-description="Task 7.a"><a href="#w1-boats-2" title="Copy heading and permalink for Task 7.a" aria-label="Copy heading and permalink for Task 7.a">🔗</a></div></article><article class="task exercise-like" id="w1-boats-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w1-boats-3-1-1">By completing the square in <span class="process-math">\(|\vec{d}|^2\text{,}\)</span> find when the boats are closest and how far apart they are then.<div class="autopermalink" data-description="Paragraph"><a href="#w1-boats-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2.5in"></div>
+<div class="autopermalink" data-description="Task 7.b"><a href="#w1-boats-3" title="Copy heading and permalink for Task 7.b" aria-label="Copy heading and permalink for Task 7.b">🔗</a></div></article><article class="task exercise-like" id="w1-boats-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="w1-boats-4-1-1">Show that, at that time, <span class="process-math">\(\vec{d}\)</span> is perpendicular to the velocity of <span class="process-math">\(B\)</span> relative to <span class="process-math">\(A\text{.}\)</span> Explain in your own words why.<div class="autopermalink" data-description="Paragraph"><a href="#w1-boats-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.8in"></div>
+<div class="autopermalink" data-description="Task 7.c"><a href="#w1-boats-4" title="Copy heading and permalink for Task 7.c" aria-label="Copy heading and permalink for Task 7.c">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 7"><a href="#w1-boats" title="Copy heading and permalink for Worksheet Exercise 7" aria-label="Copy heading and permalink for Worksheet Exercise 7">🔗</a></div></article></section><div class="autopermalink" data-description="Worksheet: Workshop 1: Vectors and the dot product"><a href="#worksheet01wks-3" title="Copy heading and permalink for Worksheet: Workshop 1: Vectors and the dot product" aria-label="Copy heading and permalink for Worksheet: Workshop 1: Vectors and the dot product">🔗</a></div></section><div class="autopermalink" data-description="Article: Engineering Maths 1"><a href="#worksheet01wks" title="Copy heading and permalink for Article: Engineering Maths 1" aria-label="Copy heading and permalink for Article: Engineering Maths 1">🔗</a></div></section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<span class="previous-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></span><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script src="external/print-defaults.js"></script>
+</body>
+</html>

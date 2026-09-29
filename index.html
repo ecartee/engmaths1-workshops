@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engineering Maths 1 — Worksheets</title>
+<style>
+  :root {
+    --accent: #8b1930;
+    --ink: #1a1a1a;
+    --muted: #4a4a4a;    /* 9.0:1 on white */
+    --rule: #d0d0d0;
+    --card: #ffffff;
+    --page: #f7f7f7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2rem 1rem 4rem;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  h1 { color: var(--accent); font-size: 1.75rem; margin: 0 0 .25rem; }
+  .term { color: var(--muted); font-size: 1rem; margin: 0; }
+  .lede { margin: 0 0 1.75rem; color: var(--muted); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { margin-bottom: .75rem; }
+  li a {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--accent);
+    border-radius: 4px;
+    padding: .85rem 1rem;
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  li a:hover, li a:focus { border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: 1px; }
+  li a .topic { display: block; color: var(--ink); font-weight: 400; font-size: .95rem; margin-top: .15rem; }
+  .planned { padding: .6rem 1rem; color: var(--muted); border-left: 5px solid var(--rule); }
+  footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+  footer a { color: var(--accent); }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #f2f2f2; --muted: #c9c9c9; --rule: #444; --card: #1f2328; --page: #14191f; --accent: #e8b3b3; }
+    li a { color: var(--accent); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Engineering Maths 1</h1>
+    <p class="term">University of Bristol · EMAT10100</p>
+  </header>
+
+  <p class="lede">
+    One worksheet for each workshop. Print a worksheet on A4 — or save it as a PDF with blank
+    working space — using the printer icon on the worksheet page.
+  </p>
+
+  <!-- Adding a worksheet: add its target to project.ptx, then add one <li> below. -->
+  <ul>
+    <li><a href="worksheet01/">Workshop 1<span class="topic">Vectors and the dot product · Draft</span></a></li>
+    <li class="planned">Worksheets for later workshops will be added through the year.</li>
+  </ul>
+
+  <footer>Engineering Maths 1 worksheets · &copy; 2026 Elliot Cartee</footer>
+</div>
+</body>
+</html>
