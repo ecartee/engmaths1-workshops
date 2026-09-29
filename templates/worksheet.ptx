@@ -15,8 +15,9 @@
     </introduction>
     <worksheet>
       <title>Workshop N: Topic to be confirmed</title>
-      <!-- A workshop lasts about 50 minutes: aim for 4 printed A4 pages, 6 at
-           most. Each <page> is one printed page. Exercises are numbered
+      <!-- A workshop lasts about 50 minutes: use 4 or 6 printed A4 pages, so
+           that double-sided sheets have no blank side. Each <page> is one
+           printed page. Exercises are numbered
            continuously through the worksheet, so do not set number="...". -->
       <page>
         <assemblage>

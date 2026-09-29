@@ -29,8 +29,9 @@ handling used by this renderer (see the
 
 ## Conventions
 
-- **Length.** A workshop lasts about 50 minutes: aim for 4 printed pages, 6 at
-  most. Each `<page>` element is one printed page, and `workspace` sets the
+- **Length.** A workshop lasts about 50 minutes: use 4 or 6 printed pages, so
+  that double-sided sheets have no blank side. Each `<page>` element is one
+  printed page, and `workspace` sets the
   relative amount of working space after a question.
 - **Numbering.** Exercises are numbered continuously through a worksheet. Do
   not set `number` on an exercise.

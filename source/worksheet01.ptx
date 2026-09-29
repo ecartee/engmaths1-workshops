@@ -19,45 +19,52 @@
         </assemblage>
         <exercise xml:id="w1-quadratic">
           <introduction><p>A few Week 1 skills:</p></introduction>
-          <task workspace="0.85in">
+          <task workspace="2.5in">
             <statement><p>Complete the square in <m>2x^2-10x+7</m> and find its minimum value.</p></statement>
           </task>
-          <task workspace="0.85in">
+          <task workspace="2.5in">
             <statement><p>Find the values of <m>x</m> for which <m>2x^2-5x-3&lt;0</m>.</p></statement>
           </task>
         </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Warm-up (continued)</title>
+          <p>Discuss your reasoning with a neighbour.</p>
+        </assemblage>
         <exercise xml:id="w1-classify">
           <statement>
             <p>Let <m>\vec{a}</m>, <m>\vec{b}</m> and <m>\vec{c}</m> be non-zero vectors (<m>\mathbf{a}</m>, <m>\mathbf{b}</m> and <m>\mathbf{c}</m> in the lecture notes). Is each expression a scalar, a vector, or undefined? Tick one box for each.</p>
             <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
-              <col width="17%" right="minor"/>
-              <col width="11%" right="minor"/>
-              <col width="11%" right="minor"/>
-              <col width="11%" right="medium"/>
-              <col width="17%" right="minor"/>
-              <col width="11%" right="minor"/>
-              <col width="11%" right="minor"/>
-              <col width="11%" right="minor"/>
+              <col width="34%" right="minor"/>
+              <col width="22%" right="minor"/>
+              <col width="22%" right="minor"/>
+              <col width="22%" right="minor"/>
               <row bottom="minor">
-                <cell>Expression</cell><cell>Scalar</cell><cell>Vector</cell><cell>Undefined</cell>
                 <cell>Expression</cell><cell>Scalar</cell><cell>Vector</cell><cell>Undefined</cell>
               </row>
               <row bottom="minor">
                 <cell><m>\vec{a}\cdot\vec{b}</m></cell><cell></cell><cell></cell><cell></cell>
-                <cell><m>|\vec{a}|\,\vec{b}</m></cell><cell></cell><cell></cell><cell></cell>
               </row>
               <row bottom="minor">
                 <cell><m>(\vec{a}\cdot\vec{b})\,\vec{c}</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>\vec{a}\cdot(\vec{b}\cdot\vec{c})</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>|\vec{a}|\,\vec{b}</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row bottom="minor">
                 <cell><m>\vec{a}+|\vec{b}|</m></cell><cell></cell><cell></cell><cell></cell>
               </row>
               <row>
-                <cell><m>\vec{a}\cdot(\vec{b}\cdot\vec{c})</m></cell><cell></cell><cell></cell><cell></cell>
                 <cell><m>(\vec{a}\cdot\vec{b})/|\vec{b}|</m></cell><cell></cell><cell></cell><cell></cell>
               </row>
             </tabular>
           </statement>
         </exercise>
-        <exercise xml:id="w1-displacement" workspace="1.3in">
+        <exercise xml:id="w1-displacement" workspace="3in">
           <statement>
             <p>Let <m>A=(-4,2,5)</m> and <m>B=(2,-1,7)</m>. Three proposed unit vectors from <m>A</m> towards <m>B</m> are</p>
             <me>\vec{u}=\frac{1}{7}(6,-3,2),\qquad \vec{v}=\frac{1}{49}(6,-3,2),\qquad \vec{w}=-\frac{1}{7}(6,-3,2).</me>
@@ -125,6 +132,26 @@
           </task>
           <task workspace="2.2in">
             <statement><p>For which values of <m>x</m> is the angle acute? For which is it obtuse?</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Extension: closest approach</title>
+          <p>Use completing the square and the dot product together.</p>
+        </assemblage>
+        <exercise xml:id="w1-boats">
+          <introduction>
+            <p>At noon, boats <m>A</m> and <m>B</m> have position vectors <m>13\ihat+5\jhat</m> and <m>2\ihat+3\jhat</m> relative to a harbour, in kilometres. They move with constant velocities <m>8\ihat+9\jhat</m> and <m>12\ihat+12\jhat</m>, in kilometres per hour.</p>
+          </introduction>
+          <task workspace="1.2in">
+            <statement><p>Find the vector <m>\vec{d}</m> from <m>A</m> to <m>B</m> at time <m>t</m> hours after noon.</p></statement>
+          </task>
+          <task workspace="2.5in">
+            <statement><p>By completing the square in <m>|\vec{d}|^2</m>, find when the boats are closest and how far apart they are then.</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>Show that, at that time, <m>\vec{d}</m> is perpendicular to the velocity of <m>B</m> relative to <m>A</m>. Explain in your own words why.</p></statement>
           </task>
         </exercise>
       </page>
