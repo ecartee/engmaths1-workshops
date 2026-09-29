@@ -59,6 +59,7 @@ missing, an image lacks alternative text, or text is serif or low-contrast.
 ## Project layout
 
 - `source/worksheetNN.ptx`: one file per worksheet.
+- `source/docinfo.ptx`: notation macros shared by every worksheet.
 - `templates/worksheet.ptx`: placeholder template for new worksheets.
 - `project.ptx`: one independently buildable HTML target per worksheet.
 - `publication/publication.ptx`: shared headers, footers, numbering and theme.

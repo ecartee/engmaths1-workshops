@@ -2,7 +2,8 @@
 <!-- Copyright (c) 2026 Elliot Cartee. -->
 <!-- This renderer supplies English interface labels through en-US only.
      Keep authored worksheet prose in British English. -->
-<pretext xml:lang="en-US">
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
   <article xml:id="worksheet01wks">
     <title>Engineering Maths 1</title>
     <introduction>
@@ -10,7 +11,7 @@
       <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
     </introduction>
     <worksheet>
-      <title>Workshop 1: Algebra and vectors</title>
+      <title>Workshop 1: Vectors and the dot product</title>
       <page>
         <assemblage>
           <title>Warm-up</title>
@@ -18,21 +19,49 @@
         </assemblage>
         <exercise xml:id="w1-quadratic">
           <introduction><p>A few Week 1 skills:</p></introduction>
-          <task workspace="0.7in">
+          <task workspace="0.85in">
             <statement><p>Complete the square in <m>2x^2-10x+7</m> and find its minimum value.</p></statement>
           </task>
-          <task workspace="0.6in">
-            <statement><p>For <m>x,y&gt;0</m>, express <m>\ln(x^3/\sqrt{y})</m> in terms of <m>\ln x</m> and <m>\ln y</m>.</p></statement>
-          </task>
-          <task workspace="0.8in">
-            <statement><p>Differentiate <m>(4x-1)e^{2x}</m>.</p></statement>
+          <task workspace="0.85in">
+            <statement><p>Find the values of <m>x</m> for which <m>2x^2-5x-3&lt;0</m>.</p></statement>
           </task>
         </exercise>
-        <exercise xml:id="w1-displacement" workspace="1.5in">
+        <exercise xml:id="w1-classify">
           <statement>
-            <p>Let <m>A=(-4,2,5)</m> and <m>B=(2,-1,7)</m>. Two proposed unit vectors from <m>A</m> towards <m>B</m> are</p>
-            <me>\vec{u}=\frac{1}{7}(6,-3,2),\qquad \vec{v}=\frac{1}{49}(6,-3,2).</me>
-            <p>Which is correct? Justify your choice and explain why the other is incorrect.</p>
+            <p>Let <m>\vec{a}</m>, <m>\vec{b}</m> and <m>\vec{c}</m> be non-zero vectors (<m>\mathbf{a}</m>, <m>\mathbf{b}</m> and <m>\mathbf{c}</m> in the lecture notes). Is each expression a scalar, a vector, or undefined? Tick one box for each.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col width="17%" right="minor"/>
+              <col width="11%" right="minor"/>
+              <col width="11%" right="minor"/>
+              <col width="11%" right="medium"/>
+              <col width="17%" right="minor"/>
+              <col width="11%" right="minor"/>
+              <col width="11%" right="minor"/>
+              <col width="11%" right="minor"/>
+              <row bottom="minor">
+                <cell>Expression</cell><cell>Scalar</cell><cell>Vector</cell><cell>Undefined</cell>
+                <cell>Expression</cell><cell>Scalar</cell><cell>Vector</cell><cell>Undefined</cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>\vec{a}\cdot\vec{b}</m></cell><cell></cell><cell></cell><cell></cell>
+                <cell><m>|\vec{a}|\,\vec{b}</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell><m>(\vec{a}\cdot\vec{b})\,\vec{c}</m></cell><cell></cell><cell></cell><cell></cell>
+                <cell><m>\vec{a}+|\vec{b}|</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+              <row>
+                <cell><m>\vec{a}\cdot(\vec{b}\cdot\vec{c})</m></cell><cell></cell><cell></cell><cell></cell>
+                <cell><m>(\vec{a}\cdot\vec{b})/|\vec{b}|</m></cell><cell></cell><cell></cell><cell></cell>
+              </row>
+            </tabular>
+          </statement>
+        </exercise>
+        <exercise xml:id="w1-displacement" workspace="1.3in">
+          <statement>
+            <p>Let <m>A=(-4,2,5)</m> and <m>B=(2,-1,7)</m>. Three proposed unit vectors from <m>A</m> towards <m>B</m> are</p>
+            <me>\vec{u}=\frac{1}{7}(6,-3,2),\qquad \vec{v}=\frac{1}{49}(6,-3,2),\qquad \vec{w}=-\frac{1}{7}(6,-3,2).</me>
+            <p>Which is correct? Justify your choice and explain what is wrong with each of the others.</p>
           </statement>
         </exercise>
       </page>
@@ -49,33 +78,36 @@
             <statement><p>Find the components of <m>\vec{F}_2</m> and the sum <m>\vec{R}=\vec{F}_1+\vec{F}_2</m>.</p></statement>
           </task>
           <task workspace="1.2in">
-            <statement><p>Find the magnitude of <m>\vec{R}</m> and a unit vector in its direction.</p></statement>
+            <statement><p>Find the magnitude of <m>\vec{R}</m> and the unit vector <m>\hat{R}</m> in its direction.</p></statement>
           </task>
           <task workspace="1.1in">
             <statement><p>Find the angle between the forces, to the nearest degree.</p></statement>
           </task>
-          <task workspace="0.8in">
-            <statement><p>Why is <m>|\vec{R}|&lt;|\vec{F}_1|+|\vec{F}_2|</m>?</p></statement>
+          <task workspace="1in">
+            <statement><p>Explain in your own words why <m>|\vec{R}|&lt;|\vec{F}_1|+|\vec{F}_2|</m>.</p></statement>
           </task>
         </exercise>
       </page>
       <page>
         <assemblage>
           <title>Practice (continued)</title>
-          <p>Include units in your answers.</p>
+          <p>Include units in your answers. The unit vectors <m>\ihat</m>, <m>\jhat</m> and <m>\khat</m> are the bold <m>\mathbf{i}</m>, <m>\mathbf{j}</m> and <m>\mathbf{k}</m> of the lecture notes.</p>
         </assemblage>
         <exercise xml:id="w1-work">
           <introduction>
-            <p>A force <m>\vec{F}=(8,-6,5)</m> N moves a slider through displacement <m>\vec{d}=(2,-2,1)</m> m.</p>
+            <p>A force <m>\vec{F}=8\ihat-6\jhat+5\khat</m> N moves a slider along a straight rail from <m>P=(1,3,-1)</m> to <m>Q=(3,1,0)</m>, with coordinates in metres.</p>
           </introduction>
+          <task workspace="0.7in">
+            <statement><p>Find the displacement <m>\vec{d}=\overrightarrow{PQ}</m> and the distance the slider moves.</p></statement>
+          </task>
           <task workspace="1.1in">
             <statement><p>Find the scalar component and vector projection of <m>\vec{F}</m> along <m>\vec{d}</m>.</p></statement>
           </task>
           <task workspace="1.2in">
             <statement><p>Find <m>\vec{F}_\perp=\vec{F}-\vec{F}_\parallel</m>, where <m>\vec{F}_\parallel</m> is your projection. Check that <m>\vec{F}_\perp\cdot\vec{d}=0</m>.</p></statement>
           </task>
-          <task workspace="1.4in">
-            <statement><p>Calculate the work <m>W=\vec{F}\cdot\vec{d}</m>. Check it using part (a). Why does <m>\vec{F}_\perp</m> do no work?</p></statement>
+          <task workspace="1.3in">
+            <statement><p>Calculate the work <m>W=\vec{F}\cdot\vec{d}</m>. Check it using part (b). Why does <m>\vec{F}_\perp</m> do no work?</p></statement>
           </task>
         </exercise>
       </page>
@@ -86,16 +118,13 @@
         </assemblage>
         <exercise xml:id="w1-parameter">
           <introduction>
-            <p>For real <m>x</m>, let <m>\vec{a}=(x,2,3)</m> and <m>\vec{b}=(2x-5,x,-1)</m>.</p>
+            <p>For real <m>x</m>, let <m>\vec{a}=(x,2,1)</m> and <m>\vec{b}=(x-4,x,-1)</m>.</p>
           </introduction>
-          <task workspace="1.4in">
+          <task workspace="1.8in">
             <statement><p>Find all values of <m>x</m> for which <m>\vec{a}</m> and <m>\vec{b}</m> are perpendicular.</p></statement>
           </task>
-          <task workspace="1.8in">
+          <task workspace="2.2in">
             <statement><p>For which values of <m>x</m> is the angle acute? For which is it obtuse?</p></statement>
-          </task>
-          <task workspace="1in">
-            <statement><p>Why are both vectors nonzero for every <m>x</m>? Why does this matter?</p></statement>
           </task>
         </exercise>
       </page>

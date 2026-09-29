@@ -5,7 +5,8 @@
 <!-- Replace NN with the zero-padded worksheet number (02, 03, ...) and N with
      the workshop number. Do not add <solution>, <answer> or <hint> elements:
      solutions are kept outside this repository. -->
-<pretext xml:lang="en-US">
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
   <article xml:id="worksheetNNwks">
     <title>Engineering Maths 1</title>
     <introduction>
