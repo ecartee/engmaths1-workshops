@@ -68,6 +68,8 @@ missing, an image lacks alternative text, or text is serif or low-contrast.
 - `assets/print-defaults.js`: A4 and header/footer defaults for printing.
 - `site/index.html`: landing page listing the worksheets.
 - `tools/audit.py`, `tools/audit.html`: the worksheet audit.
+- `tools/strip-debug-assets.sh`: removes debugging files before deploying.
+- `deploy.sh`: builds, checks and publishes the whole site.
 - `output/`: generated files, ignored by Git.
 
 ## Add another worksheet
@@ -88,16 +90,31 @@ missing, an image lacks alternative text, or text is serif or low-contrast.
 ## Preview the whole collection
 
 ```sh
-pretext build --deploys
-pretext deploy --stage-only
+./deploy.sh --preview
 python3 -m http.server 8000 --directory output/stage --bind 127.0.0.1
 ```
 
-Open <http://localhost:8000>. The index and worksheet links use relative paths,
-so the staged site can later be hosted under a repository URL.
+Open <http://localhost:8000>. This builds every worksheet, runs the audit and
+stages the site in `output/stage` without publishing anything.
 
-The GitHub workflow builds the staged site and saves it as an artifact; it does
-not publish it. No hosting destination is configured.
+## Deploy
+
+```sh
+./deploy.sh
+```
+
+Run it from `main` with everything committed. It pulls, builds every target in
+`project.ptx`, strips debugging files that readers never need, runs the audit,
+and publishes to the `gh-pages` branch: the landing page at the site root and
+each worksheet at `/worksheetNN/`. It stops without publishing if the audit
+fails.
+
+The published site can be read by anyone. The first time, turn on GitHub Pages
+in the repository settings, choosing the `gh-pages` branch and the `/ (root)`
+folder.
+
+The GitHub workflow only checks that the worksheets build, and saves the staged
+site as an artifact; it does not publish.
 
 ## Copyright
 
