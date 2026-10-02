@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: greeley                        *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Engineering Maths 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.3';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.dd07797f77620576.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.11d27cdc38930c2c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="worksheet02wks.html"><span class="title">Engineering Maths 1</span></a></h1>
+<p class="byline"></p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button hidden" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><span class="previous-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></span><span class="up-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></span><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\colvec}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar hidden"><nav id="ptx-toc" class="ptx-toc depth0"><ul class="structural toc-item-list contains-active"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="#worksheet02wks-3" class="internal"><span class="title">Workshop 2: Cross products, lines, planes and matrices</span></a></div></li></ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<div class="print-preview-header">
+<h2 class="print-preview">Print preview</h2>
+<div class="print-controls">
+<div class="print-controls-toggles">
+<form class="papersize-select" id="papersize-select">
+<span class="name">Paper size</span><label><input type="radio" name="papersize" value="a4">A4
+        </label><label><input type="radio" name="papersize" value="letter">Letter
+        </label>
+</form>
+<details class="print-options"><summary>Additional printing options</summary><div class="header-footer-options">
+<div class="header-option">
+<span class="title">Print headers</span><label>First page<input type="checkbox" id="print-first-page-header-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-header-checkbox" checked></label>
+</div>
+<div class="footer-option">
+<span class="title">Print footers</span><label>First page<input type="checkbox" id="print-first-page-footer-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-footer-checkbox" checked></label>
+</div>
+</div>
+<div class="highlight-workspace-option">
+<label for="highlight-workspace-checkbox">Highlight workspace</label><input type="checkbox" id="highlight-workspace-checkbox">
+</div></details>
+</div>
+<button class="print-button" title="Print" onClick="window.print()"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span><span class="name">Print</span></button>
+</div>
+</div>
+<section class="article" id="worksheet02wks"><section class="introduction" id="worksheet02wks-2"><div class="para" id="worksheet02wks-2-1">University of Bristol — EMAT10100<div class="autopermalink" data-description="Paragraph"><a href="#worksheet02wks-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="worksheet02wks-2-2">Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet02wks-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="worksheet" id="worksheet02wks-3" data-margins="0.75in 0.75in 0.75in 0.75in" data-header-first-right="EMAT10100 — Engineering Maths 1" data-header-running-right="EMAT10100 — Engineering Maths 1" data-footer-first-left="University of Bristol" data-footer-first-right="© 2026 Elliot Cartee" data-footer-running-left="University of Bristol" data-footer-running-right="© 2026 Elliot Cartee"><h2 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Workshop 2: Cross products, lines, planes and matrices</span><div class="print-links"><a href="?printpreview=worksheet02wks-3" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h2>
+<section class="onepage" id="worksheet02wks-3-2"><article class="assemblage assemblage-like" id="worksheet02wks-3-2-1"><h3 class="heading"><span class="title">Warm-up.</span></h3>
+<div class="para" id="worksheet02wks-3-2-1-2">Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet02wks-3-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Warm-up"><a href="#worksheet02wks-3-2-1" title="Copy heading and permalink for Assemblage: Warm-up" aria-label="Copy heading and permalink for Assemblage: Warm-up">🔗</a></div></article><article class="exercise exercise-like" id="w2-cross"><h3 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w2-cross-1"><div class="para" id="w2-cross-1-1">Let <span class="process-math">\(\vec{a}=\colvec{3\\2\\2}\)</span> and <span class="process-math">\(\vec{b}=\colvec{2\\1\\2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-cross-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w2-cross-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w2-cross-2-1-1">Compute <span class="process-math">\(\vec{a}\times\vec{b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-cross-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1in"></div>
+<div class="autopermalink" data-description="Task 1.a"><a href="#w2-cross-2" title="Copy heading and permalink for Task 1.a" aria-label="Copy heading and permalink for Task 1.a">🔗</a></div></article><article class="task exercise-like" id="w2-cross-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w2-cross-3-1-1">Use the dot product to check that your answer is perpendicular to both <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-cross-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="0.8in"></div>
+<div class="autopermalink" data-description="Task 1.b"><a href="#w2-cross-3" title="Copy heading and permalink for Task 1.b" aria-label="Copy heading and permalink for Task 1.b">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#w2-cross" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div></article><article class="exercise exercise-like" id="w2-sizes"><h3 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="w2-sizes-1-1">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(2\times 3\)</span> matrix, <span class="process-math">\(B\)</span> is a <span class="process-math">\(3\times 2\)</span> matrix, <span class="process-math">\(C\)</span> is a <span class="process-math">\(3\times 3\)</span> matrix, and <span class="process-math">\(D\)</span> is a <span class="process-math">\(2\times 2\)</span> matrix.<div class="autopermalink" data-description="Paragraph"><a href="#w2-sizes-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="w2-sizes-1-2">For each of the following expressions, write down the size of the resulting matrix, or write “not defined”.<div class="autopermalink" data-description="Paragraph"><a href="#w2-sizes-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r1 l1 t1 lines">Expression</td>
+<td class="c m b1 r1 l0 t1 lines">Size, or not defined</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\rule[-0.8em]{0pt}{2.2em}A+B\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\rule[-0.8em]{0pt}{2.2em}A+B^T\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\rule[-0.8em]{0pt}{2.2em}AB\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\rule[-0.8em]{0pt}{2.2em}BA\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\rule[-0.8em]{0pt}{2.2em}CA\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\rule[-0.8em]{0pt}{2.2em}A^TA\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+</table></div>
+<div class="workspace" data-space="0.2in"></div>
+<div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#w2-sizes" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div></article></section><section class="onepage" id="worksheet02wks-3-3"><article class="assemblage assemblage-like" id="worksheet02wks-3-3-1"><h3 class="heading"><span class="title">Practice: Lines.</span></h3>
+<div class="autopermalink" data-description="Assemblage: Practice: Lines"><a href="#worksheet02wks-3-3-1" title="Copy heading and permalink for Assemblage: Practice: Lines" aria-label="Copy heading and permalink for Assemblage: Practice: Lines">🔗</a></div></article><article class="exercise exercise-like" id="w2-lines"><h3 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w2-lines-1"><div class="para" id="w2-lines-1-1">The equation of a straight line can be written in either vector form or in Cartesian form.<div class="autopermalink" data-description="Paragraph"><a href="#w2-lines-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w2-lines-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para logical" id="w2-lines-2-1-1">
+<div class="para">Write the line</div>
+<div class="displaymath process-math" id="w2-lines-2-1-1-1">
+\begin{equation*}
+\vec{r}=\colvec{1\\-2\\3}+t\colvec{2\\3\\-1}
+\end{equation*}
+</div>
+<div class="para">in Cartesian form.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#w2-lines-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2.2in"></div>
+<div class="autopermalink" data-description="Task 3.a"><a href="#w2-lines-2" title="Copy heading and permalink for Task 3.a" aria-label="Copy heading and permalink for Task 3.a">🔗</a></div></article><article class="task exercise-like" id="w2-lines-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para logical" id="w2-lines-3-1-1">
+<div class="para">A second line has Cartesian equation</div>
+<div class="displaymath process-math" id="w2-lines-3-1-1-1">
+\begin{equation*}
+\frac{x-1}{3}=\frac{4-y}{2}=z-1.
+\end{equation*}
+</div>
+<div class="para">Write down a point on this line and a vector along the line. Use this to write the equation of the line in vector form.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#w2-lines-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2.6in"></div>
+<div class="autopermalink" data-description="Task 3.b"><a href="#w2-lines-3" title="Copy heading and permalink for Task 3.b" aria-label="Copy heading and permalink for Task 3.b">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#w2-lines" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div></article></section><section class="onepage" id="worksheet02wks-3-4"><article class="assemblage assemblage-like" id="worksheet02wks-3-4-1"><h3 class="heading"><span class="title">Practice: Planes.</span></h3>
+<div class="autopermalink" data-description="Assemblage: Practice: Planes"><a href="#worksheet02wks-3-4-1" title="Copy heading and permalink for Assemblage: Practice: Planes" aria-label="Copy heading and permalink for Assemblage: Practice: Planes">🔗</a></div></article><article class="exercise exercise-like" id="w2-plane"><h3 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w2-plane-1"><div class="para" id="w2-plane-1-1">Let <span class="process-math">\(P\)</span> be the point <span class="process-math">\((1,-1,2)\text{.}\)</span> Let <span class="process-math">\(\vec{a}=\colvec{3\\2\\2}\text{,}\)</span> and <span class="process-math">\(\vec{b}=\colvec{2\\1\\2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-plane-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w2-plane-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w2-plane-2-1-1">Find the equation of the plane that passes through <span class="process-math">\(P\)</span> and is parallel to both <span class="process-math">\(\vec{a}\)</span> and <span class="process-math">\(\vec{b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-plane-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2.6in"></div>
+<div class="autopermalink" data-description="Task 4.a"><a href="#w2-plane-2" title="Copy heading and permalink for Task 4.a" aria-label="Copy heading and permalink for Task 4.a">🔗</a></div></article><article class="task exercise-like" id="w2-plane-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w2-plane-3-1-1">Find the point where the line of Exercise <a href="#w2-lines" class="xref" data-knowl="./knowl/xref/w2-lines.html" data-reveal-label="Reveal" data-close-label="Close" title="Worksheet Exercise 3">3</a>(b) intersects the plane.<div class="autopermalink" data-description="Paragraph"><a href="#w2-plane-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2.4in"></div>
+<div class="autopermalink" data-description="Task 4.b"><a href="#w2-plane-3" title="Copy heading and permalink for Task 4.b" aria-label="Copy heading and permalink for Task 4.b">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 4"><a href="#w2-plane" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div></article></section><section class="onepage" id="worksheet02wks-3-5"><article class="assemblage assemblage-like" id="worksheet02wks-3-5-1"><h3 class="heading"><span class="title">Practice: Matrix Arithmetic.</span></h3>
+<div class="autopermalink" data-description="Assemblage: Practice: Matrix Arithmetic"><a href="#worksheet02wks-3-5-1" title="Copy heading and permalink for Assemblage: Practice: Matrix Arithmetic" aria-label="Copy heading and permalink for Assemblage: Practice: Matrix Arithmetic">🔗</a></div></article><article class="exercise exercise-like" id="w2-products"><h3 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w2-products-1"><div class="para logical" id="w2-products-1-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="w2-products-1-1-1">
+\begin{equation*}
+A=\begin{bmatrix}2 &amp; 0 &amp; -1\\ 1 &amp; 3 &amp; 2\end{bmatrix}, \qquad \vec{x}=\colvec{2\\-1\\2}.
+\end{equation*}
+</div>
+<div class="para">Compute each of the following operations, or explain why it is not defined.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#w2-products-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="w2-products-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w2-products-2-1-1">
+<span class="process-math">\(A\vec{x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-products-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="0.7in"></div>
+<div class="autopermalink" data-description="Task 5.a"><a href="#w2-products-2" title="Copy heading and permalink for Task 5.a" aria-label="Copy heading and permalink for Task 5.a">🔗</a></div></article><article class="task exercise-like" id="w2-products-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w2-products-3-1-1">
+<span class="process-math">\(A^TA\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-products-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.1in"></div>
+<div class="autopermalink" data-description="Task 5.b"><a href="#w2-products-3" title="Copy heading and permalink for Task 5.b" aria-label="Copy heading and permalink for Task 5.b">🔗</a></div></article><article class="task exercise-like" id="w2-products-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="w2-products-4-1-1">
+<span class="process-math">\(\vec{x}^T\vec{x}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-products-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="0.6in"></div>
+<div class="autopermalink" data-description="Task 5.c"><a href="#w2-products-4" title="Copy heading and permalink for Task 5.c" aria-label="Copy heading and permalink for Task 5.c">🔗</a></div></article><article class="task exercise-like" id="w2-products-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="w2-products-5-1-1">
+<span class="process-math">\(\vec{x}\vec{x}^T\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-products-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1in"></div>
+<div class="autopermalink" data-description="Task 5.d"><a href="#w2-products-5" title="Copy heading and permalink for Task 5.d" aria-label="Copy heading and permalink for Task 5.d">🔗</a></div></article><article class="task exercise-like" id="w2-products-6"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="w2-products-6-1-1">
+<span class="process-math">\(A^T\vec{x}^T\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-products-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="0.5in"></div>
+<div class="autopermalink" data-description="Task 5.e"><a href="#w2-products-6" title="Copy heading and permalink for Task 5.e" aria-label="Copy heading and permalink for Task 5.e">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 5"><a href="#w2-products" title="Copy heading and permalink for Worksheet Exercise 5" aria-label="Copy heading and permalink for Worksheet Exercise 5">🔗</a></div></article></section><section class="onepage" id="worksheet02wks-3-6"><article class="assemblage assemblage-like" id="worksheet02wks-3-6-1"><h3 class="heading"><span class="title">Practice: Matrix Transformations.</span></h3>
+<div class="autopermalink" data-description="Assemblage: Practice: Matrix Transformations"><a href="#worksheet02wks-3-6-1" title="Copy heading and permalink for Assemblage: Practice: Matrix Transformations" aria-label="Copy heading and permalink for Assemblage: Practice: Matrix Transformations">🔗</a></div></article><article class="exercise exercise-like" id="w2-transform"><h3 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="w2-transform-1-1">A linear transformation <span class="process-math">\(T:\mathbb{R}^3\to\mathbb{R}^3\)</span> satisfies<div class="autopermalink" data-description="Paragraph"><a href="#w2-transform-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="w2-transform-1-2">
+\begin{equation*}
+T\left(\colvec{1\\0\\0}\right)=\colvec{1\\2\\0},\qquad T\left(\colvec{1\\1\\0}\right)=\colvec{3\\1\\2},\qquad T\left(\colvec{1\\1\\1}\right)=\colvec{2\\4\\5}.
+\end{equation*}
+</div>
+<div class="para" id="w2-transform-1-3">Find the matrix <span class="process-math">\(A\)</span> that represents <span class="process-math">\(T\text{,}\)</span> so that <span class="process-math">\(T(\vec{x})=A\vec{x}\)</span> for every <span class="process-math">\(\vec{x}\in\mathbb{R}^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-transform-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="4.5in"></div>
+<div class="autopermalink" data-description="Worksheet Exercise 6"><a href="#w2-transform" title="Copy heading and permalink for Worksheet Exercise 6" aria-label="Copy heading and permalink for Worksheet Exercise 6">🔗</a></div></article></section><section class="onepage" id="worksheet02wks-3-7"><article class="assemblage assemblage-like" id="worksheet02wks-3-7-1"><h3 class="heading"><span class="title">Challenge: italics by matrix.</span></h3>
+<div class="para" id="worksheet02wks-3-7-1-2">Fonts store letters as coordinates, and an italic style can be produced from the upright letters by a linear transformation of the plane.<div class="autopermalink" data-description="Paragraph"><a href="#worksheet02wks-3-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Challenge: italics by matrix"><a href="#worksheet02wks-3-7-1" title="Copy heading and permalink for Assemblage: Challenge: italics by matrix" aria-label="Copy heading and permalink for Assemblage: Challenge: italics by matrix">🔗</a></div></article><article class="exercise exercise-like" id="w2-italic"><h3 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="introduction" id="w2-italic-1">
+<div class="para" id="w2-italic-1-1">The word LIFT is drawn in a block font on a grid, and then italicised. The italic word is the image of the upright word under a linear transformation <span class="process-math">\(\colvec{x\\y}\mapsto M\colvec{x\\y}\)</span> for some <span class="process-math">\(2\times 2\)</span> matrix <span class="process-math">\(M\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-italic-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/lift-italic.svg" class="contained" alt="Two grids with unit squares, side by side, each 18 units wide and 6 high with axes labelled 0 to 18 and 0 to 6. The left grid, labelled upright, shows the word LIFT in upright block capitals, 6 units tall, with the L occupying the left column from x equals 0 to 3. The right grid, labelled italic, shows the same word slanted to the right: every horizontal edge is unchanged in height, the base of each letter is in its original place, and the top of each letter has moved 3 units to the right, so the top of the L now spans from x equals 3 to 4."></div>
+</div>
+<article class="task exercise-like" id="w2-italic-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="w2-italic-2-1-1">Write down the coordinates of the six corners of the upright L and of the italic L. Which points have not moved?<div class="autopermalink" data-description="Paragraph"><a href="#w2-italic-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1.6in"></div>
+<div class="autopermalink" data-description="Task 7.a"><a href="#w2-italic-2" title="Copy heading and permalink for Task 7.a" aria-label="Copy heading and permalink for Task 7.a">🔗</a></div></article><article class="task exercise-like" id="w2-italic-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="w2-italic-3-1-1">The columns of <span class="process-math">\(M\)</span> are the images of <span class="process-math">\(\colvec{1\\0}\)</span> and <span class="process-math">\(\colvec{0\\1}\text{.}\)</span> Use the corners from (a) to find these images, and hence <span class="process-math">\(M\text{.}\)</span> What does <span class="process-math">\(M\)</span> do to a general point <span class="process-math">\((x,y)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#w2-italic-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="2in"></div>
+<div class="autopermalink" data-description="Task 7.b"><a href="#w2-italic-3" title="Copy heading and permalink for Task 7.b" aria-label="Copy heading and permalink for Task 7.b">🔗</a></div></article><div class="autopermalink" data-description="Worksheet Exercise 7"><a href="#w2-italic" title="Copy heading and permalink for Worksheet Exercise 7" aria-label="Copy heading and permalink for Worksheet Exercise 7">🔗</a></div></article></section><div class="autopermalink" data-description="Worksheet: Workshop 2: Cross products, lines, planes and matrices"><a href="#worksheet02wks-3" title="Copy heading and permalink for Worksheet: Workshop 2: Cross products, lines, planes and matrices" aria-label="Copy heading and permalink for Worksheet: Workshop 2: Cross products, lines, planes and matrices">🔗</a></div></section><div class="autopermalink" data-description="Article: Engineering Maths 1"><a href="#worksheet02wks" title="Copy heading and permalink for Article: Engineering Maths 1" aria-label="Copy heading and permalink for Article: Engineering Maths 1">🔗</a></div></section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<span class="previous-button button disabled"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></span><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script src="external/print-defaults.js"></script>
+</body>
+</html>
