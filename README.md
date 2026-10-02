@@ -57,6 +57,12 @@ and fails if the source contains solutions, the preview is not A4, a page is
 over-full, there are more than 6 pages, the header or copyright footer is
 missing, an image lacks alternative text, or text is serif or low-contrast.
 
+It waits for the preview to settle (pages laid out, MathJax typeset, fonts
+loaded, layout no longer changing) and then re-runs PreTeXt's workspace fit,
+because PreTeXt fits the pages without waiting for MathJax. It fails with a
+clear message if the preview never settles. Set `AUDIT_DEBUG=1` to see how long
+settling took and what happened in what order.
+
 ## Project layout
 
 - `source/worksheetNN.ptx`: one file per worksheet.
