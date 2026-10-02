@@ -8,5 +8,8 @@
     <target name="worksheet01" format="html" source="worksheet01.ptx" deploy-dir="worksheet01">
       <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
     </target>
+    <target name="worksheet02" format="html" source="worksheet02.ptx" deploy-dir="worksheet02">
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+    </target>
   </targets>
 </project>
