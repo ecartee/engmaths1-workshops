@@ -3,11 +3,13 @@
 <!-- Notation shared by every worksheet, pulled in with xi:include.
      Vectors are written with arrows (\vec{F}, \overrightarrow{AB}) rather than
      the bold of the lecture notes, which is too subtle in print and cannot be
-     handwritten. Unit vectors take a hat and no arrow. -->
+     handwritten. Unit vectors take a hat and no arrow.
+     \colvec{1\\2\\3} writes a column vector in square brackets. -->
 <docinfo>
   <macros>
     \newcommand{\ihat}{\hat{\imath}}
     \newcommand{\jhat}{\hat{\jmath}}
     \newcommand{\khat}{\hat{k}}
+    \newcommand{\colvec}[1]{\begin{bmatrix}#1\end{bmatrix}}
   </macros>
 </docinfo>

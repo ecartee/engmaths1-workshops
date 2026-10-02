@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet02wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 2: Cross products, lines, planes and matrices</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <exercise xml:id="w2-cross">
+          <introduction>
+            <p>Let <m>\vec{a}=\colvec{3\\2\\2}</m> and <m>\vec{b}=\colvec{2\\1\\2}</m>.</p>
+          </introduction>
+          <task workspace="1in">
+            <statement><p>Compute <m>\vec{a}\times\vec{b}</m>.</p></statement>
+          </task>
+          <task workspace="0.8in">
+            <statement><p>Use the dot product to check that your answer is perpendicular to both <m>\vec{a}</m> and <m>\vec{b}</m>.</p></statement>
+          </task>
+        </exercise>
+        <exercise xml:id="w2-sizes" workspace="0.2in">
+          <statement>
+            <p>Suppose that <m>A</m> is a <m>2\times 3</m> matrix, <m>B</m> is a <m>3\times 2</m> matrix, <m>C</m> is a <m>3\times 3</m> matrix, and <m>D</m> is a <m>2\times 2</m> matrix.</p>
+            <p>For each of the following expressions, write down the size of the resulting matrix, or write <q>not defined</q>.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col width="46%" right="minor"/>
+              <col width="46%"/>
+              <row bottom="minor">
+                <cell>Expression</cell><cell>Size, or not defined</cell>
+              </row>
+              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}A+B</m></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}A+B^T</m></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}AB</m></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}BA</m></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}CA</m></cell><cell></cell></row>
+              <row><cell><m>\rule[-0.8em]{0pt}{2.2em}A^TA</m></cell><cell></cell></row>
+            </tabular>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Lines</title>
+        </assemblage>
+        <exercise xml:id="w2-lines">
+          <introduction><p>The equation of a straight line can be written in either vector form or in Cartesian form.</p></introduction>
+          <task workspace="2.2in">
+            <statement><p>Write the line <me>\vec{r}=\colvec{1\\-2\\3}+t\colvec{2\\3\\-1}</me> in Cartesian form.</p></statement>
+          </task>
+          <task workspace="2.6in">
+            <statement><p>A second line has Cartesian equation <me>\frac{x-1}{3}=\frac{4-y}{2}=z-1.</me> Write down a point on this line and a vector along the line. Use this to write the equation of the line in vector form.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Planes</title>
+        </assemblage>
+        <exercise xml:id="w2-plane">
+          <introduction>
+            <p>Let <m>P</m> be the point <m>(1,-1,2)</m>. Let <m>\vec{a}=\colvec{3\\2\\2}</m>, and <m>\vec{b}=\colvec{2\\1\\2}</m>.</p>
+          </introduction>
+          <task workspace="2.6in">
+            <statement><p>Find the equation of the plane that passes through <m>P</m> and is parallel to both <m>\vec{a}</m> and <m>\vec{b}</m>.</p></statement>
+          </task>
+          <task workspace="2.4in">
+            <statement><p>Find the point where the line of Exercise <xref ref="w2-lines" text="global"/>(b) intersects the plane.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Matrix Arithmetic</title>
+        </assemblage>
+        <exercise xml:id="w2-products">
+          <introduction>
+            <p>Let <me>A=\begin{bmatrix}2 &amp; 0 &amp; -1\\ 1 &amp; 3 &amp; 2\end{bmatrix}, \qquad \vec{x}=\colvec{2\\-1\\2}.</me> Compute each of the following operations, or explain why it is not defined.</p>
+          </introduction>
+          <task workspace="0.7in">
+            <statement><p><m>A\vec{x}</m></p></statement>
+          </task>
+          <task workspace="1.1in">
+            <statement><p><m>A^TA</m></p></statement>
+          </task>
+          <task workspace="0.6in">
+            <statement><p><m>\vec{x}^T\vec{x}</m></p></statement>
+          </task>
+          <task workspace="1in">
+            <statement><p><m>\vec{x}\vec{x}^T</m></p></statement>
+          </task>
+          <task workspace="0.5in">
+            <statement><p><m>A^T\vec{x}^T</m></p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Matrix Transformations</title>
+        </assemblage>
+        <exercise xml:id="w2-transform" workspace="4.5in">
+          <statement>
+            <p>A linear transformation <m>T:\mathbb{R}^3\to\mathbb{R}^3</m> satisfies</p>
+            <me>T\left(\colvec{1\\0\\0}\right)=\colvec{1\\2\\0},\qquad T\left(\colvec{1\\1\\0}\right)=\colvec{3\\1\\2},\qquad T\left(\colvec{1\\1\\1}\right)=\colvec{2\\4\\5}.</me>
+            <p>Find the matrix <m>A</m> that represents <m>T</m>, so that <m>T(\vec{x})=A\vec{x}</m> for every <m>\vec{x}\in\mathbb{R}^3</m>.</p>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: italics by matrix</title>
+          <p>Fonts store letters as coordinates, and an italic style can be produced from the upright letters by a linear transformation of the plane.</p>
+        </assemblage>
+        <exercise xml:id="w2-italic">
+          <introduction>
+            <p>The word LIFT is drawn in a block font on a grid, and then italicised. The italic word is the image of the upright word under a linear transformation <m>\colvec{x\\y}\mapsto M\colvec{x\\y}</m> for some <m>2\times 2</m> matrix <m>M</m>.</p>
+            <image source="lift-italic.svg" width="100%">
+              <description>Two grids with unit squares, side by side, each 18 units wide and 6 high with axes labelled 0 to 18 and 0 to 6. The left grid, labelled upright, shows the word LIFT in upright block capitals, 6 units tall, with the L occupying the left column from x equals 0 to 3. The right grid, labelled italic, shows the same word slanted to the right: every horizontal edge is unchanged in height, the base of each letter is in its original place, and the top of each letter has moved 3 units to the right, so the top of the L now spans from x equals 3 to 4.</description>
+            </image>
+          </introduction>
+          <task workspace="1.6in">
+            <statement><p>Write down the coordinates of the six corners of the upright L and of the italic L. Which points have not moved?</p></statement>
+          </task>
+          <task workspace="2in">
+            <statement><p>The columns of <m>M</m> are the images of <m>\colvec{1\\0}</m> and <m>\colvec{0\\1}</m>. Use the corners from (a) to find these images, and hence <m>M</m>. What does <m>M</m> do to a general point <m>(x,y)</m>?</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>
