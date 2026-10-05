@@ -9,8 +9,8 @@
   eyeball in print preview. This measures them.
 
   It loads the worksheet, follows its own print-preview link (so nobody has to
-  know the `?printpreview=worksheetNNwks-3` id), waits for MathJax and the
-  workspace-sizing JS to settle, then sends the measurements back to
+  know the `?printpreview=worksheetNNwks-3` id), polls until MathJax and the
+  workspace-sizing JS have settled, then sends the measurements back to
   tools/audit.py.
 -->
 <html lang="en">
@@ -19,7 +19,9 @@
 <iframe id="f" style="width:1100px;height:1400px;border:0"></iframe>
 <pre id="out">pending</pre>
 <script>
-const SETTLE_MS = 9000;       // MathJax + workspace JS
+const POLL_MS = 250;           // how often to look at the print preview
+const STABLE_POLLS = 2;        // consecutive identical layouts needed to settle
+const SETTLE_TIMEOUT_MS = 60000;
 const params = new URLSearchParams(location.search);
 const target = params.get('t');
 const f = document.getElementById('f');
@@ -48,7 +50,7 @@ function toPx(length) {
   return parseFloat(m[1]) * perUnit[m[2] || 'px'];
 }
 
-function measure() {
+function measure(settled) {
   const doc = f.contentDocument, win = f.contentWindow;
   const cv = doc.createElement('canvas');
   const cx = cv.getContext('2d', { willReadFrequently: true });
@@ -195,10 +197,125 @@ function measure() {
     });
   });
 
-  report({ pages, print, solutions, images, text: Object.values(text), ink });
+  report({ pages, print, solutions, images, text: Object.values(text), ink, settled });
 }
 
-f.addEventListener('load', () => {
+// --- waiting for the print preview to settle ----------------------------
+// PreTeXt builds the print preview after the page loads: it swaps in the
+// print stylesheet, waits for it, splits the worksheet into .onepage divs,
+// adds headers and footers, then scales every .workspace so each page is
+// exactly full. MathJax typesets in parallel and loads its fonts after that.
+// A fixed delay measured the raw layout whenever this ran late, so instead
+// poll until all of it has happened and the layout has stopped changing.
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+function layoutOf(doc) {
+  // Everything the fit check depends on, rounded so sub-pixel noise is ignored.
+  const parts = [];
+  doc.querySelectorAll('.onepage').forEach(pg => {
+    const top = pg.getBoundingClientRect().top;
+    let bottom = 0;
+    pg.querySelectorAll('*').forEach(el => {
+      if (el.offsetParent === null) return;
+      bottom = Math.max(bottom, el.getBoundingClientRect().bottom - top);
+    });
+    parts.push(Math.round(bottom));
+    pg.querySelectorAll('.workspace').forEach(ws =>
+      parts.push(Math.round(ws.getBoundingClientRect().height)));
+  });
+  return parts.join(',');
+}
+
+function pending(doc, win, math) {
+  // What is still outstanding before the preview can be measured.
+  const waiting = [];
+  if (!doc.querySelector('.onepage')) waiting.push('pages');
+  if (!doc.querySelector('.first-page-header')) waiting.push('headers and footers');
+  // adjustWorkspaceToFitPage writes a px height to every workspace; before
+  // it runs they carry the authored length (e.g. "1.2in") or nothing.
+  const ws = Array.from(doc.querySelectorAll('.workspace'));
+  if (ws.some(w => !/px$/.test(w.style.height))) waiting.push('workspace sizing');
+  if (math !== 'done') waiting.push('MathJax (' + math + ')');
+  if (doc.fonts && doc.fonts.status !== 'loaded') waiting.push('fonts');
+  if (Array.from(doc.images).some(im => !im.complete)) waiting.push('images');
+  return waiting;
+}
+
+function refit(doc, win) {
+  // PreTeXt fits the workspaces as soon as its print stylesheet has loaded,
+  // without waiting for MathJax. When typesetting finishes later (it can need
+  // an extension from the CDN), the pages were fitted around raw TeX and the
+  // typeset mathematics no longer fits. Re-run PreTeXt's own fit now that
+  // everything is in place: it is the same call the preview makes when the
+  // reader changes paper size. Returns whether the layout moved.
+  if (typeof win.adjustWorkspaceToFitPage !== 'function' ||
+      typeof win.toPixels !== 'function') return null;
+  const printout = doc.querySelector('section.worksheet, section.handout');
+  if (!printout) return null;
+  const m = (printout.getAttribute('data-margins') || '').split(' ');
+  const margins = { top: win.toPixels(m[0] || '0.75in'), right: win.toPixels(m[1] || '0.75in'),
+                    bottom: win.toPixels(m[2] || '0.75in'), left: win.toPixels(m[3] || '0.75in') };
+  const paperSize = doc.body.classList.contains('letter') ? 'letter' : 'a4';
+  const before = layoutOf(doc);
+  win.adjustWorkspaceToFitPage({ paperSize, margins });
+  return layoutOf(doc) !== before;
+}
+
+async function settle() {
+  const doc = f.contentDocument, win = f.contentWindow;
+  const started = performance.now();
+  const timeline = [];
+  const seen = new Set();
+  let math = 'script not loaded', last = null, stable = 0, polls = 0, waiting;
+  let refitted = false;
+
+  for (;;) {
+    polls++;
+    const ms = Math.round(performance.now() - started);
+    if ((math === 'script not loaded' || math === 'not started') && win.MathJax) {
+      const startup = win.MathJax.startup;
+      if (startup && startup.promise) {
+        math = 'typesetting';
+        startup.promise.then(() => { math = 'done'; }, () => { math = 'failed'; });
+      } else {
+        math = 'not started';
+      }
+    }
+    waiting = pending(doc, win, math);
+    for (const w of ['pages', 'headers and footers', 'workspace sizing', 'fonts', 'images']) {
+      if (!waiting.includes(w) && !seen.has(w)) { seen.add(w); timeline.push(w + ' ' + ms); }
+    }
+    if (math === 'done' && !seen.has('mathjax')) { seen.add('mathjax'); timeline.push('mathjax ' + ms); }
+    if (math === 'failed') {
+      return { error: 'MathJax failed to typeset the print preview' };
+    }
+    if (waiting.length === 0) {
+      const now = layoutOf(doc);
+      stable = now === last ? stable + 1 : 1;
+      last = now;
+      if (stable >= STABLE_POLLS && !refitted) {
+        const moved = refit(doc, win);
+        refitted = true;
+        timeline.push((moved === null ? 'no refit' : moved ? 'refit moved layout' : 'refit unchanged') + ' ' + ms);
+        stable = 0; last = null;
+      } else if (stable >= STABLE_POLLS) {
+        timeline.push('stable ' + ms);
+        return { ms, polls, timeline };
+      }
+    } else {
+      stable = 0; last = null;
+    }
+    if (performance.now() - started > SETTLE_TIMEOUT_MS) {
+      const why = waiting.length ? 'still waiting for ' + waiting.join(', ')
+                                 : 'layout kept changing';
+      return { error: 'print preview did not settle after ' + Math.round(SETTLE_TIMEOUT_MS / 1000)
+                      + 's: ' + why + ' (' + timeline.join('; ') + ')' };
+    }
+    await sleep(POLL_MS);
+  }
+}
+
+f.addEventListener('load', async () => {
   if (!followed) {
     // Follow the worksheet's own print-preview link.
     const doc = f.contentDocument;
@@ -208,7 +325,9 @@ f.addEventListener('load', () => {
     report({ error: 'no printpreview link found' });
     return;
   }
-  setTimeout(measure, SETTLE_MS);
+  const settled = await settle();
+  if (settled.error) { report(settled); return; }
+  measure(settled);
 });
 f.src = target;
 </script>

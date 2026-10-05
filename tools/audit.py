@@ -15,7 +15,8 @@ Usage:
 
 Build first (this reads output/<target>/). Exits non-zero if any check fails,
 so it doubles as a pre-deploy gate. Needs Firefox or Chrome; set AUDIT_BROWSER
-to the executable if it is somewhere unusual.
+to the executable if it is somewhere unusual. Set AUDIT_DEBUG=1 to see how long
+the print preview took to settle and in what order its parts finished.
 """
 import functools
 import glob
@@ -34,7 +35,7 @@ import xml.etree.ElementTree as ET
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 A4 = (794, 1123)      # 210mm x 297mm at 96dpi
 MAX_PAGES = 6         # a workshop is about 50 minutes: 4 pages, 6 at most
-TIMEOUT_S = 90
+TIMEOUT_S = 120       # must outlast SETTLE_TIMEOUT_MS in audit.html plus two page loads
 HIDDEN = ("solution", "answer", "hint")
 
 BROWSERS = [
@@ -107,6 +108,11 @@ def check_source(source):
 def check_render(d):
     ok = True
     pages = d["pages"]
+    if os.environ.get("AUDIT_DEBUG") and d.get("settled"):
+        print("   info  print preview settled after %dms: %s"
+              % (d["settled"]["ms"], "; ".join(d["settled"]["timeline"])))
+        print("   info  page bottoms: %s (limit %s)"
+              % (" ".join(str(p["bottom"]) for p in pages), pages[0]["limit"] if pages else "-"))
 
     if d["print"]["paper"] != "a4" or any((p["width"], p["height"]) != A4 for p in pages):
         ok = False
