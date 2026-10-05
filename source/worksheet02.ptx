@@ -30,7 +30,7 @@
         </exercise>
         <exercise xml:id="w2-sizes" workspace="0.2in">
           <statement>
-            <p>Suppose that <m>A</m> is a <m>2\times 3</m> matrix, <m>B</m> is a <m>3\times 2</m> matrix, <m>C</m> is a <m>3\times 3</m> matrix, and <m>D</m> is a <m>2\times 2</m> matrix.</p>
+            <p>Suppose that <m>A</m> is a <m>2\times 3</m> matrix, <m>B</m> is a <m>3\times 2</m> matrix, and <m>C</m> is a <m>3\times 3</m> matrix.</p>
             <p>Write down the size of each expression, or write <q>not defined</q>.</p>
             <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
               <col width="46%" right="minor"/>
