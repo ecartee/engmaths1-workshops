@@ -8,6 +8,8 @@
   * a missing course header or copyright footer
   * an <image> with no <description>, so no alt text
   * serif or low-contrast text, and faint ink inside images
+  * an equation, table or image too wide for a phone screen, which the
+    phone cuts off at the right-hand edge
 
 Usage:
     tools/audit.py                  # every target in project.ptx
@@ -35,7 +37,8 @@ import xml.etree.ElementTree as ET
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 A4 = (794, 1123)      # 210mm x 297mm at 96dpi
 MAX_PAGES = 6         # a workshop is about 50 minutes: 4 pages, 6 at most
-TIMEOUT_S = 120       # must outlast SETTLE_TIMEOUT_MS in audit.html plus two page loads
+TIMEOUT_S = 200       # must outlast SETTLE_TIMEOUT_MS in audit.html twice (print
+                      # preview, then phone view) plus three page loads
 HIDDEN = ("solution", "answer", "hint")
 
 BROWSERS = [
@@ -178,6 +181,23 @@ def check_render(d):
               % (k["src"], k["family"], k["rgb"], k["ratio"], need))
     if d["ink"] and all(k["verdict"] == "OK" for k in d["ink"]):
         print("   ok    image ink contrast")
+
+    phone = d.get("phone") or {"error": "phone-width check did not run"}
+    if "error" in phone:
+        ok = False
+        print("   FAIL  %s" % phone["error"])
+    else:
+        for o in phone["overflow"]:
+            ok = False
+            fix = " -- put one equation per line with <md> and <mrow>" if o["kind"] == "displayed equation" else ""
+            print("   FAIL  %s: %s is %dpx wide but a %dpx phone has %dpx%s"
+                  % (o["place"], o["kind"], o["width"], phone["width"], o["room"], fix))
+        if phone["pageWidth"] > phone["width"]:
+            ok = False
+            print("   FAIL  the page scrolls sideways on a %dpx phone (%dpx wide)"
+                  % (phone["width"], phone["pageWidth"]))
+        if not phone["overflow"] and phone["pageWidth"] <= phone["width"]:
+            print("   ok    fits a %dpx phone screen" % phone["width"])
     return ok
 
 
