@@ -43,3 +43,30 @@
 .onepage .tabular-box.natural-width table {
   width: 92%;
 }
+
+/*
+ * Phones: a display too wide for the column scrolls sideways (the theme sets
+ * overflow-x: auto), but the only cue is a faint scrollbar that phones hide.
+ * Add edge shadows that appear only where content is cut off. The first two
+ * layers scroll with the content and cover the shadows at each end; the last
+ * two stay put. The audit's phone-width check should stop such displays
+ * reaching readers; this is the safety net if one slips through.
+ */
+.ptx-content .displaymath {
+  background:
+    linear-gradient(to right, var(--content-background, #fff) 50%, transparent) left center / 3em 100% no-repeat local,
+    linear-gradient(to left, var(--content-background, #fff) 50%, transparent) right center / 3em 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgba(128, 128, 128, 0.75), transparent) left center / 1.2em 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(128, 128, 128, 0.75), transparent) right center / 1.2em 100% no-repeat scroll;
+  background-color: var(--content-background, #fff);
+}
+
+/*
+ * Paper does not scroll: no shadows in the print preview. (.onepage cannot
+ * tell the two views apart: worksheet pages are .onepage in the scrollable
+ * view too. The print preview marks <body> with its paper size.)
+ */
+body.a4 .displaymath,
+body.letter .displaymath {
+  background: none;
+}

@@ -45,6 +45,11 @@ handling used by this renderer (see the
   them. `notes/` and `solutions/` are ignored by Git as a safeguard.
 - **Images.** Put shared images in `assets/` and give every `<image>` a
   `<description>` for alternative text.
+- **Phones.** Students open worksheets on phones, where the column is about
+  320px wide, and MathJax cannot break a long equation across lines. Put at
+  most two matrices or column vectors side by side in one display; for a
+  list of equations, put one per line with `<md>` and an `<mrow>` for each,
+  aligned with `\amp`. The audit checks this.
 
 ## Check a worksheet
 
@@ -56,6 +61,11 @@ Build first. The audit opens the print preview in headless Firefox or Chrome
 and fails if the source contains solutions, the preview is not A4, a page is
 over-full, there are more than 6 pages, the header or copyright footer is
 missing, an image lacks alternative text, or text is serif or low-contrast.
+
+It then opens the normal view 360px wide, the narrowest common phone screen,
+and fails if an equation, table or image is wider than the column, naming the
+exercise. A phone cuts such content off at the right-hand edge, and only an
+edge shadow (from `assets/custom.css`) hints that it scrolls.
 
 It waits for the preview to settle (pages laid out, MathJax typeset, fonts
 loaded, layout no longer changing) and then re-runs PreTeXt's workspace fit,

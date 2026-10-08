@@ -67,7 +67,11 @@
         <exercise xml:id="w1-displacement" workspace="3in">
           <statement>
             <p>Let <m>A=(-4,2,5)</m> and <m>B=(2,-1,7)</m>. Three proposed unit vectors from <m>A</m> towards <m>B</m> are</p>
-            <me>\vec{u}=\frac{1}{7}(6,-3,2),\qquad \vec{v}=\frac{1}{49}(6,-3,2),\qquad \vec{w}=-\frac{1}{7}(6,-3,2).</me>
+            <md>
+              <mrow>\vec{u}\amp=\frac{1}{7}(6,-3,2),</mrow>
+              <mrow>\vec{v}\amp=\frac{1}{49}(6,-3,2),</mrow>
+              <mrow>\vec{w}\amp=-\frac{1}{7}(6,-3,2).</mrow>
+            </md>
             <p>Which is correct? Justify your choice and explain what is wrong with each of the others.</p>
           </statement>
         </exercise>

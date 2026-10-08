@@ -10,18 +10,23 @@
 
   It loads the worksheet, follows its own print-preview link (so nobody has to
   know the `?printpreview=worksheetNNwks-3` id), polls until MathJax and the
-  workspace-sizing JS have settled, then sends the measurements back to
-  tools/audit.py.
+  workspace-sizing JS have settled, and measures the printed pages. It then
+  loads the normal scrollable view in a phone-width frame and looks for
+  anything wider than the column (a long displayed equation, a wide table),
+  which a phone cuts off at the right-hand edge. Finally it sends the
+  measurements back to tools/audit.py.
 -->
 <html lang="en">
 <head><meta charset="utf-8"><title>worksheet audit</title></head>
 <body>
 <iframe id="f" style="width:1100px;height:1400px;border:0"></iframe>
+<iframe id="phone" style="width:360px;height:800px;border:0"></iframe>
 <pre id="out">pending</pre>
 <script>
 const POLL_MS = 250;           // how often to look at the print preview
 const STABLE_POLLS = 2;        // consecutive identical layouts needed to settle
 const SETTLE_TIMEOUT_MS = 60000;
+const PHONE_WIDTH = 360;       // narrowest common phone screen, in CSS px (iPhones are 375-430)
 const params = new URLSearchParams(location.search);
 const target = params.get('t');
 const f = document.getElementById('f');
@@ -43,6 +48,14 @@ function lum(r, g, b) {
 function ratioOf(l1, l2) {
   return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
 }
+// Mathematics is measured by its MathJax container, not the pieces inside.
+// A tall bracket is drawn as top and bottom glyphs plus a repeated middle
+// piece inside a clipped box; in Firefox that hidden piece's own zero-height
+// box can sit below the page footer although nothing is drawn there.
+function insideMath(el) {
+  return !!(el.parentElement && el.parentElement.closest('mjx-container'));
+}
+
 function toPx(length) {
   const m = /^([\d.]+)\s*(in|cm|mm|pt|px)?$/.exec((length || '').trim());
   if (!m) return null;
@@ -71,7 +84,8 @@ function measure(settled) {
   // --- page size and fit ---------------------------------------------------
   // Everything on a page, footer included, must end above the bottom margin.
   // scrollHeight is useless here (overflow is visible), so take the lowest
-  // rendered edge of any laid-out descendant relative to the page top.
+  // rendered edge of any laid-out descendant relative to the page top
+  // (mathematics by its MathJax container: see insideMath).
   //
   // PreTeXt stretches or squeezes every workspace on a page by the same factor
   // to fill it. A factor below 1 means the page is over-full: students get
@@ -82,6 +96,7 @@ function measure(settled) {
     let bottom = 0;
     pg.querySelectorAll('*').forEach(el => {
       if (el.offsetParent === null) return;              // hidden / not laid out
+      if (insideMath(el)) return;
       const b = el.getBoundingClientRect().bottom - box.top;
       if (b > bottom) bottom = b;
     });
@@ -197,7 +212,85 @@ function measure(settled) {
     });
   });
 
-  report({ pages, print, solutions, images, text: Object.values(text), ink, settled });
+  return { pages, print, solutions, images, text: Object.values(text), ink, settled };
+}
+
+// --- phone width -----------------------------------------------------------
+// MathJax 3 cannot break a displayed equation across lines, so a long one is
+// wider than a phone's column. PreTeXt lets it scroll sideways, but phones
+// hide the scrollbar, so readers just see it cut off. Load the normal view in
+// a phone-width frame and report anything wider than its box or past the
+// right-hand edge of the screen.
+function placeOf(el) {
+  const ex = el.closest('article.exercise');
+  if (ex) {
+    const num = ex.querySelector('.codenumber');
+    const task = el.closest('article.task');
+    const part = task && task.querySelector('.codenumber');
+    return 'Exercise ' + (num ? num.textContent.trim().replace(/\.$/, '') : ex.id)
+         + (part ? part.textContent.trim().replace(/\.$/, '') : '');
+  }
+  const block = el.closest('article, section');
+  const title = block && block.querySelector('.title');
+  return title ? title.textContent.trim() : (block && block.id) || 'page';
+}
+
+function phoneOverflow(doc) {
+  const screen = doc.documentElement.clientWidth;
+  const found = {};
+  doc.querySelectorAll('.ptx-content .displaymath, .ptx-content .tabular-box, '
+                     + '.ptx-content .image-box, .ptx-content img, .ptx-content pre').forEach(el => {
+    if (el.offsetParent === null) return;              // hidden (e.g. a closed knowl)
+    const right = el.getBoundingClientRect().right;
+    if (el.scrollWidth <= el.clientWidth + 1 && right <= screen + 1) return;
+    const kind = el.matches('.displaymath') ? 'displayed equation'
+               : el.matches('.tabular-box') ? 'table'
+               : el.matches('pre') ? 'code block' : 'image';
+    const key = placeOf(el) + '|' + kind;
+    const wide = Math.max(el.scrollWidth, Math.round(right - el.getBoundingClientRect().left));
+    if (!found[key] || wide > found[key].width) {
+      found[key] = { place: placeOf(el), kind, width: wide, room: el.clientWidth };
+    }
+  });
+  return Object.values(found);
+}
+
+async function checkPhone() {
+  const ph = document.getElementById('phone');
+  await new Promise(res => { ph.addEventListener('load', res, { once: true }); ph.src = target; });
+  const doc = ph.contentDocument, win = ph.contentWindow;
+  const started = performance.now();
+  const late = () => performance.now() - started > SETTLE_TIMEOUT_MS;
+
+  while (!(win.MathJax && win.MathJax.startup && win.MathJax.startup.promise)) {
+    if (late()) return { error: 'MathJax never started in the phone view' };
+    await sleep(POLL_MS);
+  }
+  try { await win.MathJax.startup.promise; }
+  catch (e) { return { error: 'MathJax failed to typeset the phone view' }; }
+
+  // Scroll through once. Measured without this, a too-wide equation further
+  // down the page was reported as fitting; once it had been on screen it
+  // measured at its true width.
+  const step = Math.max(200, Math.round(win.innerHeight * 0.8));
+  for (let y = 0; y < doc.documentElement.scrollHeight; y += step) {
+    win.scrollTo(0, y);
+    await sleep(60);
+  }
+  win.scrollTo(0, 0);
+  if (doc.fonts) await doc.fonts.ready;
+
+  let found, last = null, stable = 0;
+  for (;;) {
+    found = phoneOverflow(doc);
+    const now = JSON.stringify(found);
+    stable = now === last ? stable + 1 : 1;
+    last = now;
+    if (stable >= STABLE_POLLS) break;
+    if (late()) return { error: 'phone view kept changing after ' + Math.round(SETTLE_TIMEOUT_MS / 1000) + 's' };
+    await sleep(POLL_MS);
+  }
+  return { width: PHONE_WIDTH, pageWidth: doc.documentElement.scrollWidth, overflow: found };
 }
 
 // --- waiting for the print preview to settle ----------------------------
@@ -216,7 +309,7 @@ function layoutOf(doc) {
     const top = pg.getBoundingClientRect().top;
     let bottom = 0;
     pg.querySelectorAll('*').forEach(el => {
-      if (el.offsetParent === null) return;
+      if (el.offsetParent === null || insideMath(el)) return;
       bottom = Math.max(bottom, el.getBoundingClientRect().bottom - top);
     });
     parts.push(Math.round(bottom));
@@ -327,7 +420,9 @@ f.addEventListener('load', async () => {
   }
   const settled = await settle();
   if (settled.error) { report(settled); return; }
-  measure(settled);
+  const result = measure(settled);
+  result.phone = await checkPhone();
+  report(result);
 });
 f.src = target;
 </script>

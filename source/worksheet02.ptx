@@ -57,7 +57,7 @@
           <task workspace="2.2in">
             <statement><p>Write the line <me>\vec{r}=\colvec{1\\-2\\3}+t\colvec{2\\3\\-1}</me> in Cartesian form.</p></statement>
           </task>
-          <task workspace="2.6in">
+          <task workspace="2.5in">
             <statement><p>A second line has Cartesian equation <me>\frac{x-1}{3}=\frac{4-y}{2}=z-1.</me> Write down a point on this line and a vector along the line. Use this to write the equation of the line in vector form.</p></statement>
           </task>
         </exercise>
@@ -99,10 +99,14 @@
         <assemblage>
           <title>Practice: Matrix Transformations</title>
         </assemblage>
-        <exercise xml:id="w2-transform" workspace="4.5in">
+        <exercise xml:id="w2-transform" workspace="3.5in">
           <statement>
             <p>A linear transformation <m>T</m> is given by <m>T(\vec{x})=A\vec{x}</m>, where <m>A</m> is a <m>3\times 3</m> matrix. Find <m>A</m>, given that</p>
-            <me>T\left(\colvec{1\\0\\0}\right)=\colvec{1\\2\\0},\qquad T\left(\colvec{1\\1\\0}\right)=\colvec{3\\1\\2},\qquad T\left(\colvec{1\\1\\1}\right)=\colvec{2\\4\\5}.</me>
+            <md>
+              <mrow>T\left(\colvec{1\\0\\0}\right)\amp=\colvec{1\\2\\0},</mrow>
+              <mrow>T\left(\colvec{1\\1\\0}\right)\amp=\colvec{3\\1\\2},</mrow>
+              <mrow>T\left(\colvec{1\\1\\1}\right)\amp=\colvec{2\\4\\5}.</mrow>
+            </md>
           </statement>
         </exercise>
       </page>
