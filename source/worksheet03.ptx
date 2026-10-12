@@ -21,10 +21,10 @@
           <title>Warm-up</title>
           <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
         </assemblage>
-        <!-- Review of Week 3 videos 1-3 (matrix products, transformations),
-             ideally with a matrix that is reused later on the sheet. -->
-        <exercise xml:id="w3-review">
-          <introduction><p>[Placeholder: review of matrix products or transformations.]</p></introduction>
+        <!-- Drawn from this sheet's topics, ideally with a matrix that is
+             reused later on the sheet. -->
+        <exercise xml:id="w3-warmup">
+          <introduction><p>[Placeholder: warm-up problem.]</p></introduction>
           <task workspace="1.2in">
             <statement><p>[Placeholder: part (a).]</p></statement>
           </task>
