@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- Workshop 3 covers Week 3 videos 4-6 (determinants, triple products and
+     linear independence, inverses) and Week 4 videos 1-2 (linear systems,
+     Gaussian elimination). Budget about 35 minutes of core work: warm-up
+     about 8, each practice page about 7, plus the optional challenge. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet03wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 3: Determinants, inverses and linear systems</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <!-- Review of Week 3 videos 1-3 (matrix products, transformations),
+             ideally with a matrix that is reused later on the sheet. -->
+        <exercise xml:id="w3-review">
+          <introduction><p>[Placeholder: review of matrix products or transformations.]</p></introduction>
+          <task workspace="1.2in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="1.2in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+        <!-- Concept check, e.g. a tick-box table. -->
+        <exercise xml:id="w3-concept" workspace="0.2in">
+          <statement>
+            <p>[Placeholder: concept check. Decide whether each statement is true or false.]</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col width="70%" right="minor" halign="left"/>
+              <col width="12%" right="minor"/>
+              <col width="12%"/>
+              <row bottom="minor">
+                <cell>Statement</cell><cell>True</cell><cell>False</cell>
+              </row>
+              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}</m>[Placeholder: statement 1.]</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}</m>[Placeholder: statement 2.]</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}</m>[Placeholder: statement 3.]</cell><cell></cell><cell></cell></row>
+              <row><cell><m>\rule[-0.8em]{0pt}{2.2em}</m>[Placeholder: statement 4.]</cell><cell></cell><cell></cell></row>
+            </tabular>
+          </statement>
+        </exercise>
+      </page>
+      <!-- Week 3 video 4. -->
+      <page>
+        <assemblage>
+          <title>Practice: Determinants</title>
+        </assemblage>
+        <exercise xml:id="w3-det">
+          <introduction><p>[Placeholder: determinant problem.]</p></introduction>
+          <task workspace="2.5in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="2.5in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <!-- Week 3 video 5: volumes, coplanarity, linear independence. -->
+      <page>
+        <assemblage>
+          <title>Practice: Triple Products</title>
+        </assemblage>
+        <exercise xml:id="w3-triple">
+          <introduction><p>[Placeholder: triple product problem.]</p></introduction>
+          <task workspace="2.5in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="2.5in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <!-- Week 3 video 6: inverses by the cofactor formula (row reduction
+           for inverses is Week 4 video 5, so not yet). -->
+      <page>
+        <assemblage>
+          <title>Practice: Inverses</title>
+        </assemblage>
+        <exercise xml:id="w3-inverse" workspace="5in">
+          <statement><p>[Placeholder: inverse problem.]</p></statement>
+        </exercise>
+      </page>
+      <!-- Week 4 videos 1-2. Display a system with <md>, one <mrow> per
+           equation, aligned at \amp=, so it fits on a phone. -->
+      <page>
+        <assemblage>
+          <title>Practice: Gaussian Elimination</title>
+        </assemblage>
+        <exercise xml:id="w3-gauss" workspace="5in">
+          <statement><p>[Placeholder: linear system to solve by Gaussian elimination.]</p></statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge</title>
+          <p>[Placeholder: what this optional extension connects.]</p>
+        </assemblage>
+        <exercise xml:id="w3-challenge">
+          <introduction><p>[Placeholder: challenge problem.]</p></introduction>
+          <task workspace="2.5in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="2.5in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>

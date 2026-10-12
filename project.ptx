@@ -11,5 +11,8 @@
     <target name="worksheet02" format="html" source="worksheet02.ptx" deploy-dir="worksheet02">
       <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
     </target>
+    <target name="worksheet03" format="html" source="worksheet03.ptx" deploy-dir="worksheet03">
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+    </target>
   </targets>
 </project>
