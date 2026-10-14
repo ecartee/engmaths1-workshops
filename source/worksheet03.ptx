@@ -4,8 +4,8 @@
      Keep authored worksheet prose in British English. -->
 <!-- Workshop 3 covers Week 3 videos 4-6 (determinants, triple products and
      linear independence, inverses) and Week 4 videos 1-2 (linear systems,
-     Gaussian elimination). Budget about 35 minutes of core work: warm-up
-     about 8, each practice page about 7, plus the optional challenge. -->
+     Gaussian elimination). Inverses stay 2x2: row reduction for inverses
+     is Week 4 video 5. -->
 <pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
   <xi:include href="docinfo.ptx"/>
   <article xml:id="worksheet03wks">
@@ -21,21 +21,22 @@
           <title>Warm-up</title>
           <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
         </assemblage>
-        <!-- Drawn from this sheet's topics, ideally with a matrix that is
-             reused later on the sheet. -->
+        <!-- M returns in the Gaussian elimination exercise and N in the
+             linear systems exercise. -->
         <exercise xml:id="w3-warmup">
-          <introduction><p>[Placeholder: warm-up problem.]</p></introduction>
-          <task workspace="1.2in">
-            <statement><p>[Placeholder: part (a).]</p></statement>
+          <introduction>
+            <p>Let <me>M=\begin{bmatrix}1 &amp; 2 &amp; 1\\ 2 &amp; 1 &amp; 0\\ 0 &amp; 1 &amp; 2\end{bmatrix}, \quad N=\begin{bmatrix}3 &amp; 5\\ 1 &amp; 2\end{bmatrix}.</me></p>
+          </introduction>
+          <task workspace="1.3in">
+            <statement><p>Find <m>\det M</m>.</p></statement>
           </task>
-          <task workspace="1.2in">
-            <statement><p>[Placeholder: part (b).]</p></statement>
+          <task workspace="1.0in">
+            <statement><p>Find <m>N^{-1}</m>.</p></statement>
           </task>
         </exercise>
-        <!-- Concept check, e.g. a tick-box table. -->
-        <exercise xml:id="w3-concept" workspace="0.2in">
+        <exercise xml:id="w3-truefalse" workspace="0.2in">
           <statement>
-            <p>[Placeholder: concept check. Decide whether each statement is true or false.]</p>
+            <p>Suppose that <m>A</m> and <m>B</m> are <m>3\times 3</m> matrices. Decide whether each statement is true or false.</p>
             <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
               <col width="70%" right="minor" halign="left"/>
               <col width="12%" right="minor"/>
@@ -43,76 +44,120 @@
               <row bottom="minor">
                 <cell>Statement</cell><cell>True</cell><cell>False</cell>
               </row>
-              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}</m>[Placeholder: statement 1.]</cell><cell></cell><cell></cell></row>
-              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}</m>[Placeholder: statement 2.]</cell><cell></cell><cell></cell></row>
-              <row bottom="minor"><cell><m>\rule[-0.8em]{0pt}{2.2em}</m>[Placeholder: statement 3.]</cell><cell></cell><cell></cell></row>
-              <row><cell><m>\rule[-0.8em]{0pt}{2.2em}</m>[Placeholder: statement 4.]</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}\det(A^T)=\det A</m></cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}\det(A+B)=\det A+\det B</m></cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}\det(AB)=\det(BA)</m></cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}\det(2A)=2\det A</m></cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}</m>If the columns of <m>A</m> are linearly dependent, then <m>\det A=0</m>.</cell><cell></cell><cell></cell></row>
+              <row><cell><m>\rule[-0.6em]{0pt}{1.8em}</m>If <m>\det A=0</m>, then <m>A</m> has a row of zeros or two equal rows.</cell><cell></cell><cell></cell></row>
             </tabular>
           </statement>
         </exercise>
       </page>
-      <!-- Week 3 video 4. -->
-      <page>
-        <assemblage>
-          <title>Practice: Determinants</title>
-        </assemblage>
-        <exercise xml:id="w3-det">
-          <introduction><p>[Placeholder: determinant problem.]</p></introduction>
-          <task workspace="2.5in">
-            <statement><p>[Placeholder: part (a).]</p></statement>
-          </task>
-          <task workspace="2.5in">
-            <statement><p>[Placeholder: part (b).]</p></statement>
-          </task>
-        </exercise>
-      </page>
-      <!-- Week 3 video 5: volumes, coplanarity, linear independence. -->
       <page>
         <assemblage>
           <title>Practice: Triple Products</title>
         </assemblage>
-        <exercise xml:id="w3-triple">
-          <introduction><p>[Placeholder: triple product problem.]</p></introduction>
-          <task workspace="2.5in">
-            <statement><p>[Placeholder: part (a).]</p></statement>
+        <exercise xml:id="w3-cube">
+          <introduction>
+            <p>Let <m>\vec{v}_1=2\ihat+\jhat-2\khat</m> and <m>\vec{v}_2=\ihat+2\jhat+2\khat</m>.</p>
+          </introduction>
+          <task workspace="1.2in">
+            <statement><p>Show that <m>\vec{v}_1</m> and <m>\vec{v}_2</m> are perpendicular and have the same length.</p></statement>
           </task>
-          <task workspace="2.5in">
-            <statement><p>[Placeholder: part (b).]</p></statement>
+          <task workspace="2.4in">
+            <statement><p>Find a vector <m>\vec{v}_3</m> such that the parallelepiped with edges <m>\vec{v}_1</m>, <m>\vec{v}_2</m> and <m>\vec{v}_3</m> is a cube. Is there more than one choice?</p></statement>
+          </task>
+          <task workspace="2.4in">
+            <statement><p>What volume should this cube have? Check your answer using a triple product.</p></statement>
           </task>
         </exercise>
       </page>
-      <!-- Week 3 video 6: inverses by the cofactor formula (row reduction
-           for inverses is Week 4 video 5, so not yet). -->
       <page>
         <assemblage>
           <title>Practice: Inverses</title>
         </assemblage>
-        <exercise xml:id="w3-inverse" workspace="5in">
-          <statement><p>[Placeholder: inverse problem.]</p></statement>
+        <exercise xml:id="w3-rotation">
+          <introduction>
+            <p>The matrix <me>R(\theta)=\begin{bmatrix}\cos\theta &amp; -\sin\theta\\ \sin\theta &amp; \cos\theta\end{bmatrix}</me> rotates vectors anticlockwise through an angle <m>\theta</m> about the origin.</p>
+          </introduction>
+          <task workspace="1.3in">
+            <statement><p>Show that <m>\det R(\theta)=1</m> for every <m>\theta</m>. What does this tell you about areas?</p></statement>
+          </task>
+          <task workspace="2.0in">
+            <statement><p>Find <m>R(\theta)^{-1}</m>. Explain geometrically why your answer is <m>R(-\theta)</m>.</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>Notice that <m>R(\theta)^{-1}=R(\theta)^T</m>, so <m>R(\theta)^TR(\theta)=I</m>. Suppose that <m>U</m> is a square matrix with <m>U^TU=I</m>. Use the properties of the determinant to show that <m>\det U=\pm 1</m>.</p></statement>
+          </task>
         </exercise>
       </page>
-      <!-- Week 4 videos 1-2. Display a system with <md>, one <mrow> per
-           equation, aligned at \amp=, so it fits on a phone. -->
+      <page>
+        <assemblage>
+          <title>Practice: Linear Systems</title>
+        </assemblage>
+        <exercise xml:id="w3-compare">
+          <introduction>
+            <p>Let <m>N</m> be the matrix from Exercise 1, and let <m>\vec{b}=\colvec{7\\3}</m>.</p>
+          </introduction>
+          <task workspace="1.5in">
+            <statement><p>Solve <m>N\vec{x}=\vec{b}</m> by row reducing the augmented matrix <m>[N\,|\,\vec{b}]</m>.</p></statement>
+          </task>
+          <task workspace="1.1in">
+            <statement><p>Solve <m>N\vec{x}=\vec{b}</m> again, this time as <m>\vec{x}=N^{-1}\vec{b}</m>, using your answer to Exercise 1(b).</p></statement>
+          </task>
+          <task workspace="1.1in">
+            <statement><p>Now solve <m>N\vec{x}=\colvec{4\\1}</m>. Which method did you use, and why?</p></statement>
+          </task>
+          <task workspace="1.2in">
+            <statement><p>Explain in your own words why row reduction is the better choice for solving a <m>3\times 3</m> system (or larger).</p></statement>
+          </task>
+        </exercise>
+      </page>
       <page>
         <assemblage>
           <title>Practice: Gaussian Elimination</title>
         </assemblage>
-        <exercise xml:id="w3-gauss" workspace="5in">
-          <statement><p>[Placeholder: linear system to solve by Gaussian elimination.]</p></statement>
+        <exercise xml:id="w3-machines">
+          <introduction>
+            <p>Suppose that a workshop makes frames, gates and panels, using a cutting machine, a welding machine and a paint booth. This week the cutting machine is available for 65 hours, the welding machine for 40 hours and the paint booth for 50 hours. The table shows how many hours each item needs on each machine.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col width="31%" right="minor" halign="left"/>
+              <col width="23%" right="minor"/>
+              <col width="23%" right="minor"/>
+              <col width="23%"/>
+              <row bottom="minor">
+                <cell>Hours per item</cell><cell>Frame</cell><cell>Gate</cell><cell>Panel</cell>
+              </row>
+              <row bottom="minor"><cell>Cutting</cell><cell>1</cell><cell>2</cell><cell>1</cell></row>
+              <row bottom="minor"><cell>Welding</cell><cell>2</cell><cell>1</cell><cell>0</cell></row>
+              <row><cell>Painting</cell><cell>0</cell><cell>1</cell><cell>2</cell></row>
+            </tabular>
+          </introduction>
+          <task workspace="1.4in">
+            <statement><p>The workshop wants to use all of these hours exactly. Write this problem as <m>M\vec{x}=\vec{b}</m>, where <m>M</m> is the matrix from Exercise 1. Use your answer to Exercise 1(a) to explain why it has exactly one solution.</p></statement>
+          </task>
+          <task workspace="3.3in">
+            <statement><p>Use Gaussian elimination to find how many of each item the workshop should make.</p></statement>
+          </task>
         </exercise>
       </page>
       <page>
         <assemblage>
-          <title>Challenge</title>
-          <p>[Placeholder: what this optional extension connects.]</p>
+          <title>Challenge: Locating a Phone</title>
         </assemblage>
-        <exercise xml:id="w3-challenge">
-          <introduction><p>[Placeholder: challenge problem.]</p></introduction>
-          <task workspace="2.5in">
-            <statement><p>[Placeholder: part (a).]</p></statement>
+        <exercise xml:id="w3-masts">
+          <introduction>
+            <p>Suppose that a phone is 5 km from a mast at <m>(0,0)</m>, 3 km from a mast at <m>(1,3)</m> and 2 km from a mast at <m>(6,3)</m>, with coordinates in kilometres. Let the phone be at <m>(x,y)</m>.</p>
+          </introduction>
+          <task workspace="1.4in">
+            <statement><p>For each mast, write down an equation that <m>x</m> and <m>y</m> must satisfy.</p></statement>
           </task>
           <task workspace="2.5in">
-            <statement><p>[Placeholder: part (b).]</p></statement>
+            <statement><p>Subtract the first equation from each of the other two to get a linear system. Solve it to find the position of the phone.</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>Explain in your own words why this method fails if the three masts lie on a straight line.</p></statement>
           </task>
         </exercise>
       </page>
