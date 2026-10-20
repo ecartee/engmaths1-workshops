@@ -70,3 +70,16 @@ body.a4 .displaymath,
 body.letter .displaymath {
   background: none;
 }
+
+/*
+ * Phones: a figure narrowed to fit a printed page (e.g. width="55%") is too
+ * small to read in a phone's column, so give it the full width there. The
+ * print preview keeps the width set in the source.
+ */
+@media (max-width: 600px) {
+  body:not(.a4):not(.letter) .ptx-content .image-box {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
