@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- Workshop 4 covers Week 4 videos 3-5 (the geometry of linear systems,
+     rank and free parameters, inverses by row operations). Week 5
+     (differentiation) is held over until after reading week, to go with
+     integration. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet04wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 4: Linear systems, rank and inverses</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <!-- D returns in the inverses exercise, with alpha = 2 and alpha = 1. -->
+        <exercise xml:id="w4-warmup" workspace="1.2in">
+          <statement>
+            <p>Let <me>D=\begin{bmatrix}1 &amp; 3 &amp; 2\\ 1 &amp; 4 &amp; 3\\ 1 &amp; 2 &amp; \alpha\end{bmatrix},</me> where <m>\alpha</m> is a constant. Find <m>\det D</m> in terms of <m>\alpha</m>. For which values of <m>\alpha</m> is <m>D</m> invertible?</p>
+          </statement>
+        </exercise>
+        <exercise xml:id="w4-table">
+          <introduction>
+            <p>Each row of the table gives the numbers of equations and unknowns in a linear system. Each column describes its solutions: none, exactly one, a line or a plane.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col width="32%" right="minor" halign="left"/>
+              <col width="17%" right="minor"/>
+              <col width="17%" right="minor"/>
+              <col width="17%" right="minor"/>
+              <col width="17%"/>
+              <row bottom="minor">
+                <cell></cell><cell>None</cell><cell>One</cell><cell>Line</cell><cell>Plane</cell>
+              </row>
+              <row bottom="minor"><cell><m>\rule[-0.5em]{0pt}{1.6em}</m>2 equations, 2 unknowns</cell><cell></cell><cell></cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.5em]{0pt}{1.6em}</m>2 equations, 3 unknowns</cell><cell></cell><cell></cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.5em]{0pt}{1.6em}</m>3 equations, 2 unknowns</cell><cell></cell><cell></cell><cell></cell><cell></cell></row>
+              <row><cell><m>\rule[-0.5em]{0pt}{1.6em}</m>3 equations, 3 unknowns</cell><cell></cell><cell></cell><cell></cell><cell></cell></row>
+            </tabular>
+          </introduction>
+          <task workspace="0in">
+            <statement><p>Share out the rows between you and your neighbours. Put a tick in each cell where such a system can exist, and a cross where it cannot. Then compare your answers.</p></statement>
+          </task>
+          <task workspace="1.1in">
+            <statement><p>Explain in your own words why a system of 2 equations in 3 unknowns can never have exactly one solution.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Building Linear Systems</title>
+        </assemblage>
+        <exercise xml:id="w4-build">
+          <introduction>
+            <p>Write down an example of each of these linear systems.</p>
+          </introduction>
+          <task workspace="1.4in">
+            <statement><p>2 equations in 2 unknowns, with no solution.</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>2 equations in 3 unknowns, with a plane of solutions.</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>3 equations in 2 unknowns, with exactly one solution.</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>3 equations in 3 unknowns, with a line of solutions.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Inverses by Row Operations</title>
+        </assemblage>
+        <exercise xml:id="w4-inverse">
+          <introduction>
+            <p>Let <m>D</m> be the matrix from Exercise 1.</p>
+          </introduction>
+          <task workspace="4.5in">
+            <statement><p>Take <m>\alpha=2</m>. Find <m>D^{-1}</m> by row reducing <m>[D\,|\,I]</m>. If you have time, check that <m>DD^{-1}=I</m>.</p></statement>
+          </task>
+          <task workspace="2.2in">
+            <statement><p>Now take <m>\alpha=1</m>. What goes wrong when you row reduce <m>[D\,|\,I]</m>? Explain how this fits with your answer to Exercise 1.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Balancing Chemical Equations</title>
+        </assemblage>
+        <exercise xml:id="w4-ammonia">
+          <introduction>
+            <p>Making nitric acid starts with this reaction between ammonia and oxygen: <me>a\,\mathrm{NH_3}+b\,\mathrm{O_2}\longrightarrow c\,\mathrm{NO}+d\,\mathrm{H_2O}.</me> Balancing it means finding positive whole numbers <m>a</m>, <m>b</m>, <m>c</m> and <m>d</m> that give the same number of atoms of each element on both sides.</p>
+          </introduction>
+          <task workspace="1.1in">
+            <statement><p>Write down one equation for each of nitrogen, hydrogen and oxygen.</p></statement>
+          </task>
+          <task workspace="2.2in">
+            <statement><p>Row reduce the augmented matrix. Find the rank of the coefficient matrix and the number of free parameters.</p></statement>
+          </task>
+          <task workspace="1.5in">
+            <statement><p>Find the balanced equation with the smallest possible whole numbers. Explain in your own words what the other solutions mean chemically.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: Traffic Flow</title>
+        </assemblage>
+        <exercise xml:id="w4-traffic">
+          <introduction>
+            <p>Suppose that the figure shows the number of cars per hour entering and leaving a network of one-way roads, with <m>x_1</m>, …, <m>x_5</m> cars per hour on the roads between its junctions. Every car that enters a junction must leave it.</p>
+            <image source="traffic-network.svg" width="55%">
+              <description>A road network with four junctions, drawn as circles at the corners of a rectangle: A at the top left, B at the top right, C at the bottom left and D at the bottom right. 500 cars per hour enter at A and 250 enter at C, both from the left. 550 cars per hour leave at B and 200 leave at D, both to the right. The one-way roads, shown with arrows, are x 1 from A to B along the top, x 2 from C up to A on the left, x 3 diagonally from C up to B, x 4 from B down to D on the right, and x 5 from C to D along the bottom.</description>
+            </image>
+          </introduction>
+          <task workspace="0.9in">
+            <statement>
+              <p>Explain why <m>x_1</m>, …, <m>x_5</m> satisfy the linear system <md>
+                <mrow>x_1-x_2 \amp= 500</mrow>
+                <mrow>x_1+x_3-x_4 \amp= 550</mrow>
+                <mrow>x_2+x_3+x_5 \amp= 250</mrow>
+                <mrow>x_4+x_5 \amp= 200.</mrow>
+              </md></p>
+            </statement>
+          </task>
+          <task workspace="2.3in">
+            <statement><p>Row reduce the augmented matrix of this system and write down its general solution. How many free parameters are there? Why is there a row of zeros?</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: Roadworks</title>
+        </assemblage>
+        <exercise xml:id="w4-roadworks">
+          <introduction>
+            <p>Suppose that roadworks close some of the roads in Exercise 6, so that no cars use them. Remember that the roads are one-way.</p>
+          </introduction>
+          <task workspace="2.6in">
+            <statement><p>Which single roads could be closed, and which could not?</p></statement>
+          </task>
+          <task workspace="2.8in">
+            <statement><p>Which pairs of roads could be closed together? What happens to the other flows?</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>
