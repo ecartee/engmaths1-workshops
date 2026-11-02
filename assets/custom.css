@@ -83,3 +83,14 @@ body.letter .displaymath {
     margin-right: 0 !important;
   }
 }
+
+/*
+ * Lists in columns (<ol cols="3">): the theme makes each item as narrow as
+ * its longest unbreakable piece, so on a phone "f(g(x)) at x = 1" breaks
+ * after every piece of maths. Size items to their content instead and let
+ * whole items wrap to the next row.
+ */
+.ptx-content :is(.cols2, .cols3, .cols4, .cols5, .cols6) > li {
+  width: max-content;
+  max-width: 100%;
+}
