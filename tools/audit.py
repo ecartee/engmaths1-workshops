@@ -10,6 +10,8 @@
   * serif or low-contrast text, and faint ink inside images
   * an equation, table or image too wide for a phone screen, which the
     phone cuts off at the right-hand edge
+  * a word or symbol left alone on the last line of a printed paragraph
+    (a warning only: it does not fail the audit)
 
 Usage:
     tools/audit.py                  # every target in project.ptx
@@ -181,6 +183,14 @@ def check_render(d):
               % (k["src"], k["family"], k["rgb"], k["ratio"], need))
     if d["ink"] and all(k["verdict"] == "OK" for k in d["ink"]):
         print("   ok    image ink contrast")
+
+    # A warning, not a failure: where a line breaks depends on the browser's
+    # fonts, so the printed copy may break differently.
+    for w in d["lone"]:
+        print('   WARN  page %d, %s: "%s" is alone on the last line of "%s"'
+              % (w["page"], w["place"], w["word"], w["tail"]))
+    if not d["lone"]:
+        print("   ok    no word or symbol alone on the last line of a paragraph")
 
     phone = d.get("phone") or {"error": "phone-width check did not run"}
     if "error" in phone:

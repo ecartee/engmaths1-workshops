@@ -61,6 +61,9 @@ Build first. The audit opens the print preview in headless Firefox or Chrome
 and fails if the source contains solutions, the preview is not A4, a page is
 over-full, there are more than 6 pages, the header or copyright footer is
 missing, an image lacks alternative text, or text is serif or low-contrast.
+It warns, without failing, about a word or symbol left alone on the last line
+of a paragraph ("that", "M"), naming the page and exercise; line breaks depend
+on the browser's fonts, so the printed copy may break a little differently.
 
 It then opens the normal view 360px wide, the narrowest common phone screen,
 and fails if an equation, table or image is wider than the column, naming the
