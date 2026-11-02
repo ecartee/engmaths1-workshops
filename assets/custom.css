@@ -83,3 +83,41 @@ body.letter .displaymath {
     margin-right: 0 !important;
   }
 }
+
+/*
+ * Lists in columns (<ol cols="3">): the theme makes each item as narrow as
+ * its longest unbreakable piece, so on a phone "f(g(x)) at x = 1" breaks
+ * after every piece of maths. Size items to their content instead and let
+ * whole items wrap to the next row.
+ */
+.ptx-content :is(.cols2, .cols3, .cols4, .cols5, .cols6) > li {
+  width: max-content;
+  max-width: 100%;
+}
+
+/*
+ * Short tasks two to a row. PreTeXt cannot set tasks in columns, so an
+ * exercise whose xml:id ends in "-twocol" gets that layout here. The print
+ * preview adds up a page's workspace as if every task were stacked, so such
+ * a page comes out a little under-filled, never over-filled. Phones keep
+ * one task per row.
+ */
+.ptx-content [id$="-twocol"] {
+  display: flow-root;
+}
+.ptx-content [id$="-twocol"] > .task {
+  float: left;
+  width: calc(50% - 20px); /* the theme indents each task by 20px */
+  padding-right: 1em;
+  box-sizing: border-box;
+}
+.ptx-content [id$="-twocol"] > .task:nth-of-type(odd) {
+  clear: left;
+}
+@media (max-width: 600px) {
+  body:not(.a4):not(.letter) .ptx-content [id$="-twocol"] > .task {
+    float: none;
+    width: auto;
+    padding-right: 0;
+  }
+}

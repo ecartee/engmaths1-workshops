@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- Workshop 5 comes after reading week. It covers all of Week 5 (functions
+     and differentiation: stationary points, the rules, curve sketching,
+     parametric and implicit differentiation), Week 7 video 1 (integration
+     as a limit of sums) and the piecewise functions of Week 7 video 2.
+     Substitution, probability densities and improper integrals (Week 7
+     videos 2-3) are left for Workshop 6, with integration by parts and
+     partial fractions. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet05wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 5: Differentiation and integration</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <!-- h'(3) needs f'(g(3)) = f'(4), which the table does not give.
+             The "-twocol" id sets the tasks two to a row (assets/custom.css). -->
+        <exercise xml:id="w5-table-twocol">
+          <introduction>
+            <p>Suppose that <m>f</m> and <m>g</m> are differentiable functions with these values.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col right="minor"/>
+              <col right="minor"/>
+              <col right="minor"/>
+              <col right="minor"/>
+              <col/>
+              <row bottom="minor">
+                <cell><m>x</m></cell><cell><m>f(x)</m></cell><cell><m>f'(x)</m></cell><cell><m>g(x)</m></cell><cell><m>g'(x)</m></cell>
+              </row>
+              <row><cell><m>1</m></cell><cell><m>3</m></cell><cell><m>-1</m></cell><cell><m>2</m></cell><cell><m>6</m></cell></row>
+              <row><cell><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>3</m></cell><cell><m>-2</m></cell></row>
+              <row><cell><m>3</m></cell><cell><m>2</m></cell><cell><m>5</m></cell><cell><m>4</m></cell><cell><m>7</m></cell></row>
+            </tabular>
+          </introduction>
+          <task workspace="0.65in">
+            <statement><p>Find <m>p'(2)</m>, where <m>p(x)=f(x)\,g(x)</m>.</p></statement>
+          </task>
+          <task workspace="0.65in">
+            <statement><p>Find <m>q'(1)</m>, where <m>q(x)=f(x)/g(x)</m>.</p></statement>
+          </task>
+          <task workspace="0.65in">
+            <statement><p>Find <m>h'(1)</m>, where <m>h(x)=f(g(x))</m>.</p></statement>
+          </task>
+          <task workspace="0.65in">
+            <statement><p>Find <m>h'(3)</m>, or explain why not.</p></statement>
+          </task>
+        </exercise>
+        <exercise xml:id="w5-truefalse" workspace="0.75in">
+          <statement>
+            <p>Share out these statements with your neighbours. Decide whether each is true or false, then compare. Explain in your own words why the false ones are false.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col width="70%" right="minor" halign="left"/>
+              <col width="12%" right="minor"/>
+              <col width="12%"/>
+              <row bottom="minor">
+                <cell>Statement</cell><cell>True</cell><cell>False</cell>
+              </row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}f(x)=x^{1/3}</m> has a derivative at <m>x=0</m>.</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}</m>The graph of <m>y=x^{1/3}</m> has a tangent line at <m>(0,0)</m>.</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}f(x)=|x|</m> has a derivative at <m>x=0</m>.</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}g(x)=x|x|</m> has a derivative at <m>x=0</m>.</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.6em]{0pt}{1.8em}</m>If <m>f</m> is even and differentiable, then <m>f'</m> is odd.</cell><cell></cell><cell></cell></row>
+              <row><cell><m>\rule[-0.6em]{0pt}{1.8em}</m>If <m>f'(a)=0</m> and <m>f''(a)=0</m>, then <m>f</m> has a point of inflection at <m>x=a</m>.</cell><cell></cell><cell></cell></row>
+            </tabular>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Curve Sketching</title>
+        </assemblage>
+        <exercise xml:id="w5-sketch">
+          <introduction>
+            <p>Let <m>f(x)=\dfrac{4(x-1)}{x^2}</m>.</p>
+          </introduction>
+          <task workspace="1.4in">
+            <statement><p>Find where the graph of <m>f</m> crosses the <m>x</m>-axis, and find its asymptotes. How does <m>f</m> behave on each side of its vertical asymptote?</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>Find the stationary point of <m>f</m> and classify it.</p></statement>
+          </task>
+          <task workspace="0in">
+            <statement>
+              <p>Sketch the graph of <m>f</m> on these axes.</p>
+              <image source="blank-axes.svg" width="68%">
+                <description>Blank axes: a horizontal x-axis and a vertical y-axis crossing at the centre, with no scale marked.</description>
+              </image>
+            </statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Parametric Curves</title>
+        </assemblage>
+        <exercise xml:id="w5-lissajous">
+          <introduction>
+            <p>An oscilloscope in XY mode plots one signal against another. Suppose that it plots the signal <m>y=\sin 2t</m> against the signal <m>x=\sin t</m>, for <m>0\le t\le 2\pi</m>. The point <m>(x,y)</m> traces the curve below, which is called a Lissajous figure.</p>
+            <image source="lissajous.svg" width="29%">
+              <description>A figure-of-eight lying on its side, drawn on x and y axes marked at 1 and minus 1. It has one loop on each side of the y-axis, and the two loops cross at the origin. Each loop reaches up to y equals 1, down to y equals minus 1, and out to x equals 1 or minus 1.</description>
+            </image>
+          </introduction>
+          <task workspace="1.7in">
+            <statement><p>Find <m>\dfrac{\dd y}{\dd x}</m> in terms of <m>t</m>. At which points <m>(x,y)</m> is the tangent to the curve horizontal? At which is it vertical?</p></statement>
+          </task>
+          <task workspace="0.9in">
+            <statement><p>The curve passes through the origin twice. Find the slope of the tangent each time.</p></statement>
+          </task>
+          <task workspace="0.8in">
+            <statement><p>Mark your points from part (a) on the figure. Which way round each loop does the point <m>(x,y)</m> travel as <m>t</m> increases?</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Implicit Differentiation</title>
+        </assemblage>
+        <exercise xml:id="w5-implicit">
+          <introduction>
+            <p>Without the parameter <m>t</m>, the curve in Exercise 4 is described by <me>y^2=4x^2(1-x^2).</me></p>
+          </introduction>
+          <task workspace="1.9in">
+            <statement><p>Use implicit differentiation to find <m>\dfrac{\dd y}{\dd x}</m> in terms of <m>x</m> and <m>y</m>.</p></statement>
+          </task>
+          <task workspace="1.6in">
+            <statement><p>Check that your answer agrees with Exercise 4(a) at the point <m>\left(\tfrac{\sqrt{3}}{2},\tfrac{\sqrt{3}}{2}\right)</m>.</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>What happens when you put the origin into your answer to part (a)? Explain in your own words how this fits with Exercise 4(b).</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Cutting a Pie</title>
+        </assemblage>
+        <exercise xml:id="w5-pie">
+          <introduction>
+            <p>Suppose that three groups each estimate the area of a circular pie of radius <m>R</m> by cutting it into <m>n</m> thin pieces. The figure shows how for <m>n=6</m>: Group A cuts sectors, Group B cuts rings of equal width, and Group C cuts parallel strips of equal width. Below each pie is its shaded piece, with Group B's ring cut open and unrolled.</p>
+            <image source="pie-cuts.svg" width="66%">
+              <description>Top row: three circles, each cut into six pieces, with one piece shaded. Group A's circle is cut into six equal sectors by lines from the centre, and the bottom sector is shaded. Group B's circle is cut into six rings of equal width, and the third ring from the centre is shaded. Group C's circle is cut into six strips of equal width by parallel horizontal lines, and the second strip from the bottom is shaded. Bottom row: each shaded piece on its own. Group A's sector has a dashed straight line across its curved edge, cutting off a triangle. Group B's ring has been cut and unrolled into a long thin shape whose top edge is longer than its bottom edge, and dashed lines at the ends of the bottom edge mark a rectangle. Group C's strip has curved ends, and dashed lines mark the rectangle that fits inside it.</description>
+            </image>
+          </introduction>
+          <task workspace="1.3in">
+            <statement><p>For each group, find the area of the dashed triangle or rectangle for a typical piece, and write the group's estimate as a sum.</p></statement>
+          </task>
+          <task workspace="0.9in">
+            <statement><p>Each sum is a Riemann sum. Write down the integral it tends to as <m>n\to\infty</m>, without evaluating it.</p></statement>
+          </task>
+          <task workspace="1.1in">
+            <statement><p>Explain in your own words the advantages and disadvantages of each group's method.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: A Freefall Ride</title>
+        </assemblage>
+        <exercise xml:id="w5-freefall">
+          <introduction>
+            <p>Suppose that a freefall ride at a theme park lifts its riders to the top of a tower and drops them. Let <m>h</m> be their height above the ground in metres and <m>t</m> the time in seconds since they were dropped, with upwards positive. For three seconds the riders fall freely, with acceleration <m>-10</m>. Then magnetic brakes give them acceleration <m>20</m> until they stop.</p>
+          </introduction>
+          <task workspace="2.0in">
+            <statement><p>Integrate to find the velocity <m>v(t)</m> from <m>t=0</m> until the riders stop. When do they stop? Sketch the graphs of <m>a</m> and <m>v</m>.</p></statement>
+          </task>
+          <task workspace="1.5in">
+            <statement><p>Suppose that the riders stop just as they reach the ground. How tall is the tower?</p></statement>
+          </task>
+          <task workspace="1.3in">
+            <statement><p>Riders feel a jolt when the brakes come on. Which of <m>a</m>, <m>v</m> and <m>h</m> are continuous at that moment? Which are differentiable there? Explain in your own words how integrating changes a function.</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>
