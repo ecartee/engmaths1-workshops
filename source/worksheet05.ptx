@@ -24,9 +24,10 @@
           <title>Warm-up</title>
           <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
         </assemblage>
-        <!-- h'(3) needs f'(g(3)) = f'(4), which the table does not give. -->
-        <exercise xml:id="w5-table" workspace="1.4in">
-          <statement>
+        <!-- h'(3) needs f'(g(3)) = f'(4), which the table does not give.
+             The "-twocol" id sets the tasks two to a row (assets/custom.css). -->
+        <exercise xml:id="w5-table-twocol">
+          <introduction>
             <p>Suppose that <m>f</m> and <m>g</m> are differentiable functions with these values.</p>
             <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
               <col right="minor"/>
@@ -41,10 +42,21 @@
               <row><cell><m>2</m></cell><cell><m>1</m></cell><cell><m>4</m></cell><cell><m>3</m></cell><cell><m>-2</m></cell></row>
               <row><cell><m>3</m></cell><cell><m>2</m></cell><cell><m>5</m></cell><cell><m>4</m></cell><cell><m>7</m></cell></row>
             </tabular>
-            <p>Let <m>p(x)=f(x)\,g(x)</m>, <m>q(x)=f(x)/g(x)</m> and <m>h(x)=f(g(x))</m>. Find <m>p'(2)</m>, <m>q'(1)</m>, <m>h'(1)</m> and <m>h'(3)</m>, or explain why the table is not enough.</p>
-          </statement>
+          </introduction>
+          <task workspace="0.65in">
+            <statement><p>Find <m>p'(2)</m>, where <m>p(x)=f(x)\,g(x)</m>.</p></statement>
+          </task>
+          <task workspace="0.65in">
+            <statement><p>Find <m>q'(1)</m>, where <m>q(x)=f(x)/g(x)</m>.</p></statement>
+          </task>
+          <task workspace="0.65in">
+            <statement><p>Find <m>h'(1)</m>, where <m>h(x)=f(g(x))</m>.</p></statement>
+          </task>
+          <task workspace="0.65in">
+            <statement><p>Find <m>h'(3)</m>, or explain why not.</p></statement>
+          </task>
         </exercise>
-        <exercise xml:id="w5-truefalse" workspace="0.8in">
+        <exercise xml:id="w5-truefalse" workspace="0.75in">
           <statement>
             <p>Share out these statements with your neighbours. Decide whether each is true or false, then compare. Explain in your own words why the false ones are false.</p>
             <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
@@ -72,16 +84,16 @@
           <introduction>
             <p>Let <m>f(x)=\dfrac{4(x-1)}{x^2}</m>.</p>
           </introduction>
-          <task workspace="1.6in">
+          <task workspace="1.4in">
             <statement><p>Find where the graph of <m>f</m> crosses the <m>x</m>-axis, and find its asymptotes. How does <m>f</m> behave on each side of its vertical asymptote?</p></statement>
           </task>
-          <task workspace="1.8in">
-            <statement><p>Find <m>f'(x)</m>. Then find the stationary point of <m>f</m> and classify it.</p></statement>
+          <task workspace="1.4in">
+            <statement><p>Find the stationary point of <m>f</m> and classify it.</p></statement>
           </task>
           <task workspace="0in">
             <statement>
               <p>Sketch the graph of <m>f</m> on these axes.</p>
-              <image source="blank-axes.svg" width="75%">
+              <image source="blank-axes.svg" width="70%">
                 <description>Blank axes: a horizontal x-axis and a vertical y-axis crossing at the centre, with no scale marked.</description>
               </image>
             </statement>
