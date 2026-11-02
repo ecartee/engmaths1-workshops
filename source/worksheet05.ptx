@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- Workshop 5 comes after reading week. It covers all of Week 5 (functions
+     and differentiation: stationary points, the rules, curve sketching,
+     parametric and implicit differentiation) and Week 7 videos 1-3
+     (integration as a limit of sums, substitution, piecewise functions and
+     probability densities, improper integrals). Integration by parts and
+     partial fractions (Week 7 videos 4-6) are left for Workshop 6. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet05wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 5: Differentiation and integration</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <!-- f returns in the curve sketching exercise and g in the wind
+             turbine exercise. -->
+        <exercise xml:id="w5-warmup" workspace="2.0in">
+          <statement>
+            <p>Differentiate <m>f(x)=\dfrac{4(x-1)}{x^2}</m> and <m>g(v)=v\,e^{-v^2/50}</m>.</p>
+          </statement>
+        </exercise>
+        <exercise xml:id="w5-truefalse" workspace="1.6in">
+          <statement>
+            <p>Share out these statements between you and your neighbours. Decide whether each one is true or false. Then compare your answers.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col width="70%" right="minor" halign="left"/>
+              <col width="12%" right="minor"/>
+              <col width="12%"/>
+              <row bottom="minor">
+                <cell>Statement</cell><cell>True</cell><cell>False</cell>
+              </row>
+              <row bottom="minor"><cell><m>\rule[-0.5em]{0pt}{1.6em}</m>If <m>f'(a)=0</m> and <m>f''(a)=0</m>, then <m>f</m> has a point of inflection at <m>x=a</m>.</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.5em]{0pt}{1.6em}</m>If <m>f</m> is even and differentiable, then <m>f'</m> is odd.</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.5em]{0pt}{1.6em}</m>If <m>f</m> is continuous at <m>x=a</m>, then <m>f</m> is differentiable at <m>x=a</m>.</cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.5em]{0pt}{1.6em}\int_{-1}^{1}\frac{1}{x^2}\,\dd x=-2</m></cell><cell></cell><cell></cell></row>
+              <row bottom="minor"><cell><m>\rule[-0.5em]{0pt}{1.6em}\int_{-3}^{-1}\frac{1}{x}\,\dd x=-\ln 3</m></cell><cell></cell><cell></cell></row>
+              <row><cell><m>\rule[-0.5em]{0pt}{1.6em}</m>If <m>f(x)\to 0</m> as <m>x\to\infty</m>, then <m>\int_1^\infty f(x)\,\dd x</m> exists.</cell><cell></cell><cell></cell></row>
+            </tabular>
+            <p>For each statement that is false, explain in your own words why.</p>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Curve Sketching</title>
+        </assemblage>
+        <exercise xml:id="w5-sketch">
+          <introduction>
+            <p>Let <m>f(x)=\dfrac{4(x-1)}{x^2}</m> be the function from Exercise 1.</p>
+          </introduction>
+          <task workspace="1.7in">
+            <statement><p>Find where the graph of <m>f</m> crosses the <m>x</m>-axis, and find its asymptotes. How does <m>f</m> behave on each side of its vertical asymptote?</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>Using Exercise 1, find the stationary point of <m>f</m> and classify it.</p></statement>
+          </task>
+          <task workspace="2.6in">
+            <statement><p>Sketch the graph of <m>f</m>.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Parametric Curves</title>
+        </assemblage>
+        <exercise xml:id="w5-lissajous">
+          <introduction>
+            <p>An oscilloscope in XY mode plots one signal against another. Suppose that it plots the signal <m>y=\sin 2t</m> against the signal <m>x=\sin t</m>, for <m>0\le t\le 2\pi</m>. The curve that the point <m>(x,y)</m> traces is called a Lissajous figure.</p>
+          </introduction>
+          <task workspace="2.0in">
+            <statement><p>Find <m>\dfrac{\dd y}{\dd x}</m> in terms of <m>t</m>. At which points <m>(x,y)</m> is the tangent to the curve horizontal? At which is it vertical?</p></statement>
+          </task>
+          <task workspace="1.0in">
+            <statement><p>The curve passes through the origin twice. Find the slope of the tangent each time.</p></statement>
+          </task>
+          <task workspace="2.1in">
+            <statement><p>Sketch the curve.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Implicit Differentiation</title>
+        </assemblage>
+        <exercise xml:id="w5-implicit">
+          <introduction>
+            <p>The curve in Exercise 4 can also be described without the parameter <m>t</m>.</p>
+          </introduction>
+          <task workspace="1.4in">
+            <statement><p>Show that every point on the curve satisfies <m>y^2=4x^2(1-x^2)</m>.</p></statement>
+          </task>
+          <task workspace="2.2in">
+            <statement><p>Use implicit differentiation to find <m>\dfrac{\dd y}{\dd x}</m> in terms of <m>x</m> and <m>y</m>. If you have time, check that your answer agrees with Exercise 4(a) at the point <m>\left(\tfrac{\sqrt{3}}{2},\tfrac{\sqrt{3}}{2}\right)</m>.</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>What happens when you put the origin into your answer to part (b)? Explain in your own words how this fits with Exercise 4(b).</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Wind Power</title>
+        </assemblage>
+        <exercise xml:id="w5-wind">
+          <introduction>
+            <p>Suppose that the wind speed <m>v</m> at the site of a wind turbine, in metres per second, has probability density function <me>p(v)=k\,v\,e^{-v^2/50},\quad v\ge 0,</me> where <m>k</m> is a constant. The integral <m>\int_a^b p(v)\,\dd v</m> is the fraction of the time that the wind speed is between <m>a</m> and <m>b</m>.</p>
+          </introduction>
+          <task workspace="1.8in">
+            <statement><p>Find the value of <m>k</m> for which <m>p</m> is a probability density function.</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>Using Exercise 1, find the wind speed at which <m>p</m> is largest. Sketch the graph of <m>p</m>.</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>Suppose that the turbine produces its full power whenever <m>v\ge 10</m>. For what fraction of the time does it produce full power?</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: Moving a Part</title>
+        </assemblage>
+        <exercise xml:id="w5-motion">
+          <introduction>
+            <p>Suppose that a machine slides a part along a straight track, with its position <m>x</m> in metres and the time <m>t</m> in seconds. At <m>t=0</m> the part is at rest at <m>x=0</m>. It speeds up with acceleration <m>1</m> for one second, then slows down with acceleration <m>-1</m> for one second, and after that its acceleration is zero.</p>
+          </introduction>
+          <task workspace="2.2in">
+            <statement><p>Write down the acceleration <m>a(t)</m> for <m>t\ge 0</m>. Integrate it to find the velocity <m>v(t)</m>, and sketch the graphs of <m>a</m> and <m>v</m>.</p></statement>
+          </task>
+          <task workspace="1.7in">
+            <statement><p>Find the position <m>x(t)</m> for <m>t\ge 0</m>. How far does the part move?</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>Which of <m>a</m>, <m>v</m> and <m>x</m> are continuous at <m>t=1</m> and <m>t=2</m>? Which are differentiable there? Explain in your own words how integrating changes a function.</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>

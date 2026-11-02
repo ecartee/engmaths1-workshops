@@ -4,12 +4,15 @@
      Vectors are written with arrows (\vec{F}, \overrightarrow{AB}) rather than
      the bold of the lecture notes, which is too subtle in print and cannot be
      handwritten. Unit vectors take a hat and no arrow.
-     \colvec{1\\2\\3} writes a column vector in square brackets. -->
+     \colvec{1\\2\\3} writes a column vector in square brackets.
+     \dd is the upright d of derivatives and integrals, as in the lecture
+     slides: \frac{\dd y}{\dd x} and \int f(x)\,\dd x. -->
 <docinfo>
   <macros>
     \newcommand{\ihat}{\hat{\imath}}
     \newcommand{\jhat}{\hat{\jmath}}
     \newcommand{\khat}{\hat{k}}
     \newcommand{\colvec}[1]{\begin{bmatrix}#1\end{bmatrix}}
+    \newcommand{\dd}{\mathrm{d}}
   </macros>
 </docinfo>
