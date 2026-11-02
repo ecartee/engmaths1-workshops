@@ -10,7 +10,8 @@
 
   It loads the worksheet, follows its own print-preview link (so nobody has to
   know the `?printpreview=worksheetNNwks-3` id), polls until MathJax and the
-  workspace-sizing JS have settled, and measures the printed pages. It then
+  workspace-sizing JS have settled, and measures the printed pages, including
+  any word left alone on the last line of a paragraph. It then
   loads the normal scrollable view in a phone-width frame and looks for
   anything wider than the column (a long displayed equation, a wide table),
   which a phone cuts off at the right-hand edge. Finally it sends the
@@ -212,7 +213,65 @@ function measure(settled) {
     });
   });
 
-  return { pages, print, solutions, images, text: Object.values(text), ink, settled };
+  // --- lone words ----------------------------------------------------------
+  // A word or symbol wrapped alone onto the last line of a paragraph ("that",
+  // "M") is easy to miss on screen but stands out on the printed sheet. Split
+  // each paragraph and table cell into words, counting each piece of inline
+  // mathematics as one word and not counting punctuation, place every word on
+  // a line by its box, and report a paragraph whose last line holds one word
+  // or none. A formula long enough to fill a third of the column is not a
+  // stranded symbol, so it is left alone. Displayed equations are skipped:
+  // PreTeXt wraps a <p> that holds an <md> in .para.logical, and the last row
+  // of a multi-line display is short by design.
+  const lone = [];
+  doc.querySelectorAll('.onepage').forEach((pg, i) => {
+    const ps = win.getComputedStyle(pg);
+    const column = pg.clientWidth - parseFloat(ps.paddingLeft) - parseFloat(ps.paddingRight);
+    pg.querySelectorAll('.para:not(.logical), td').forEach(el => {
+      if (el.offsetParent === null || (el.matches('td') && el.querySelector('.para'))) return;
+      const words = [];
+      const walk = n => {
+        if (n.nodeType === 3) {
+          const re = /\S+/g;
+          let m;
+          while ((m = re.exec(n.data))) {
+            const r = doc.createRange();
+            r.setStart(n, m.index);
+            r.setEnd(n, m.index + m[0].length);
+            words.push({ rects: r.getClientRects(), text: m[0], counts: /[\p{L}\p{N}]/u.test(m[0]) });
+          }
+        } else if (n.nodeType === 1 && !n.matches('.autopermalink')) {
+          if (!n.matches('mjx-container')) { n.childNodes.forEach(walk); return; }
+          const mml = n.querySelector('mjx-assistive-mml');
+          words.push({ rects: n.getClientRects(), text: (mml ? mml.textContent : '').trim(), counts: true });
+        }
+      };
+      walk(el);
+      // A line is the set of words whose boxes overlap vertically; boxes
+      // taller than a line of text (an inline matrix) are left out.
+      const lines = [];
+      words.forEach(w => {
+        const b = Array.from(w.rects).filter(r => r.width > 0.5 && r.height < 40).pop();
+        if (!b) return;
+        const mid = (b.top + b.bottom) / 2;
+        let line = lines.find(l => (mid > l.top && mid < l.bottom) || (l.mid > b.top && l.mid < b.bottom));
+        if (!line) { line = { top: b.top, bottom: b.bottom, mid, left: b.left, right: b.right, words: [] }; lines.push(line); }
+        line.left = Math.min(line.left, b.left);
+        line.right = Math.max(line.right, b.right);
+        line.words.push(w);
+      });
+      if (lines.length < 2) return;
+      const last = lines.reduce((a, b) => (b.mid > a.mid ? b : a));
+      // No word at all means punctuation wrapped on its own after mathematics.
+      if (last.words.filter(w => w.counts).length > 1 || last.right - last.left > column / 3) return;
+      const join = ws => ws.map(w => w.text).join(' ').replace(/ ([.,;:?!)])/g, '$1');
+      const text = join(words);
+      lone.push({ page: i + 1, place: placeOf(el), word: join(last.words),
+                  tail: text.length > 40 ? '...' + text.slice(-40) : text });
+    });
+  });
+
+  return { pages, print, solutions, images, text: Object.values(text), ink, lone, settled };
 }
 
 // --- phone width -----------------------------------------------------------
