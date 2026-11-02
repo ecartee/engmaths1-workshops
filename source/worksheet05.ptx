@@ -93,7 +93,7 @@
           <task workspace="0in">
             <statement>
               <p>Sketch the graph of <m>f</m> on these axes.</p>
-              <image source="blank-axes.svg" width="70%">
+              <image source="blank-axes.svg" width="68%">
                 <description>Blank axes: a horizontal x-axis and a vertical y-axis crossing at the centre, with no scale marked.</description>
               </image>
             </statement>
@@ -147,38 +147,38 @@
         </assemblage>
         <exercise xml:id="w5-pie">
           <introduction>
-            <p>Suppose that three groups each estimate the area of a circular pie of radius <m>R</m> by cutting it into <m>n</m> thin pieces. Group A cuts <m>n</m> equal sectors, Group B cuts <m>n</m> rings of equal width, and Group C cuts <m>n</m> parallel strips of equal width. The figure shows each method for <m>n=6</m>.</p>
-            <image source="pie-cuts.svg" width="62%">
-              <description>Three circles side by side, each cut into six pieces. Group A's circle is cut into six equal sectors by lines from the centre. Group B's circle is cut into six rings of equal width by smaller circles around the same centre. Group C's circle is cut into six strips of equal width by parallel vertical lines.</description>
+            <p>Suppose that three groups each estimate the area of a circular pie of radius <m>R</m> by cutting it into <m>n</m> thin pieces. The figure shows how for <m>n=6</m>: Group A cuts sectors, Group B cuts rings of equal width, and Group C cuts parallel strips of equal width. Below each pie is its shaded piece, with Group B's ring cut open and unrolled.</p>
+            <image source="pie-cuts.svg" width="66%">
+              <description>Top row: three circles, each cut into six pieces, with one piece shaded. Group A's circle is cut into six equal sectors by lines from the centre, and the bottom sector is shaded. Group B's circle is cut into six rings of equal width, and the third ring from the centre is shaded. Group C's circle is cut into six strips of equal width by parallel horizontal lines, and the second strip from the bottom is shaded. Bottom row: each shaded piece on its own. Group A's sector has a dashed straight line across its curved edge, cutting off a triangle. Group B's ring has been cut and unrolled into a long thin shape whose top edge is longer than its bottom edge, and dashed lines at the ends of the bottom edge mark a rectangle. Group C's strip has curved ends, and dashed lines mark the rectangle that fits inside it.</description>
             </image>
           </introduction>
-          <task workspace="1.7in">
-            <statement><p>For each group, approximate the area of one piece by a triangle or a rectangle, and write the group's estimate as a sum.</p></statement>
+          <task workspace="1.3in">
+            <statement><p>For each group, find the area of the dashed triangle or rectangle for a typical piece, and write the group's estimate as a sum.</p></statement>
+          </task>
+          <task workspace="0.9in">
+            <statement><p>Each sum is a Riemann sum. Write down the integral it tends to as <m>n\to\infty</m>, without evaluating it.</p></statement>
           </task>
           <task workspace="1.1in">
-            <statement><p>Write down the integral that each sum tends to as <m>n\to\infty</m>. Do not evaluate them.</p></statement>
-          </task>
-          <task workspace="1.4in">
             <statement><p>Explain in your own words the advantages and disadvantages of each group's method.</p></statement>
           </task>
         </exercise>
       </page>
       <page>
         <assemblage>
-          <title>Challenge: Moving a Part</title>
+          <title>Challenge: A Freefall Ride</title>
         </assemblage>
-        <exercise xml:id="w5-motion">
+        <exercise xml:id="w5-freefall">
           <introduction>
-            <p>Suppose that a machine slides a part along a straight track, with its position <m>x</m> in metres and the time <m>t</m> in seconds. At <m>t=0</m> the part is at rest at <m>x=0</m>. It speeds up with acceleration <m>1</m> for one second, then slows down with acceleration <m>-1</m> for one second, and after that its acceleration is zero.</p>
+            <p>Suppose that a freefall ride at a theme park lifts its riders to the top of a tower and drops them. Let <m>h</m> be their height above the ground in metres and <m>t</m> the time in seconds since they were dropped, with upwards positive. For three seconds the riders fall freely, with acceleration <m>-10</m>. Then magnetic brakes give them acceleration <m>20</m> until they stop.</p>
           </introduction>
-          <task workspace="2.2in">
-            <statement><p>Write down the acceleration <m>a(t)</m> for <m>t\ge 0</m>. Integrate it to find the velocity <m>v(t)</m>, and sketch the graphs of <m>a</m> and <m>v</m>.</p></statement>
+          <task workspace="2.0in">
+            <statement><p>Integrate to find the velocity <m>v(t)</m> from <m>t=0</m> until the riders stop. When do they stop? Sketch the graphs of <m>a</m> and <m>v</m>.</p></statement>
           </task>
-          <task workspace="1.7in">
-            <statement><p>Find the position <m>x(t)</m> for <m>t\ge 0</m>. How far does the part move?</p></statement>
+          <task workspace="1.5in">
+            <statement><p>Suppose that the riders stop just as they reach the ground. How tall is the tower?</p></statement>
           </task>
-          <task workspace="1.4in">
-            <statement><p>Which of <m>a</m>, <m>v</m> and <m>x</m> are continuous at <m>t=1</m> and <m>t=2</m>? Which are differentiable there? Explain in your own words how integrating changes a function.</p></statement>
+          <task workspace="1.3in">
+            <statement><p>Riders feel a jolt when the brakes come on. Which of <m>a</m>, <m>v</m> and <m>h</m> are continuous at that moment? Which are differentiable there? Explain in your own words how integrating changes a function.</p></statement>
           </task>
         </exercise>
       </page>
