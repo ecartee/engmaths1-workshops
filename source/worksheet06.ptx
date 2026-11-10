@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- Workshop 6 covers Week 7 videos 3-6 (improper integrals, integration
+     by parts, partial fractions) and a little of Week 8 videos 1-3
+     (complex roots of real polynomials). Week 8 videos 4-6 (polar form,
+     Euler's formula, logarithms) come after this workshop.
+     Notation follows the lecture slides: arctan, j, 3 - 2j for numbers and
+     x + jy, alpha +- j beta for symbols, u and dv/dx for integration by
+     parts, "does not exist" for an improper integral with no finite value.
+     Plan: about 30 minutes of core work, counting discussion parts double,
+     plus an optional challenge. Each page heading names the highest Bloom
+     level that page reaches; the warm-up stays at Understand and Apply. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet06wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 6: Integration techniques and complex numbers</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <!-- Understand. One integrand over three intervals, then 1/(x^2+9)
+             and 1/(x^2-9) over the same interval. Part (c) returns in
+             Exercise 4. The "-twocol" id sets the tasks two to a row
+             (assets/custom.css), so each integral has its own space. -->
+        <exercise xml:id="w6-improper-or-not-twocol">
+          <introduction>
+            <p>Circle the integrals that are improper, and say what makes each one improper. You do not need to evaluate them.</p>
+          </introduction>
+          <task workspace="0.6in">
+            <statement><p><m>\displaystyle\int_{1}^{2} \frac{1}{x(x+1)}\,\dd x</m></p></statement>
+          </task>
+          <task workspace="0.6in">
+            <statement><p><m>\displaystyle\int_{0}^{1} \frac{1}{x(x+1)}\,\dd x</m></p></statement>
+          </task>
+          <task workspace="0.6in">
+            <statement><p><m>\displaystyle\int_{1}^{\infty} \frac{1}{x(x+1)}\,\dd x</m></p></statement>
+          </task>
+          <task workspace="0.6in">
+            <statement><p><m>\displaystyle\int_{0}^{3} \frac{1}{x^2+9}\,\dd x</m></p></statement>
+          </task>
+          <task workspace="0.6in">
+            <statement><p><m>\displaystyle\int_{0}^{3} \frac{1}{x^2-9}\,\dd x</m></p></statement>
+          </task>
+          <task workspace="0.6in">
+            <statement><p><m>\displaystyle\int_{0}^{\infty} \frac{1}{x^2+9}\,\dd x</m></p></statement>
+          </task>
+        </exercise>
+        <!-- Apply (Week 8 video 3). The roots return in Exercises 5 and 6. -->
+        <exercise xml:id="w6-roots" workspace="1.2in">
+          <statement>
+            <p>Find the roots of <m>x^2-4x+13=0</m>.</p>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Analyse: Integration by Parts</title>
+        </assemblage>
+        <!-- Analyse, then Apply. Taking u = x is usually the right choice,
+             but not for this integral. -->
+        <exercise xml:id="w6-parts">
+          <introduction>
+            <p>Here are two ways to start trying to integrate <m>\displaystyle\int x\ln(x)\,\dd x</m> by parts.</p>
+            <tabular halign="center" top="minor" left="minor" bottom="minor" right="minor">
+              <col right="minor"/>
+              <col right="minor"/>
+              <col/>
+              <row bottom="minor">
+                <cell>Choice</cell><cell><m>u</m></cell><cell><m>\dfrac{\dd v}{\dd x}</m></cell>
+              </row>
+              <row bottom="minor"><cell>A</cell><cell><m>x</m></cell><cell><m>\ln(x)</m></cell></row>
+              <row><cell>B</cell><cell><m>\ln(x)</m></cell><cell><m>x</m></cell></row>
+            </tabular>
+          </introduction>
+          <task workspace="1.6in">
+            <statement><p>Which choice works? Explain in your own words what goes wrong with the other one.</p></statement>
+          </task>
+          <task workspace="2.4in">
+            <statement><p>Find the integral.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Evaluate: Improper Integrals</title>
+        </assemblage>
+        <!-- Apply, then Evaluate. Partial fractions split the integrand into
+             two pieces whose integrals do not exist on their own. -->
+        <exercise xml:id="w6-improper">
+          <introduction>
+            <p>Exercise 1(c) is the improper integral <me>\int_{1}^{\infty} \frac{1}{x(x+1)}\,\dd x.</me></p>
+          </introduction>
+          <task workspace="2.6in">
+            <statement><p>Evaluate this integral.</p></statement>
+          </task>
+          <task workspace="1.6in">
+            <statement>
+              <p>Two students express <m>\dfrac{1}{x(x+1)}</m> as partial fractions, then argue as follows.</p>
+              <ul>
+                <li><p>Student A: <m>\displaystyle\int_{1}^{\infty} \frac{1}{x}\,\dd x</m> and <m>\displaystyle\int_{1}^{\infty} \frac{1}{x+1}\,\dd x</m> do not exist, so the integral above does not exist either.</p></li>
+                <li><p>Student B: those two integrals are both infinite, so the integral above is <m>\infty-\infty=0</m>.</p></li>
+              </ul>
+              <p>Explain in your own words what each student has got wrong.</p>
+            </statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Analyse: Complex Roots</title>
+        </assemblage>
+        <!-- Apply, then Analyse. The quadratic from Exercise 2 and the
+             arctan integral of Week 7 video 6. -->
+        <exercise xml:id="w6-complex">
+          <introduction>
+            <p>This exercise uses the quadratic <m>x^2-4x+13</m> from Exercise 2.</p>
+          </introduction>
+          <task workspace="2.6in">
+            <statement><p>Find <m>\displaystyle\int \frac{1}{x^2-4x+13}\,\dd x</m>.</p></statement>
+          </task>
+          <task workspace="1.6in">
+            <statement><p>How do the real and imaginary parts of the roots from Exercise 2 appear in your answer to part (a)?</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Create: Your Own Quadratic</title>
+        </assemblage>
+        <!-- Create, then Evaluate. Every pair writes a different problem for
+             each other, and the writer can check the answer from alpha and
+             beta alone. A student working alone checks by differentiating
+             instead. -->
+        <exercise xml:id="w6-create">
+          <introduction>
+            <p>Work with a neighbour on this exercise. If you are working alone, use your own quadratic in part (b) and check your answer by differentiating it.</p>
+          </introduction>
+          <task workspace="1.8in">
+            <statement><p>Choose whole numbers <m>\alpha</m> and <m>\beta</m>, with <m>\beta\ne 0</m>, and keep them to yourself. Find the quadratic <m>x^2+bx+c</m> whose roots are <m>\alpha\pm j\beta</m>.</p></statement>
+          </task>
+          <task workspace="2.0in">
+            <statement><p>Swap quadratics with a neighbour. Use Exercise 5(b) to write down the integral of one over their quadratic, then swap back and check each other's answers.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: A Vibrating Beam</title>
+        </assemblage>
+        <!-- Deep, then Evaluate. Integration by parts twice on an improper
+             integral, where the integral comes back on both sides (Week 7
+             video 4). Then a check from the graph: each part of the graph
+             above the axis is bigger than the part below the axis after it. -->
+        <exercise xml:id="w6-challenge">
+          <introduction>
+            <p>Suppose that engineers hit a beam to test it, and that it then vibrates with displacement <me>y(t)=e^{-t}\sin(2t)</me> at time <m>t</m>. The factor <m>e^{-t}</m> makes the vibration fade away over time.</p>
+          </introduction>
+          <task workspace="3.4in">
+            <statement><p>Find <m>\displaystyle\int_{0}^{\infty} e^{-t}\sin(2t)\,\dd t</m>.</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>Without integrating, explain why the answer to part (a) should be positive.</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>
