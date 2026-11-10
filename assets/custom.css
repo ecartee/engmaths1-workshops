@@ -105,6 +105,13 @@ body.letter .displaymath {
 .ptx-content [id$="-twocol"] {
   display: flow-root;
 }
+/* An introduction of one paragraph is inline (it runs on from the
+   exercise number), so the first task would float up beside its last line.
+   This break starts the tasks on a line of their own. */
+.ptx-content [id$="-twocol"] > .introduction::after {
+  content: "";
+  display: block;
+}
 .ptx-content [id$="-twocol"] > .task {
   float: left;
   width: calc(50% - 20px); /* the theme indents each task by 20px */
