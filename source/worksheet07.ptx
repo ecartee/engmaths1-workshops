@@ -21,9 +21,13 @@
      Plan: about 30 minutes of core work, counting discussion parts double,
      plus an optional challenge. Each page heading names the highest Bloom
      level that page reaches; the warm-up stays at Remember and Understand.
-     There is no slot yet for multiple-angle formulae (Week 9 video 2). They
-     could take a part of Exercise 6, or wait for Workshop 8 alongside
-     powers of sine and cosine (Week 9 video 4). -->
+     Settled so far (16 Nov 2026): Exercise 1 mixes points read from an
+     Argand diagram with numbers given as a + bj; Exercise 5 is the cube
+     roots of 8j; Exercise 6 has no Osborn's rule part; the challenge is
+     about mains electricity.
+     There is no slot for multiple-angle formulae (Week 9 video 2). They
+     could wait for Workshop 8 alongside powers of sine and cosine (Week 9
+     video 4). -->
 <pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
   <xi:include href="docinfo.ptx"/>
   <article xml:id="worksheet07wks">
@@ -39,31 +43,33 @@
           <title>Warm-up</title>
           <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
         </assemblage>
-        <!-- Remember and Understand (Week 8 videos 4-5). Four short
-             conversions between Cartesian, polar and exponential form, one
-             per task, with numbers that return in Exercises 3 and 5. The
-             "-twocol" id sets the tasks two to a row (assets/custom.css),
-             so each number has its own space. -->
+        <!-- Understand, then Apply (Week 8 videos 4-5). Four numbers to
+             write in exponential form, one per task: two are points on an
+             Argand diagram, which is the data here and still to be drawn,
+             and two are given as a + bj. The numbers return in Exercises
+             3, 4 and 5. The "-twocol" id sets the tasks two to a row
+             (assets/custom.css), so each number has its own space. -->
         <exercise xml:id="w7-forms-twocol">
           <introduction>
-            <p>[Placeholder: one instruction for four conversions to exponential form.]</p>
+            <p>[Placeholder: an Argand diagram with two labelled points, and one instruction to write four numbers in exponential form.]</p>
           </introduction>
           <task workspace="1.0in">
-            <statement><p>[Placeholder: complex number (a).]</p></statement>
+            <statement><p>[Placeholder: point A.]</p></statement>
           </task>
           <task workspace="1.0in">
-            <statement><p>[Placeholder: complex number (b).]</p></statement>
+            <statement><p>[Placeholder: point B.]</p></statement>
           </task>
           <task workspace="1.0in">
-            <statement><p>[Placeholder: complex number (c).]</p></statement>
+            <statement><p>[Placeholder: a + bj form.]</p></statement>
           </task>
           <task workspace="1.0in">
-            <statement><p>[Placeholder: complex number (d).]</p></statement>
+            <statement><p>[Placeholder: a + bj form.]</p></statement>
           </task>
         </exercise>
         <!-- Apply. One short question reviewing Week 8 videos 1-3 (complex
-             roots of a real polynomial), whose answer returns later on the
-             sheet. -->
+             roots of a real quadratic), with the roots written in
+             exponential form. They return in Exercise 5(c) and in the
+             challenge. -->
         <exercise xml:id="w7-review" workspace="1.4in">
           <statement>
             <p>[Placeholder: one short review question from last week, reused later on the sheet.]</p>
@@ -117,16 +123,18 @@
         <assemblage>
           <title>Analyse: Roots of Complex Numbers</title>
         </assemblage>
-        <!-- Apply, then Analyse (Week 9 video 1). Find every nth root, plot
-             them on the blank Argand diagram, then use the pattern. The
-             diagram is blank axes for the students' own plot, not a figure
-             of the answer. -->
+        <!-- Apply, then Analyse (Week 9 video 1). The three cube roots of
+             8j, one of which Exercise 3 has already found. Plot them on the
+             blank Argand diagram, then use the pattern: what takes each
+             root to the next, and what the three add up to (used again in
+             the challenge). The diagram is blank axes for the students' own
+             plot, not a figure of the answer. -->
         <exercise xml:id="w7-roots">
           <introduction>
-            <p>[Placeholder: set-up for the roots of a complex number.]</p>
+            <p>[Placeholder: set-up for the cube roots of 8j.]</p>
           </introduction>
           <task workspace="2.0in">
-            <statement><p>[Placeholder: find all the roots.]</p></statement>
+            <statement><p>[Placeholder: find all three cube roots.]</p></statement>
           </task>
           <task workspace="0in">
             <statement>
@@ -146,32 +154,32 @@
           <title>Create: Hyperbolic Functions</title>
         </assemblage>
         <!-- Apply, then Create (Week 9 video 3). Work from the definitions
-             of cosh and sinh, use Osborn's rule or the link to sine and
-             cosine, then write an example for a neighbour to check. -->
+             of cosh and sinh, then write an example for a neighbour to
+             check. Osborn's rule was dropped from this sheet to save
+             time. -->
         <exercise xml:id="w7-hyperbolic">
           <introduction>
             <p>[Placeholder: set-up for the hyperbolic functions.]</p>
           </introduction>
-          <task workspace="1.6in">
+          <task workspace="2.0in">
             <statement><p>[Placeholder: a calculation from the definitions of cosh and sinh.]</p></statement>
           </task>
-          <task workspace="1.6in">
-            <statement><p>[Placeholder: Osborn's rule, or the link to sine and cosine.]</p></statement>
-          </task>
-          <task workspace="1.4in">
+          <task workspace="2.0in">
             <statement><p>[Placeholder: write down your own example, then swap with a neighbour and check each other's.]</p></statement>
           </task>
         </exercise>
       </page>
       <page>
         <assemblage>
-          <title>Challenge: Title to Be Confirmed</title>
+          <title>Challenge: Mains Electricity</title>
         </assemblage>
-        <!-- Deep. One optional extension with a physical context, drawing
-             on the roots of Exercise 5 or the exponential form. -->
+        <!-- Deep. Britain's mains supply is three-phase at 50 Hz: three
+             voltages a third of a cycle apart. With w = e^{2 pi j/3} from
+             Exercise 2, 1 + w + w^2 = 0, so the three voltages add up to
+             zero at every instant. -->
         <exercise xml:id="w7-challenge">
           <introduction>
-            <p>[Placeholder: the context for the challenge.]</p>
+            <p>[Placeholder: the three voltages of a three-phase mains supply.]</p>
           </introduction>
           <task workspace="2.6in">
             <statement><p>[Placeholder: part (a).]</p></statement>
