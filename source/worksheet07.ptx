@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- TEMPLATE: every exercise below is a placeholder. No questions have been
+     chosen yet, and the page headings are provisional.
+     Workshop 7 covers Week 8 videos 4-6 (polar form and de Moivre's theorem,
+     exponential form, logarithms of complex numbers) and Week 9 videos 1-3
+     (nth roots, multiple-angle formulae, hyperbolic functions). Week 9
+     videos 4-5 (powers of sine and cosine, sine and cosine of a complex
+     number) come after this workshop.
+     Notation follows the lecture slides: j, z = x + jy, the polar form
+     r(cos(theta) + j sin(theta)), the exponential form r e^{j theta},
+     modulus |z|, argument arg z with principal value in (-pi, pi], radians
+     throughout, ln z = ln|z| + j(arg z + 2n pi), "nth roots", cosh, sinh,
+     tanh and Osborn's rule. Numbers are written 2 + 3j; j goes first only
+     before a letter or a surd.
+     The slides call e^{j pi} + 1 = 0 "Euler's formula" and the formula sheet
+     calls e^{j theta} = cos(theta) + j sin(theta) "Euler's relations", so
+     say "exponential form" and write the relation out.
+     Plan: about 30 minutes of core work, counting discussion parts double,
+     plus an optional challenge. Each page heading names the highest Bloom
+     level that page reaches; the warm-up stays at Remember and Understand.
+     There is no slot yet for multiple-angle formulae (Week 9 video 2). They
+     could take a part of Exercise 6, or wait for Workshop 8 alongside
+     powers of sine and cosine (Week 9 video 4). -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet07wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 7: Polar form, roots and hyperbolic functions</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <!-- Remember and Understand (Week 8 videos 4-5). Four short
+             conversions between Cartesian, polar and exponential form, one
+             per task, with numbers that return in Exercises 3 and 5. The
+             "-twocol" id sets the tasks two to a row (assets/custom.css),
+             so each number has its own space. -->
+        <exercise xml:id="w7-forms-twocol">
+          <introduction>
+            <p>[Placeholder: one instruction for four conversions to exponential form.]</p>
+          </introduction>
+          <task workspace="1.0in">
+            <statement><p>[Placeholder: complex number (a).]</p></statement>
+          </task>
+          <task workspace="1.0in">
+            <statement><p>[Placeholder: complex number (b).]</p></statement>
+          </task>
+          <task workspace="1.0in">
+            <statement><p>[Placeholder: complex number (c).]</p></statement>
+          </task>
+          <task workspace="1.0in">
+            <statement><p>[Placeholder: complex number (d).]</p></statement>
+          </task>
+        </exercise>
+        <!-- Apply. One short question reviewing Week 8 videos 1-3 (complex
+             roots of a real polynomial), whose answer returns later on the
+             sheet. -->
+        <exercise xml:id="w7-review" workspace="1.4in">
+          <statement>
+            <p>[Placeholder: one short review question from last week, reused later on the sheet.]</p>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Analyse: Products, Quotients and Powers</title>
+        </assemblage>
+        <!-- Apply, then Analyse (Week 8 video 4). Multiply and divide in
+             polar form, take a power with de Moivre's theorem, then say
+             what multiplying by a complex number does on the Argand
+             diagram. -->
+        <exercise xml:id="w7-polar">
+          <introduction>
+            <p>[Placeholder: set-up that reuses the numbers from Exercise 1.]</p>
+          </introduction>
+          <task workspace="1.6in">
+            <statement><p>[Placeholder: a product or a quotient in polar form.]</p></statement>
+          </task>
+          <task workspace="1.6in">
+            <statement><p>[Placeholder: a power, by de Moivre's theorem.]</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>[Placeholder: explain what multiplying does on the Argand diagram.]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Evaluate: Arguments and Logarithms</title>
+        </assemblage>
+        <!-- Apply, then Evaluate (Week 8 videos 4 and 6). A logarithm of a
+             complex number with all of its values, then two students'
+             claims built on a real misconception about the principal
+             value. -->
+        <exercise xml:id="w7-logs">
+          <introduction>
+            <p>[Placeholder: set-up for the logarithm of a complex number.]</p>
+          </introduction>
+          <task workspace="2.0in">
+            <statement><p>[Placeholder: find all the values of a logarithm and mark the principal value.]</p></statement>
+          </task>
+          <task workspace="2.2in">
+            <statement><p>[Placeholder: two students' claims about arguments or logarithms. Explain in your own words what each student has got wrong.]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Analyse: Roots of Complex Numbers</title>
+        </assemblage>
+        <!-- Apply, then Analyse (Week 9 video 1). Find every nth root, plot
+             them on the blank Argand diagram, then use the pattern. The
+             diagram is blank axes for the students' own plot, not a figure
+             of the answer. -->
+        <exercise xml:id="w7-roots">
+          <introduction>
+            <p>[Placeholder: set-up for the roots of a complex number.]</p>
+          </introduction>
+          <task workspace="2.0in">
+            <statement><p>[Placeholder: find all the roots.]</p></statement>
+          </task>
+          <task workspace="0in">
+            <statement>
+              <p>[Placeholder: plot the roots on this Argand diagram.]</p>
+              <image source="blank-argand.svg" width="42%">
+                <description>Blank Argand diagram: a horizontal real axis labelled Re and a vertical imaginary axis labelled Im crossing at the centre, with no scale marked.</description>
+              </image>
+            </statement>
+          </task>
+          <task workspace="1.2in">
+            <statement><p>[Placeholder: a question about the pattern that the roots make.]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Create: Hyperbolic Functions</title>
+        </assemblage>
+        <!-- Apply, then Create (Week 9 video 3). Work from the definitions
+             of cosh and sinh, use Osborn's rule or the link to sine and
+             cosine, then write an example for a neighbour to check. -->
+        <exercise xml:id="w7-hyperbolic">
+          <introduction>
+            <p>[Placeholder: set-up for the hyperbolic functions.]</p>
+          </introduction>
+          <task workspace="1.6in">
+            <statement><p>[Placeholder: a calculation from the definitions of cosh and sinh.]</p></statement>
+          </task>
+          <task workspace="1.6in">
+            <statement><p>[Placeholder: Osborn's rule, or the link to sine and cosine.]</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>[Placeholder: write down your own example, then swap with a neighbour and check each other's.]</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: Title to Be Confirmed</title>
+        </assemblage>
+        <!-- Deep. One optional extension with a physical context, drawing
+             on the roots of Exercise 5 or the exponential form. -->
+        <exercise xml:id="w7-challenge">
+          <introduction>
+            <p>[Placeholder: the context for the challenge.]</p>
+          </introduction>
+          <task workspace="2.6in">
+            <statement><p>[Placeholder: part (a).]</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>[Placeholder: part (b).]</p></statement>
+          </task>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>
