@@ -2,8 +2,7 @@
 <!-- Copyright (c) 2026 Elliot Cartee. -->
 <!-- This renderer supplies English interface labels through en-US only.
      Keep authored worksheet prose in British English. -->
-<!-- FIRST DRAFT, before any cuts for time.
-     Workshop 7 covers Week 8 videos 4-6 (polar form and de Moivre's theorem,
+<!-- Workshop 7 covers Week 8 videos 4-6 (polar form and de Moivre's theorem,
      exponential form, logarithms of complex numbers) and Week 9 videos 1 and
      3 (nth roots, hyperbolic functions). Multiple-angle formulae (Week 9
      video 2) are left for Workshop 8, alongside powers of sine and cosine
@@ -19,9 +18,13 @@
      One chain of numbers runs through the sheet. Exercise 1's four numbers
      return in Exercises 3, 4 and 5; the roots of Exercise 2 return in
      Exercise 5(c) and in the challenge.
-     Plan: about 30 minutes of core work, counting discussion parts double,
+     Plan: about 35 minutes of core work, counting discussion parts double,
      plus an optional challenge. Each page heading names the highest Bloom
-     level that page reaches; the warm-up stays at Understand and Apply. -->
+     level that page reaches; the warm-up stays at Understand and Apply.
+     Cut for time on 16 Nov 2026: a part of Exercise 3 on what multiplying
+     does on the Argand diagram, a second student in Exercise 4 (on the
+     principal argument of z^2), and a part of Exercise 5 on the sum of the
+     three roots. -->
 <pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
   <xi:include href="docinfo.ptx"/>
   <article xml:id="worksheet07wks">
@@ -74,24 +77,21 @@
       </page>
       <page>
         <assemblage>
-          <title>Analyse: Products and Powers</title>
+          <title>Apply: Products and Powers</title>
         </assemblage>
-        <!-- Apply, then Analyse (Week 8 video 4). The arguments in part (a)
-             add up to more than pi, so the answer has to be brought back
-             into range. Part (b) is de Moivre's theorem, and its answer is
-             the number whose cube roots Exercise 5 finds. -->
+        <!-- Apply (Week 8 video 4). The arguments in part (a) add up to
+             more than pi, so the answer has to be brought back into range.
+             Part (b) is de Moivre's theorem, and its answer is the number
+             whose cube roots Exercise 5 finds. -->
         <exercise xml:id="w7-polar">
           <introduction>
             <p>This exercise uses <m>z_1=1+j</m> and <m>z_2=-\sqrt{3}+j</m> from Exercise 1.</p>
           </introduction>
-          <task workspace="1.8in">
+          <task workspace="2.6in">
             <statement><p>Find <m>z_1z_2</m> in exponential form, with <m>-\pi \lt \theta \le \pi</m>.</p></statement>
           </task>
-          <task workspace="1.8in">
+          <task workspace="2.6in">
             <statement><p>Find <m>z_2^3</m> in the form <m>x+jy</m>.</p></statement>
-          </task>
-          <task workspace="1.6in">
-            <statement><p>Explain in your own words what happens to a point on the Argand diagram when you multiply it by <m>z_1</m>.</p></statement>
           </task>
         </exercise>
       </page>
@@ -99,10 +99,9 @@
         <assemblage>
           <title>Evaluate: Arguments and Logarithms</title>
         </assemblage>
-        <!-- Apply, then Evaluate (Week 8 videos 4 and 6). Student A trusts
-             arctan without looking at the quadrant, the trap that video 4
-             warns about. Student B's rule gives an argument of z^2, but
-             not the principal one. -->
+        <!-- Apply, then Evaluate (Week 8 videos 4 and 6). The student
+             trusts arctan without looking at the quadrant, the trap that
+             video 4 warns about. -->
         <exercise xml:id="w7-logs">
           <introduction>
             <p>The number <m>Q</m> in Exercise 1 is <m>z=-2-2j</m>.</p>
@@ -112,12 +111,8 @@
           </task>
           <task workspace="2.4in">
             <statement>
-              <p>Two students work with the same <m>z</m>.</p>
-              <ul>
-                <li><p>Student A: <m>\arctan\left(\dfrac{-2}{-2}\right)=\arctan(1)=\dfrac{\pi}{4}</m>, so the principal argument of <m>z</m> is <m>\dfrac{\pi}{4}</m>.</p></li>
-                <li><p>Student B: the principal argument of <m>z^2</m> is twice the principal argument of <m>z</m>.</p></li>
-              </ul>
-              <p>Explain in your own words what each student has got wrong.</p>
+              <p>A student says that the principal argument of <m>z</m> is <m>\dfrac{\pi}{4}</m>, because <m>\arctan\left(\dfrac{-2}{-2}\right)=\arctan(1)=\dfrac{\pi}{4}</m>.</p>
+              <p>Explain in your own words what the student has got wrong.</p>
             </statement>
           </task>
         </exercise>
@@ -130,27 +125,24 @@
              are P and (d) from Exercise 1, and 8j is the answer to Exercise
              3(b). The diagram is blank axes for the students' own plot, not
              a figure of the answer. Part (c)'s number is a root from
-             Exercise 2; part (d) prepares the challenge. -->
+             Exercise 2. -->
         <exercise xml:id="w7-roots">
           <introduction>
             <p>The number <m>8j</m> has three cube roots.</p>
           </introduction>
-          <task workspace="1.5in">
+          <task workspace="1.8in">
             <statement><p>Find all three roots in exponential form.</p></statement>
           </task>
           <task workspace="0in">
             <statement>
               <p>Plot the three roots on this Argand diagram.</p>
-              <image source="blank-argand.svg" width="34%">
+              <image source="blank-argand.svg" width="40%">
                 <description>Blank Argand diagram: a horizontal real axis labelled Re and a vertical imaginary axis labelled Im crossing at the centre, with no scale marked.</description>
               </image>
             </statement>
           </task>
-          <task workspace="0.8in">
+          <task workspace="1.5in">
             <statement><p>Going anticlockwise round your diagram, each root is the previous root multiplied by the same number. What is that number?</p></statement>
-          </task>
-          <task workspace="0.8in">
-            <statement><p>Add the three roots. Explain in your own words how your diagram shows the answer.</p></statement>
           </task>
         </exercise>
       </page>
