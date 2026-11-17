@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- Workshop 7 covers Week 8 videos 4-6 (polar form and de Moivre's theorem,
+     exponential form, logarithms of complex numbers) and Week 9 videos 1 and
+     3 (nth roots, hyperbolic functions). Multiple-angle formulae (Week 9
+     video 2) are left for Workshop 8, alongside powers of sine and cosine
+     (video 4). Week 9 video 5 also comes after this workshop.
+     Notation follows the lecture slides: j, z = x + jy, the exponential form
+     r e^{j theta}, the principal argument with -pi < theta <= pi, radians
+     throughout, ln z with all of its values, cosh and sinh. Numbers are
+     written 2 + 3j; j goes first only before a letter or a surd. The sheet
+     says arctan, as Workshop 6 does.
+     The slides call e^{j pi} + 1 = 0 "Euler's formula" and the formula sheet
+     calls e^{j theta} = cos(theta) + j sin(theta) "Euler's relations", so
+     the sheet says "exponential form" throughout.
+     One chain of numbers runs through the sheet. Exercise 3(d) gives 8j,
+     whose cube roots in Exercise 5 include P from Exercise 1 and z_2 from
+     Exercise 3. The roots of Exercise 2 return in Exercise 5(c) and in the
+     challenge.
+     Plan: about 40 minutes of core work, counting discussion parts double,
+     plus an optional challenge. Each page heading names the highest Bloom
+     level that page reaches; the warm-up stays at Understand and Apply.
+     Cut for time on 16 Nov 2026: a second student in Exercise 4 (on the
+     principal argument of z^2) and a part of Exercise 5 on the sum of the
+     three roots.
+     Changed on 17 Nov 2026 at Elliot's request: Exercise 1 keeps only the
+     two points read from the diagram (Exercise 2 already practises
+     converting from x + jy), Exercise 3 states its own numbers and gets back
+     a part on what multiplying does on the Argand diagram, Exercise 4 has
+     its own number, and Exercise 6 states the definitions of cosh and sinh,
+     which some students first met in Week 9 video 3. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet07wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 7: Polar form, roots and hyperbolic functions</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <!-- Understand (Week 8 videos 4-5). P and Q are read from the Argand
+             diagram, which is the data here: the modulus and argument can
+             be seen without converting. P is one of the roots found in
+             Exercise 5. The "-twocol" id sets the two tasks side by side
+             (assets/custom.css), so each number has its own space. -->
+        <exercise xml:id="w7-forms-twocol">
+          <introduction>
+            <p>The Argand diagram shows two complex numbers, <m>P</m> and <m>Q</m>. Write each of them in exponential form <m>re^{j\theta}</m>, with <m>-\pi \lt \theta \le \pi</m>.</p>
+            <image source="argand-points.svg" width="36%">
+              <description>An Argand diagram on a square grid. The real axis, labelled Re, and the imaginary axis, labelled Im, are each marked from minus 3 to 3. The point P is on the imaginary axis at minus 2. The point Q is 2 units to the left of the imaginary axis and 2 units below the real axis.</description>
+            </image>
+          </introduction>
+          <task workspace="1.0in">
+            <statement><p><m>P</m></p></statement>
+          </task>
+          <task workspace="1.0in">
+            <statement><p><m>Q</m></p></statement>
+          </task>
+        </exercise>
+        <!-- Apply (Week 8 video 3, then video 5). Converting the roots from
+             x + jy is the same skill as Exercise 1, in the second and third
+             quadrants. The roots are the two complex cube roots of 1. They
+             return in Exercise 5(c) and in the challenge. -->
+        <exercise xml:id="w7-review" workspace="2.4in">
+          <statement>
+            <p>Find the roots of <m>z^2+z+1=0</m> and write them in exponential form.</p>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Analyse: Products and Powers</title>
+        </assemblage>
+        <!-- Apply, then Analyse (Week 8 videos 2 and 4). The arguments in
+             part (a) add up to more than pi, so the answer has to be brought
+             back into range. Parts (b) and (c) are about the students' own
+             answer to (a): multiplying by z_1 turns a point anticlockwise
+             through pi/4 and moves it sqrt(2) times as far from the origin.
+             Part (d) is de Moivre's theorem, and its answer is the number
+             whose cube roots Exercise 5 finds. The diagram is blank axes for
+             the students' own plot, not a figure of the answer. -->
+        <exercise xml:id="w7-polar">
+          <introduction>
+            <p>Let <m>z_1=1+j</m> and <m>z_2=-\sqrt{3}+j</m>.</p>
+          </introduction>
+          <task workspace="1.4in">
+            <statement><p>Find <m>z_1z_2</m> in exponential form, with <m>-\pi \lt \theta \le \pi</m>.</p></statement>
+          </task>
+          <task workspace="0in">
+            <statement>
+              <p>Plot <m>z_2</m> and <m>z_1z_2</m> on this Argand diagram.</p>
+              <image source="blank-argand.svg" width="26%">
+                <description>Blank Argand diagram: a horizontal real axis labelled Re and a vertical imaginary axis labelled Im crossing at the centre, with no scale marked.</description>
+              </image>
+            </statement>
+          </task>
+          <task workspace="0.8in">
+            <statement><p>Explain in your own words how multiplying by <m>z_1</m> moves a point on the Argand diagram.</p></statement>
+          </task>
+          <task workspace="1.3in">
+            <statement><p>Find <m>z_2^3</m> in the form <m>x+jy</m>.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Evaluate: Arguments and Logarithms</title>
+        </assemblage>
+        <!-- Apply, then Evaluate (Week 8 videos 4 and 6). The student
+             trusts arctan without looking at the quadrant, the trap that
+             video 4 warns about: z is in the third quadrant, so its
+             principal argument is -2pi/3, not pi/3. -->
+        <exercise xml:id="w7-logs">
+          <introduction>
+            <p>Let <m>z=-2-2\sqrt{3}\,j</m>.</p>
+          </introduction>
+          <task workspace="2.0in">
+            <statement><p>Find all the values of <m>\ln(z)</m> and circle the principal value.</p></statement>
+          </task>
+          <task workspace="2.4in">
+            <statement>
+              <p>A student works out <m>\dfrac{-2\sqrt{3}}{-2}=\sqrt{3}</m> and <m>\arctan\left(\sqrt{3}\right)=\dfrac{\pi}{3}</m>, and says that <m>\dfrac{\pi}{3}</m> is the principal argument of <m>z</m>.</p>
+              <p>Explain in your own words what the student has got wrong.</p>
+            </statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Analyse: Roots of Complex Numbers</title>
+        </assemblage>
+        <!-- Apply, then Analyse (Week 9 video 1). Two of the three roots
+             are P from Exercise 1 and z_2 from Exercise 3, and 8j is the
+             answer to Exercise 3(d). The diagram is blank axes for the students' own plot, not
+             a figure of the answer. Part (c)'s number is a root from
+             Exercise 2. -->
+        <exercise xml:id="w7-roots">
+          <introduction>
+            <p>The number <m>8j</m> has three cube roots.</p>
+          </introduction>
+          <task workspace="1.8in">
+            <statement><p>Find all three roots in exponential form.</p></statement>
+          </task>
+          <task workspace="0in">
+            <statement>
+              <p>Plot the three roots on this Argand diagram.</p>
+              <image source="blank-argand.svg" width="40%">
+                <description>Blank Argand diagram: a horizontal real axis labelled Re and a vertical imaginary axis labelled Im crossing at the centre, with no scale marked.</description>
+              </image>
+            </statement>
+          </task>
+          <task workspace="1.5in">
+            <statement><p>Going anticlockwise round your diagram, each root is the previous root multiplied by the same number. What is that number?</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Create: Hyperbolic Functions</title>
+        </assemblage>
+        <!-- Apply (Week 9 video 3), straight from the definitions of cosh
+             and sinh. The definitions are stated because hyperbolic
+             functions are in A-level Further Maths only, so some students
+             first met them in Week 9 video 3, and the formula sheet gives
+             only their graphs, derivatives and integrals. -->
+        <exercise xml:id="w7-hyperbolic-twocol">
+          <introduction>
+            <p>Using <m>\cosh(x)=\tfrac{1}{2}\left(e^{x}+e^{-x}\right)</m> and <m>\sinh(x)=\tfrac{1}{2}\left(e^{x}-e^{-x}\right)</m>, write each as a fraction.</p>
+          </introduction>
+          <task workspace="1.3in">
+            <statement><p><m>\cosh(\ln(3))</m></p></statement>
+          </task>
+          <task workspace="1.3in">
+            <statement><p><m>\sinh(\ln(3))</m></p></statement>
+          </task>
+        </exercise>
+        <!-- Create, then Analyse. Every pair makes a different problem for
+             each other. Adding the two fractions gives a back, because
+             cosh(x) + sinh(x) = e^x. -->
+        <exercise xml:id="w7-create">
+          <introduction>
+            <p>Work with a neighbour on this exercise. If you are working alone, find a way to get your number <m>a</m> back from your two fractions.</p>
+          </introduction>
+          <task workspace="1.7in">
+            <statement><p>Choose a whole number <m>a</m> bigger than 3 and keep it to yourself. Write <m>\cosh(\ln(a))</m> and <m>\sinh(\ln(a))</m> as fractions.</p></statement>
+          </task>
+          <task workspace="1.9in">
+            <statement><p>Swap fractions with a neighbour and work out their number <m>a</m>. Then swap back and check each other's answers.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: Mains Electricity</title>
+        </assemblage>
+        <!-- Deep. Britain's mains supply is three-phase at 50 Hz, which
+             gives the 100 pi. The number w solves z^2 + z + 1 = 0 (Exercise
+             2), and each voltage is the real part of A e^{100 pi j t} times
+             1, w or w^2. -->
+        <exercise xml:id="w7-challenge">
+          <introduction>
+            <p>Suppose that mains electricity reaches a factory along three cables, and that the voltages on the cables at time <m>t</m> seconds are
+            <md>
+              <mrow>V_1 \amp= A\cos(100\pi t)</mrow>
+              <mrow>V_2 \amp= A\cos\left(100\pi t+\frac{2\pi}{3}\right)</mrow>
+              <mrow>V_3 \amp= A\cos\left(100\pi t+\frac{4\pi}{3}\right)</mrow>
+            </md>
+            for some constant <m>A</m>. Each voltage is a third of a cycle ahead of the one before.</p>
+          </introduction>
+          <task workspace="1.8in">
+            <statement><p>Let <m>w=e^{2\pi j/3}</m>, which is one of the roots from Exercise 2. Show that <m>1+w+w^2=0</m>.</p></statement>
+          </task>
+          <task workspace="2.4in">
+            <statement><p>Each voltage is the real part of a complex number. Use part (a) to show that <m>V_1+V_2+V_3=0</m> at every time <m>t</m>.</p></statement>
+          </task>
+          <conclusion>
+            <p>When the three cables feed equal loads, the three currents cancel in the same way. This is why the cables on a pylon come in threes, with no return cable.</p>
+          </conclusion>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>
