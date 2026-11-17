@@ -3,28 +3,33 @@
   <!-- One target per worksheet, named worksheetNN (zero-padded) and kept in
        numeric order. Each deploys to its own worksheetNN/ directory.
        Adding a worksheet means adding a target here and a row in
-       site/index.html. -->
+       site/index.html.
+       debug.rs.version pins Runestone Services at 8.4.0. On 17 Nov 2026
+       Runestone's "latest" services file began with an XML encoding
+       declaration, which the pinned PreTeXt 2.37.1 cannot parse, so every
+       build failed. 8.4.0 is the version the published site was built
+       with. -->
   <targets>
     <target name="worksheet01" format="html" source="worksheet01.ptx" deploy-dir="worksheet01">
-      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js" debug.rs.version="8.4.0"/>
     </target>
     <target name="worksheet02" format="html" source="worksheet02.ptx" deploy-dir="worksheet02">
-      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js" debug.rs.version="8.4.0"/>
     </target>
     <target name="worksheet03" format="html" source="worksheet03.ptx" deploy-dir="worksheet03">
-      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js" debug.rs.version="8.4.0"/>
     </target>
     <target name="worksheet04" format="html" source="worksheet04.ptx" deploy-dir="worksheet04">
-      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js" debug.rs.version="8.4.0"/>
     </target>
     <target name="worksheet05" format="html" source="worksheet05.ptx" deploy-dir="worksheet05">
-      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js" debug.rs.version="8.4.0"/>
     </target>
     <target name="worksheet06" format="html" source="worksheet06.ptx" deploy-dir="worksheet06">
-      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js" debug.rs.version="8.4.0"/>
     </target>
     <target name="worksheet07" format="html" source="worksheet07.ptx" deploy-dir="worksheet07">
-      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js"/>
+      <stringparams html.css.extra="external/custom.css" html.js.extra="external/print-defaults.js" debug.rs.version="8.4.0"/>
     </target>
   </targets>
 </project>
