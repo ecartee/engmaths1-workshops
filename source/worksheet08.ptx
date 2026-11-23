@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Elliot Cartee. -->
+<!-- This renderer supplies English interface labels through en-US only.
+     Keep authored worksheet prose in British English. -->
+<!-- Workshop 8 covers Week 9 videos 4 and 5 (powers of sine and cosine,
+     sine and cosine of a complex number) and Week 10 videos 1-2, probably
+     3 (eigenvalues and eigenvectors). Week 9 video 2 (multiple-angle
+     formulae) was planned too, but its exercise was cut for time on
+     24 Nov 2026. Video 3 (trace, determinant and the eigenvalues of A^m)
+     may not have been seen, so nothing here needs it: Exercise 5(a)
+     derives the trace and determinant form of the characteristic equation
+     from video 2, and Exercises 6 and 7 use only A v = lambda v.
+     Notation follows the slides: j, cos(theta) = (e^{j theta} + e^{-j theta})/2,
+     A v = lambda v with v not zero, the characteristic equation
+     det(A - lambda I) = 0. As on every sheet, vectors have arrows and
+     matrices square brackets, where the slides use bold and round brackets.
+     Elliot prefers sin(theta) and ln(x) with parentheses.
+     One matrix runs through the sheet: A in Exercise 1 returns in the
+     challenge.
+     Plan: about 34 minutes of core work, counting discussion parts double,
+     plus an optional challenge. Each page heading names the highest Bloom
+     level that page reaches; the warm-up stays at Understand. -->
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="docinfo.ptx"/>
+  <article xml:id="worksheet08wks">
+    <title>Engineering Maths 1</title>
+    <introduction>
+      <p>University of Bristol — EMAT10100</p>
+      <p>Use the printer icon for a copy with working space. Give exact answers unless stated otherwise.</p>
+    </introduction>
+    <worksheet>
+      <title>Workshop 8: Complex trigonometry and eigenvalues</title>
+      <page>
+        <assemblage>
+          <title>Warm-up</title>
+          <p>Please work in collaboration with your classmates to complete the following exercises. This means sharing ideas and asking each other questions.</p>
+        </assemblage>
+        <!-- Understand (Week 10 video 1), straight from the definition, as
+             the video tries out vectors. Two of the four vectors belong to
+             the same eigenvalue, so the point that any non-zero multiple of
+             an eigenvector is an eigenvector comes up without being asked.
+             A returns in the challenge. The "-twocol" id sets the tasks two
+             to a row (assets/custom.css), so each vector has its own
+             space. -->
+        <exercise xml:id="w8-eigencheck-twocol">
+          <introduction>
+            <p>Let <m>A=\begin{bmatrix}4 \amp 1\\2 \amp 3\end{bmatrix}</m>. For each vector below, decide whether it is an eigenvector of <m>A</m>, and if so, give its eigenvalue.</p>
+          </introduction>
+          <task workspace="1.0in">
+            <statement><p><m>\colvec{1\\1}</m></p></statement>
+          </task>
+          <task workspace="1.0in">
+            <statement><p><m>\colvec{2\\1}</m></p></statement>
+          </task>
+          <task workspace="1.0in">
+            <statement><p><m>\colvec{1\\-2}</m></p></statement>
+          </task>
+          <task workspace="1.0in">
+            <statement><p><m>\colvec{-3\\-3}</m></p></statement>
+          </task>
+        </exercise>
+        <!-- Understand (Week 10 video 2): why the definition requires v to
+             be non-zero. The zero vector is written as a column, because
+             5 written next to an arrowed 0 reads like an arrowed 50. -->
+        <exercise xml:id="w8-zero" workspace="1.4in">
+          <statement>
+            <p>A student adds <m>\colvec{0\\0}</m> to the list in Exercise 1, because <m>A\colvec{0\\0}=5\colvec{0\\0}</m>. Explain in your own words why the zero vector is never counted as an eigenvector.</p>
+          </statement>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Powers of Sine and Cosine</title>
+        </assemblage>
+        <!-- Apply, two ways (Week 9 video 4). The lecture expands sin^3 and
+             cos^5; this mixed product is new. Part (b) also needs
+             sin^2 x = (1 - cos(2x))/2, which video 4's motivation slide
+             gives. The exponential forms are stated here because Exercise 4
+             can use them too. -->
+        <exercise xml:id="w8-powers">
+          <introduction>
+            <p>Write <m>\sin^2(\theta)\cos^2(\theta)</m> as a constant plus multiples of <m>\cos(k\theta)</m>, in two different ways.</p>
+          </introduction>
+          <task workspace="2.6in">
+            <statement><p>Use <m>\cos(\theta)=\tfrac{1}{2}\left(e^{j\theta}+e^{-j\theta}\right)</m> and <m>\sin(\theta)=\tfrac{1}{2j}\left(e^{j\theta}-e^{-j\theta}\right)</m>.</p></statement>
+          </task>
+          <task workspace="1.8in">
+            <statement><p>Use <m>\sin(2\theta)=2\sin(\theta)\cos(\theta)</m>.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Evaluate: Cosine of a Complex Number</title>
+        </assemblage>
+        <!-- Apply, then Evaluate (Week 9 video 5). Part (a) needs
+             cos(jx) = cosh(x), from the formula sheet or from the
+             exponential forms in Exercise 3, and cosh(ln(2)) works out as
+             Workshop 7's cosh(ln(3)) did. Part (b) is about the students'
+             own answer to (a). Video 5 raises the same point before solving
+             cos(z) = 2. Merged from two exercises on 24 Nov 2026, when
+             sin(j ln(3)) was cut for time. -->
+        <exercise xml:id="w8-complex-cos">
+          <introduction>
+            <p>A student says that <m>\lvert\cos(z)\rvert\le 1</m> for every complex number <m>z</m>, because the graph of cosine stays between <m>-1</m> and <m>1</m>.</p>
+          </introduction>
+          <task workspace="1.8in">
+            <statement><p>Evaluate <m>\cos(j\ln(2))</m> exactly.</p></statement>
+          </task>
+          <task workspace="2.2in">
+            <statement><p>Do you agree with the student? Explain your answer.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Create: Your Own Eigenvalues</title>
+        </assemblage>
+        <!-- Apply, Create, then Apply (Week 10 video 2). Part (a) is the
+             trace and determinant form of the characteristic equation,
+             derived here because video 3 may not have been seen. Part (b)
+             uses part (a) in reverse; "no zero entries" rules out a
+             triangular answer, so the neighbour has to solve the quadratic.
+             Part (c) is the one place on the sheet where students solve
+             (A - lambda I) v = 0. Every pair makes a different problem for
+             each other, and different eigenvectors for the same eigenvalue
+             can both be right. -->
+        <exercise xml:id="w8-create">
+          <introduction>
+            <p>Work with a neighbour on this exercise. If you are working alone, find the eigenvalues and eigenvectors of your own matrix in part (c).</p>
+          </introduction>
+          <task workspace="1.3in">
+            <statement><p>Let <m>A=\begin{bmatrix}a \amp b\\c \amp d\end{bmatrix}</m>. Show that the characteristic equation <m>\det(A-\lambda I)=0</m> can be written as <m>\lambda^2-(a+d)\lambda+(ad-bc)=0</m> for any numbers <m>a</m>, <m>b</m>, <m>c</m> and <m>d</m>.</p></statement>
+          </task>
+          <task workspace="1.5in">
+            <statement><p>Choose two different whole numbers and keep them to yourself. Use part (a) to write down a <m>2\times 2</m> matrix with no zero entries whose eigenvalues are your two numbers.</p></statement>
+          </task>
+          <task workspace="2.2in">
+            <statement><p>Swap matrices with a neighbour. Find the eigenvalues of their matrix, and an eigenvector for each eigenvalue. Then swap back and check each other's eigenvectors.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Practice: Powers of a Matrix</title>
+        </assemblage>
+        <!-- Apply, then Understand (Week 10 video 2). Only the definition
+             is needed, so this works whether or not video 3's rule for the
+             eigenvalues of A^m has been seen: part (b), added at Elliot's
+             request on 24 Nov 2026, is the step M(Mv) = M(2v) = 2Mv, which
+             the challenge also needs. The power 2026 (Elliot's idea,
+             24 Nov 2026) makes multiplying out hopeless, even on a
+             calculator, so it replaces an instruction not to; change the
+             year if the sheet is reused. The challenge builds on this
+             idea. -->
+        <exercise xml:id="w8-matrix-powers">
+          <introduction>
+            <p>Let
+            <me>M=\begin{bmatrix}3 \amp 1 \amp 5\\1 \amp 3 \amp -2\\0 \amp 0 \amp 4\end{bmatrix},\quad \vec{v}=\colvec{1\\-1\\0}.</me>
+            </p>
+          </introduction>
+          <task workspace="1.5in">
+            <statement><p>Show that <m>\vec{v}</m> is an eigenvector of <m>M</m>, and find its eigenvalue.</p></statement>
+          </task>
+          <task workspace="1.4in">
+            <statement><p>Use part (a) to find <m>M^2\vec{v}</m>.</p></statement>
+          </task>
+          <task workspace="1.9in">
+            <statement><p>Find <m>M^{2026}\vec{v}</m>. Explain your reasoning.</p></statement>
+          </task>
+        </exercise>
+      </page>
+      <page>
+        <assemblage>
+          <title>Challenge: The Largest Eigenvalue Wins</title>
+        </assemblage>
+        <!-- Deep (adapted from Elliot's A&M linear algebra problem 6.1 #10,
+             with Exercise 1's matrix). Part (a) is a 2 by 2 linear system
+             (Week 4). The conclusion's claim is true: the original
+             PageRank paper computes the dominant eigenvector by repeated
+             multiplication (the power method). -->
+        <exercise xml:id="w8-challenge">
+          <introduction>
+            <p>The matrix <m>A</m> from Exercise 1 has eigenvectors <m>\colvec{1\\1}</m> with eigenvalue <m>5</m> and <m>\colvec{1\\-2}</m> with eigenvalue <m>2</m>. Let <m>\vec{v}=\colvec{2\\-1}</m>.</p>
+          </introduction>
+          <task workspace="1.2in">
+            <statement><p>Write <m>\vec{v}</m> as a sum of multiples of the two eigenvectors.</p></statement>
+          </task>
+          <task workspace="1.7in">
+            <statement><p>Find a formula for <m>A^m\vec{v}</m>, and check it when <m>m=1</m>.</p></statement>
+          </task>
+          <task workspace="1.3in">
+            <statement><p>Explain in your own words why <m>A^m\vec{v}</m> points almost along <m>\colvec{1\\1}</m> when <m>m</m> is large.</p></statement>
+          </task>
+          <conclusion>
+            <p>Google's original PageRank ranked web pages with this idea. Multiplying by one huge matrix again and again picks out the eigenvector with the largest eigenvalue.</p>
+          </conclusion>
+        </exercise>
+      </page>
+    </worksheet>
+  </article>
+</pretext>
